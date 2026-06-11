@@ -790,10 +790,11 @@ def main():
 
         st.markdown('<div class="sidebar-section">Dashboard Controls</div>', unsafe_allow_html=True)
 
+        master_df = data.get("master")
         features = data.get("features")
         if features is not None and not features.empty:
-            min_date = features.index.min().date()
-            max_date = features.index.max().date()
+            process_start = pd.to_datetime("1993-01-01").date()
+            process_end = pd.to_datetime("today").date()
             
             # Date Range Toggle Checkbox
             use_date_range = st.checkbox("Limit Date Range", value=True)
@@ -801,28 +802,29 @@ def main():
             # Separate Starting Date and Ending Date Inputs stacked vertically
             start_date = st.date_input(
                 "Starting Date",
-                value=min_date,
-                min_value=min_date,
-                max_value=max_date,
+                value=process_start,
+                min_value=process_start,
+                max_value=process_end,
                 disabled=not use_date_range
             )
             
+            end_val = master_df.index.max().date() if master_df is not None else features.index.max().date()
             end_date = st.date_input(
                 "Ending Date",
-                value=max_date,
-                min_value=min_date,
-                max_value=max_date,
+                value=end_val,
+                min_value=process_start,
+                max_value=process_end,
                 disabled=not use_date_range
             )
             
             if use_date_range:
                 if start_date > end_date:
                     st.error("⚠️ Starting Date must be before or equal to Ending Date.")
-                    date_range = (min_date, max_date)
+                    date_range = (process_start, end_val)
                 else:
                     date_range = (start_date, end_date)
             else:
-                date_range = (min_date, max_date)
+                date_range = (process_start, end_val)
         else:
             date_range = None
 

@@ -41,7 +41,7 @@ TICKERS = ["SPY", "^VIX", "TLT", "BTC-USD", "GLD", "QQQ", "DIA"]
 TRADEABLE_ASSETS = ["SPY", "TLT", "GLD", "QQQ", "DIA"]  # ^VIX and BTC-USD are feature-only
 
 START_DATE = "1993-01-01"
-END_DATE = "2026-05-31"
+END_DATE = datetime.today().strftime("%Y-%m-%d")
 
 FRED_SERIES = {
     "DGS10": "10Y Treasury Yield",
@@ -67,15 +67,35 @@ def download_ohlcv(
     """
     logger.info(f"Downloading OHLCV for {tickers} from {start} to {end}")
 
-    # Download all tickers in one call
-    raw = yf.download(
-        tickers=tickers,
-        start=start,
-        end=end,
-        auto_adjust=True,
-        group_by="ticker",
-        threads=True,
-    )
+    # Download each ticker individually to avoid API flakiness and mixed start dates
+    ticker_dfs = []
+    for ticker in tickers:
+        try:
+            logger.info(f"  Downloading {ticker}...")
+            df = yf.download(
+                ticker,
+                start=start,
+                end=end,
+                auto_adjust=True,
+                progress=False,
+            )
+            if df.empty:
+                logger.warning(f"  Ticker {ticker} returned empty DataFrame")
+                continue
+            if isinstance(df.columns, pd.MultiIndex):
+                cols = df.columns.get_level_values(0).tolist()
+            else:
+                cols = df.columns.tolist()
+            df.columns = pd.MultiIndex.from_tuples([(ticker, col) for col in cols], names=["Ticker", "Price"])
+            ticker_dfs.append(df)
+        except Exception as e:
+            logger.warning(f"  Failed to download {ticker}: {e}")
+
+    if not ticker_dfs:
+        raise RuntimeError("yfinance returned empty DataFrame for all tickers")
+
+    raw = pd.concat(ticker_dfs, axis=1)
+    raw.sort_index(inplace=True)
 
     if raw.empty:
         raise RuntimeError("yfinance returned empty DataFrame — check tickers/dates")
