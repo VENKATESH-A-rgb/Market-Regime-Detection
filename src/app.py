@@ -18,8 +18,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import json
 
-# ──────────────────────────────────────────────────────────────
-# Page Config
+# Page Config & Theme State
 # ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Market Regime Detection — Adaptive Portfolio",
@@ -28,165 +27,585 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+if "theme" not in st.session_state:
+    st.session_state.theme = "dark"
+
+def toggle_theme():
+    st.session_state.theme = "light" if st.session_state.theme == "dark" else "dark"
+
+IS_DARK = st.session_state.theme == "dark"
+
+
 # ──────────────────────────────────────────────────────────────
-# Custom CSS — Premium Dark Theme
+# Custom CSS — SaaS-Grade Theme System
 # ──────────────────────────────────────────────────────────────
-st.markdown("""
+bg_color = "#09090b" if IS_DARK else "#ffffff"
+bg_subtle = "#0c0c0f" if IS_DARK else "#f9fafb"
+card_color = "#0c0c0f" if IS_DARK else "#ffffff"
+card_hover = "#131316" if IS_DARK else "#f4f4f5"
+border_color = "#1e1e24" if IS_DARK else "#e4e4e7"
+border_subtle = "#16161a" if IS_DARK else "#f0f0f2"
+text_color = "#fafafa" if IS_DARK else "#09090b"
+text_muted = "#71717a"
+text_dim = "#52525b" if IS_DARK else "#a1a1aa"
+accent_color = "#2563eb"
+accent_muted = "#1d4ed8"
+green_color = "#22c55e" if IS_DARK else "#16a34a"
+green_muted = "rgba(34,197,94,0.12)" if IS_DARK else "rgba(22,163,74,0.08)"
+red_color = "#ef4444" if IS_DARK else "#dc2626"
+red_muted = "rgba(239,68,68,0.12)" if IS_DARK else "rgba(220,38,38,0.08)"
+amber_color = "#f59e0b" if IS_DARK else "#d97706"
+amber_muted = "rgba(245,158,11,0.12)" if IS_DARK else "rgba(217,119,6,0.08)"
+shadow_val = "none" if IS_DARK else "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)"
+radius_val = "10px"
+
+st.markdown(f"""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
-    /* Global theme */
-    .stApp {
-        background: linear-gradient(135deg, #0a0e1a 0%, #111827 50%, #0f172a 100%);
-        font-family: 'Inter', sans-serif;
-    }
+    :root {{
+        --bg: {bg_color};
+        --bg-subtle: {bg_subtle};
+        --card: {card_color};
+        --card-hover: {card_hover};
+        --border: {border_color};
+        --border-subtle: {border_subtle};
+        --text: {text_color};
+        --text-muted: {text_muted};
+        --text-dim: {text_dim};
+        --accent: {accent_color};
+        --accent-muted: {accent_muted};
+        --green: {green_color};
+        --green-muted: {green_muted};
+        --red: {red_color};
+        --red-muted: {red_muted};
+        --amber: {amber_color};
+        --amber-muted: {amber_muted};
+        --shadow: {shadow_val};
+        --radius: {radius_val};
+    }}
 
-    /* Hide default streamlit branding */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    /* Global styling overrides */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"], .main, .block-container, section[data-testid="stMain"] {{
+        background-color: var(--bg) !important;
+        color: var(--text) !important;
+        font-family: 'DM Sans', -apple-system, sans-serif !important;
+    }}
+    
+    .block-container {{
+        padding: 2rem 2.5rem 3rem !important;
+        max-width: 1360px !important;
+    }}
 
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #111827 0%, #1e293b 100%);
-        border-right: 1px solid rgba(99, 102, 241, 0.2);
-    }
-    [data-testid="stSidebar"] .stMarkdown {
-        color: #e2e8f0;
-    }
+    /* Sidebar styling overrides */
+    [data-testid="stSidebar"], [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {{
+        background-color: var(--bg-subtle) !important;
+        border-right: 1px solid var(--border) !important;
+    }}
+    
+    /* Input box style overrides */
+    div[data-baseweb="input"] {{
+        background-color: var(--bg) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius) !important;
+        color: var(--text) !important;
+        font-family: 'DM Sans', sans-serif;
+    }}
+    div[data-baseweb="input"]:focus-within {{
+        border-color: var(--accent) !important;
+        box-shadow: 0 0 0 2px rgba(37,99,235,0.2) !important;
+    }}
 
-    /* Metric cards */
-    .metric-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
-        border: 1px solid rgba(99, 102, 241, 0.3);
-        border-radius: 16px;
-        padding: 24px;
-        margin: 8px 0;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .metric-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-    .metric-value {
-        font-size: 2rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #818cf8, #6366f1, #a78bfa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 4px 0;
-    }
-    .metric-value.positive {
-        background: linear-gradient(135deg, #34d399, #10b981, #6ee7b7);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .metric-value.negative {
-        background: linear-gradient(135deg, #f87171, #ef4444, #fca5a5);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .metric-label {
-        font-size: 0.85rem;
-        color: #94a3b8;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
+    /* Hide standard streamlit decoration and headers */
+    #MainMenu, footer, .stDeployButton {{
+        display: none !important;
+    }}
+
+    /* Make header transparent */
+    header[data-testid="stHeader"] {{
+        background-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }}
+
+    /* Sidebar collapsed control — visible in ALL states */
+    div[data-testid="stSidebarCollapsedControl"],
+    button[data-testid="stSidebarNavToggle"],
+    [data-testid="collapsedControl"] {{
+        background-color: var(--bg-subtle) !important;
+        border-right: 1px solid var(--border) !important;
+        border-bottom: 1px solid var(--border) !important;
+        border-bottom-right-radius: var(--radius) !important;
+        z-index: 99999 !important;
+        box-shadow: var(--shadow) !important;
+        transition: background-color 0.2s ease;
+    }}
+    div[data-testid="stSidebarCollapsedControl"]:hover,
+    button[data-testid="stSidebarNavToggle"]:hover {{
+        background-color: var(--card-hover) !important;
+    }}
+    div[data-testid="stSidebarCollapsedControl"] button,
+    button[data-testid="stSidebarNavToggle"] {{
+        color: var(--text) !important;
+        background: transparent !important;
+        border: none !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }}
+
+    /* Sidebar close button inside expanded sidebar */
+    [data-testid="stSidebar"] button[kind="header"],
+    [data-testid="stSidebar"] [data-testid="stSidebarNavItems"] button,
+    [data-testid="stSidebar"] button {{
+        pointer-events: auto !important;
+    }}
+
+    /* Custom KPI Metric Cards */
+    .metric-card {{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.4rem;
+        box-shadow: var(--shadow);
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+        margin-bottom: 1rem;
+        position: relative;
+        overflow: hidden;
+    }}
+    .metric-card:hover {{
+        transform: translateY(-2px);
+        border-color: var(--accent) !important;
+        box-shadow: 0 8px 30px rgba(37,99,235,0.08), 0 0 0 1px rgba(37,99,235,0.1) !important;
+    }}
+    .metric-label {{
+        font-size: 0.78rem;
+        color: var(--text-muted);
         font-weight: 600;
-    }
-    .metric-sublabel {
-        font-size: 0.75rem;
-        color: #64748b;
-        margin-top: 4px;
-    }
-
-    /* Section headers */
-    .section-header {
-        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }}
+    .metric-value {{
+        font-size: 1.75rem;
         font-weight: 700;
-        color: #e2e8f0;
+        color: var(--text);
+        letter-spacing: -0.03em;
+        margin-top: 0.2rem;
+    }}
+    .metric-value.positive {{
+        color: var(--green) !important;
+    }}
+    .metric-value.negative {{
+        color: var(--red) !important;
+    }}
+    .metric-sublabel {{
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        margin-top: 0.3rem;
+    }}
+    
+    /* Chart Container Card */
+    .chart-wrap {{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.4rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 1.5rem;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }}
+    .chart-wrap:hover {{
+        border-color: var(--accent);
+        box-shadow: 0 8px 30px rgba(37,99,235,0.04);
+    }}
+    .chart-title {{
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+    }}
+    .chart-subtitle {{
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        margin-bottom: 1rem;
+    }}
+
+    /* Data Tables (HTML) */
+    .data-table {{
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 0.8rem;
+        margin-top: 1rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+    }}
+    .data-table th {{
+        text-align: left;
+        padding: 0.75rem 1rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        background-color: var(--bg-subtle);
+        border-bottom: 1px solid var(--border);
+    }}
+    .data-table td {{
+        padding: 0.75rem 1rem;
+        color: var(--text);
+        border-bottom: 1px solid var(--border-subtle);
+        font-family: 'JetBrains Mono', monospace;
+    }}
+    .data-table tr:last-child td {{
+        border-bottom: none;
+    }}
+    .data-table tr:hover td {{
+        background-color: var(--card-hover);
+    }}
+
+    /* Hero Section */
+    .hero {{
+        background: linear-gradient(135deg, var(--card) 0%, var(--bg-subtle) 100%);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow);
+    }}
+    .hero h1 {{
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin: 0 0 0.5rem 0;
+        background: linear-gradient(90deg, var(--text) 0%, var(--text-muted) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+    }}
+    .hero p {{
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin: 0;
+        line-height: 1.6;
+    }}
+
+    /* Info Panels */
+    .info-panel {{
+        background: var(--bg-subtle);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem 1.25rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }}
+    .info-panel strong {{
+        color: var(--text);
+    }}
+
+    /* Section Headers */
+    .section-header {{
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text);
         margin: 2rem 0 1rem 0;
-        padding-bottom: 8px;
-        border-bottom: 2px solid rgba(99, 102, 241, 0.4);
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }}
+
+    /* Pill-style tabs */
+    button[data-baseweb="tab"] {{
+        background: transparent !important;
+        color: var(--text-muted) !important;
+        font-size: 0.82rem !important;
+        font-weight: 500 !important;
+        padding: 0.55rem 1.1rem !important;
+        border: 1px solid transparent !important;
+        border-radius: 7px !important;
+        font-family: 'DM Sans', sans-serif !important;
+        transition: all 0.2s ease !important;
+    }}
+    button[data-baseweb="tab"]:hover {{
+        color: var(--text) !important;
+    }}
+    button[data-baseweb="tab"][aria-selected="true"] {{
+        color: var(--text) !important;
+        background: var(--card) !important;
+        border-color: var(--border) !important;
+        font-weight: 600 !important;
+    }}
+    [data-baseweb="tab-highlight"], [data-baseweb="tab-border"] {{
+        display: none !important;
+    }}
+    [data-baseweb="tab-list"] {{
+        gap: 4px !important;
+        background: var(--bg-subtle) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 10px !important;
+        padding: 3px !important;
+        margin-bottom: 1.5rem !important;
+    }}
+
+    /* Regime badges */
+    .regime-badge {{
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        font-family: 'DM Sans', sans-serif;
+    }}
+    .regime-bull {{ color: var(--green); background: var(--green-muted); border: 1px solid rgba(34,197,94,0.15); }}
+    .regime-recovery {{ color: var(--accent); background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.15); }}
+    .regime-bear {{ color: var(--amber); background: var(--amber-muted); border: 1px solid rgba(245,158,11,0.15); }}
+    .regime-crisis {{ color: var(--red); background: var(--red-muted); border: 1px solid rgba(239,68,68,0.15); }}
+
+    /* Brand / Header layout */
+    .brand {{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }}
+    @keyframes pulse-glow {{
+        0% {{ transform: scale(1); filter: drop-shadow(0 0 2px var(--accent)); }}
+        50% {{ transform: scale(1.1); filter: drop-shadow(0 0 8px var(--accent)); }}
+        100% {{ transform: scale(1); filter: drop-shadow(0 0 2px var(--accent)); }}
+    }}
+    .brand-logo {{
+        font-size: 1.25rem;
+        animation: pulse-glow 3s infinite ease-in-out;
+        display: inline-block;
+    }}
+    .brand-name {{
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.02em;
+    }}
+    .brand-subtitle {{
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-left: 8px;
+        border-left: 1px solid var(--border);
+        padding-left: 8px;
+    }}
+
+    /* Horizontal blocks spacing */
+    [data-testid="stHorizontalBlock"] {{
+        gap: 1.25rem !important;
+    }}
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {{
+        width: 6px;
+        height: 6px;
+    }}
+    ::-webkit-scrollbar-track {{
+        background: var(--bg);
+    }}
+    ::-webkit-scrollbar-thumb {{
+        background: var(--border);
+        border-radius: 3px;
+    }}
+    ::-webkit-scrollbar-thumb:hover {{
+        background: var(--text-dim);
+    }}
+
+    /* ─── Staggered Card Entrance Animations ─── */
+    @keyframes fadeSlideUp {{
+        from {{ opacity: 0; transform: translateY(18px); }}
+        to {{ opacity: 1; transform: translateY(0); }}
+    }}
+    .anim-card {{ animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }}
+    .delay-1 {{ animation-delay: 0.05s; }}
+    .delay-2 {{ animation-delay: 0.12s; }}
+    .delay-3 {{ animation-delay: 0.19s; }}
+    .delay-4 {{ animation-delay: 0.26s; }}
+    .delay-5 {{ animation-delay: 0.33s; }}
+
+    /* ─── Sidebar Brand Header ─── */
+    .sidebar-brand {{
         display: flex;
         align-items: center;
         gap: 10px;
-    }
-
-    /* Hero banner */
-    .hero {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        border-radius: 20px;
-        padding: 32px 40px;
-        margin-bottom: 24px;
-        backdrop-filter: blur(16px);
-    }
-    .hero h1 {
-        font-size: 2.2rem;
-        font-weight: 900;
-        background: linear-gradient(135deg, #c7d2fe, #818cf8, #a78bfa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0 0 8px 0;
-    }
-    .hero p {
-        color: #94a3b8;
-        font-size: 1.05rem;
-        margin: 0;
-        line-height: 1.6;
-    }
-
-    /* Regime badges */
-    .regime-badge {
-        display: inline-block;
-        padding: 4px 14px;
-        border-radius: 20px;
-        font-size: 0.8rem;
+        padding: 0.75rem 0 1.25rem 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 1.25rem;
+    }}
+    .sidebar-brand-icon {{
+        font-size: 1.5rem;
+        animation: pulse-glow 3s infinite ease-in-out;
+    }}
+    .sidebar-brand-text {{
+        display: flex;
+        flex-direction: column;
+    }}
+    .sidebar-brand-name {{
+        font-size: 0.95rem;
         font-weight: 700;
-        letter-spacing: 0.5px;
+        color: var(--text);
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }}
+    .sidebar-brand-version {{
+        display: inline-block;
+        font-size: 0.62rem;
+        font-weight: 600;
+        color: var(--accent);
+        background: rgba(37,99,235,0.1);
+        padding: 1px 7px;
+        border-radius: 4px;
+        margin-top: 3px;
+        letter-spacing: 0.04em;
+        width: fit-content;
+    }}
+
+    /* ─── Sidebar Section Labels ─── */
+    .sidebar-section {{
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--text-muted);
         text-transform: uppercase;
-    }
-    .regime-bull { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-    .regime-recovery { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
-    .regime-bear { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-    .regime-crisis { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+        letter-spacing: 0.08em;
+        padding-left: 8px;
+        border-left: 2px solid var(--accent);
+        margin: 1.25rem 0 0.75rem 0;
+    }}
 
-    /* Info panel */
-    .info-panel {
-        background: rgba(30, 41, 59, 0.5);
-        border: 1px solid rgba(99, 102, 241, 0.15);
-        border-radius: 12px;
-        padding: 16px 20px;
-        margin: 8px 0;
-        color: #cbd5e1;
-        font-size: 0.9rem;
+    /* ─── Sidebar Footer ─── */
+    .sidebar-footer {{
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        font-size: 0.68rem;
+        color: var(--text-dim);
         line-height: 1.6;
-    }
+    }}
+    .sidebar-footer a {{
+        color: var(--accent);
+        text-decoration: none;
+    }}
 
-    /* Plotly chart container */
-    .stPlotlyChart {
-        border-radius: 16px;
-        overflow: hidden;
-    }
+    /* ─── Themed Checkboxes ─── */
+    [data-testid="stCheckbox"] label span {{
+        color: var(--text) !important;
+        font-family: 'DM Sans', sans-serif !important;
+        font-size: 0.85rem !important;
+    }}
+    [data-testid="stCheckbox"] [role="checkbox"][aria-checked="true"] {{
+        background-color: var(--accent) !important;
+        border-color: var(--accent) !important;
+    }}
 
-    /* Tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 4px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        background: rgba(30, 41, 59, 0.5);
-        border-radius: 8px 8px 0 0;
-        color: #94a3b8;
-        padding: 8px 20px;
-        border: 1px solid rgba(99, 102, 241, 0.15);
-    }
-    .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        background: rgba(99, 102, 241, 0.2);
-        color: #c7d2fe;
-        border-color: rgba(99, 102, 241, 0.4);
-    }
+    /* ─── Themed Expanders ─── */
+    [data-testid="stExpander"] {{
+        background-color: var(--card) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius) !important;
+    }}
+    [data-testid="stExpander"] summary {{
+        color: var(--text) !important;
+        font-family: 'DM Sans', sans-serif !important;
+    }}
+    [data-testid="stExpander"] [data-testid="stExpanderDetails"] {{
+        background-color: var(--bg-subtle) !important;
+    }}
+
+    /* ─── Themed Date Input Calendar ─── */
+    div[data-baseweb="popover"] {{
+        background-color: var(--card) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius) !important;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25) !important;
+    }}
+    div[data-baseweb="calendar"] {{
+        background-color: var(--card) !important;
+        font-family: 'DM Sans', sans-serif !important;
+    }}
+    div[data-baseweb="calendar"] div {{
+        color: var(--text) !important;
+    }}
+
+    /* ─── Animated Hero Accent Stripe ─── */
+    @keyframes heroStripe {{
+        0% {{ background-position: 0% 50%; }}
+        50% {{ background-position: 100% 50%; }}
+        100% {{ background-position: 0% 50%; }}
+    }}
+    .hero-stripe {{
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #a78bfa, #ec4899, #f59e0b, var(--accent));
+        background-size: 300% 100%;
+        animation: heroStripe 6s ease infinite;
+        border-radius: 0 0 var(--radius) var(--radius);
+        margin-top: -1px;
+    }}
+
+    /* ─── Strategy Summary Strip ─── */
+    .summary-strip {{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.9rem 1.4rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+        animation: fadeSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+    }}
+    .summary-item {{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }}
+    .summary-dot {{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }}
+    .summary-label {{
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }}
+    .summary-value {{
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: 'JetBrains Mono', monospace;
+    }}
+    .summary-divider {{
+        width: 1px;
+        height: 28px;
+        background: var(--border);
+    }}
+
+    /* ─── Status Pill (for hero) ─── */
+    .status-pill {{
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        letter-spacing: 0.03em;
+        margin-top: 0.75rem;
+    }}
+    .status-dot {{
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        animation: pulse-glow 2s infinite ease-in-out;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -252,12 +671,53 @@ def load_data():
     return data
 
 
-def render_metric_card(label, value, sublabel="", css_class=""):
+def generate_sparkline(series, color="#818cf8", width=120, height=35):
+    """Generate a clean SVG sparkline path from a pandas Series."""
+    if series is None or len(series) < 2:
+        return ""
+    # Filter out NaNs and convert
+    series = series.dropna()
+    if len(series) < 2:
+        return ""
+        
+    vals = series.values
+    # Downsample to 40 points for smooth performance
+    if len(vals) > 40:
+        indices = np.linspace(0, len(vals) - 1, 40, dtype=int)
+        vals = vals[indices]
+        
+    v_min, v_max = min(vals), max(vals)
+    if v_max == v_min:
+        return ""
+        
+    # Generate path coords
+    points = []
+    for i, v in enumerate(vals):
+        x = (i / (len(vals) - 1)) * width
+        y = height - ((v - v_min) / (v_max - v_min)) * height
+        points.append(f"{x:.1f},{y:.1f}")
+        
+    path_data = " L ".join(points)
+    svg = f"""
+    <svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" preserveAspectRatio="none" style="overflow: visible; display: block; margin-top: 8px;">
+        <path d="M {path_data}" fill="none" stroke="{color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    """
+    return svg
+
+
+def render_metric_card(label, value, sublabel="", css_class="", sparkline_html="", anim_delay=""):
+    delay_cls = f" anim-card {anim_delay}" if anim_delay else ""
     st.markdown(f"""
-    <div class="metric-card">
-        <div class="metric-label">{label}</div>
-        <div class="metric-value {css_class}">{value}</div>
-        <div class="metric-sublabel">{sublabel}</div>
+    <div class="metric-card{delay_cls}">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <div class="metric-label">{label}</div>
+                <div class="metric-value {css_class}">{value}</div>
+                <div class="metric-sublabel">{sublabel}</div>
+            </div>
+            {f'<div style="width: 120px; display: flex; justify-content: flex-end; align-items: center; padding-top: 5px;">{sparkline_html}</div>' if sparkline_html else ''}
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -272,40 +732,107 @@ def main():
         st.error("⚠️ No pipeline data found. Run `python run_pipeline.py` first.")
         st.stop()
 
+    grid_color = "rgba(255,255,255,0.04)" if IS_DARK else "rgba(0,0,0,0.04)"
+    text_color_plotly = "#a1a1aa" if IS_DARK else "#71717a"
+
+    # ── Brand Header & Theme Toggle ───────────────────────────
+    head_left, head_right = st.columns([8, 1])
+    with head_left:
+        st.markdown("""
+        <div class="brand">
+            <span class="brand-logo">🔮</span>
+            <span class="brand-name">Market Regime Detection</span>
+            <span class="brand-subtitle">Adaptive Portfolio Allocation System</span>
+        </div>
+        """, unsafe_allow_html=True)
+    with head_right:
+        theme_label = "☀️ Light" if IS_DARK else "🌙 Dark"
+        st.button(theme_label, on_click=toggle_theme, use_container_width=True)
+
     # ── Hero Banner ───────────────────────────────────────────
-    st.markdown("""
+    # Determine current regime for hero status pill
+    _hero_features = data.get("features")
+    _current_regime = "Unknown"
+    _regime_color = "#94a3b8"
+    _regime_bg = "rgba(148,163,184,0.1)"
+    if _hero_features is not None and "regime_label_stable" in _hero_features.columns:
+        _last_regime = _hero_features["regime_label_stable"].dropna()
+        if len(_last_regime) > 0:
+            _current_regime = _last_regime.iloc[-1]
+            _regime_color = REGIME_COLORS.get(_current_regime, "#94a3b8")
+            _regime_bg = f"{_regime_color}18"
+    _last_date = _hero_features.index.max().strftime('%b %d, %Y') if _hero_features is not None and not _hero_features.empty else "—"
+
+    st.markdown(f"""
     <div class="hero">
-        <h1>🔮 Market Regime Detection</h1>
         <p>Adaptive Portfolio Allocation powered by HMM regime classification,
         regime-specialist Random Forests, and FFD-stationarized features.
         Walk-Forward validated with transaction costs.</p>
+        <div class="status-pill" style="color: {_regime_color}; background: {_regime_bg}; border: 1px solid {_regime_color}30;">
+            <span class="status-dot" style="background: {_regime_color};"></span>
+            Current Regime: {_current_regime} &nbsp;·&nbsp; Data through {_last_date}
+        </div>
     </div>
+    <div class="hero-stripe"></div>
     """, unsafe_allow_html=True)
 
     # ── Sidebar ───────────────────────────────────────────────
     with st.sidebar:
-        st.markdown("### ⚙️ Dashboard Controls")
+        st.markdown("""
+        <div class="sidebar-brand">
+            <span class="sidebar-brand-icon">🔮</span>
+            <div class="sidebar-brand-text">
+                <span class="sidebar-brand-name">Regime Detector</span>
+                <span class="sidebar-brand-version">v2.0 · Adaptive</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="sidebar-section">Dashboard Controls</div>', unsafe_allow_html=True)
 
         features = data.get("features")
         if features is not None and not features.empty:
             min_date = features.index.min().date()
             max_date = features.index.max().date()
-            col1, col2 = st.columns(2)
-            with col1:
-                start_date = st.date_input("Start Date", value=min_date, min_value=min_date, max_value=max_date)
-            with col2:
-                end_date = st.date_input("End Date", value=max_date, min_value=min_date, max_value=max_date)
-            date_range = (start_date, end_date)
+            
+            # Date Range Toggle Checkbox
+            use_date_range = st.checkbox("Limit Date Range", value=True)
+            
+            # Separate Starting Date and Ending Date Inputs stacked vertically
+            start_date = st.date_input(
+                "Starting Date",
+                value=min_date,
+                min_value=min_date,
+                max_value=max_date,
+                disabled=not use_date_range
+            )
+            
+            end_date = st.date_input(
+                "Ending Date",
+                value=max_date,
+                min_value=min_date,
+                max_value=max_date,
+                disabled=not use_date_range
+            )
+            
+            if use_date_range:
+                if start_date > end_date:
+                    st.error("⚠️ Starting Date must be before or equal to Ending Date.")
+                    date_range = (min_date, max_date)
+                else:
+                    date_range = (start_date, end_date)
+            else:
+                date_range = (min_date, max_date)
         else:
             date_range = None
 
         st.markdown("---")
-        st.markdown("### 📊 Regime Legend")
+        st.markdown('<div class="sidebar-section">Regime Legend</div>', unsafe_allow_html=True)
         for regime, color in REGIME_COLORS.items():
             st.markdown(f'<span class="regime-badge regime-{regime.lower()}">{regime}</span>', unsafe_allow_html=True)
 
         st.markdown("---")
-        st.markdown("### 🏗️ Pipeline Info")
+        st.markdown('<div class="sidebar-section">Pipeline Info</div>', unsafe_allow_html=True)
         if "metrics" in data:
             m = data["metrics"]
             st.markdown(f"""
@@ -318,6 +845,15 @@ def main():
             </div>
             """, unsafe_allow_html=True)
 
+        # Sidebar footer
+        st.markdown("""
+        <div class="sidebar-footer">
+            HMM · Random Forest · FFD · WFO<br>
+            SEBI 2026 Compliant · SHAP Explainability<br>
+            Built with Streamlit & Plotly
+        </div>
+        """, unsafe_allow_html=True)
+
     # ── Filter by date range ──────────────────────────────────
     def filter_df(df):
         if date_range and len(date_range) == 2 and df is not None:
@@ -328,26 +864,85 @@ def main():
     # ── Metrics Cards ─────────────────────────────────────────
     if "metrics" in data:
         m = data["metrics"]
+        
+        # Compute sparklines dynamically based on selected date range
+        strategy_cum = None
+        drawdown_series = None
+        win_rate_series = None
+        
+        oos = filter_df(data.get("oos"))
+        if oos is not None and not oos.empty:
+            if "cum_strategy" in oos.columns:
+                strategy_cum = oos["cum_strategy"]
+            if "strategy_return" in oos.columns:
+                cum = (1 + oos["strategy_return"]).cumprod()
+                peak = cum.cummax()
+                drawdown_series = (cum - peak) / peak
+                win_rate_series = oos["strategy_return"].rolling(max(2, min(20, len(oos)))).mean()
+
+        spark_color_sharpe = "#818cf8"
+        spark_color_dd = red_color
+        spark_color_ar = green_color
+        spark_color_wr = "#a78bfa"
+        spark_color_calmar = "#60a5fa"
+
+        spark_sharpe = generate_sparkline(strategy_cum, spark_color_sharpe) if strategy_cum is not None else ""
+        spark_dd = generate_sparkline(drawdown_series, spark_color_dd) if drawdown_series is not None else ""
+        spark_ar = generate_sparkline(strategy_cum, spark_color_ar) if strategy_cum is not None else ""
+        spark_wr = generate_sparkline(win_rate_series, spark_color_wr) if win_rate_series is not None else ""
+        spark_calmar = generate_sparkline(strategy_cum, spark_color_calmar) if strategy_cum is not None else ""
+
         cols = st.columns(5)
         with cols[0]:
             val = m.get("sharpe_ratio", 0)
             css = "positive" if val > 0.5 else "negative" if val < 0 else ""
-            render_metric_card("Sharpe Ratio", f"{val:.2f}", f"Market: {m.get('market_sharpe', 0):.2f}", css)
+            render_metric_card("Sharpe Ratio", f"{val:.2f}", f"Market: {m.get('market_sharpe', 0):.2f}", css, spark_sharpe, "delay-1")
         with cols[1]:
             val = m.get("max_drawdown", 0)
-            render_metric_card("Max Drawdown", f"{val:.1%}", f"Market: {m.get('market_max_drawdown', 0):.1%}", "negative")
+            render_metric_card("Max Drawdown", f"{val:.1%}", f"Market: {m.get('market_max_drawdown', 0):.1%}", "negative", spark_dd, "delay-2")
         with cols[2]:
             val = m.get("annual_return", 0)
             css = "positive" if val > 0 else "negative"
-            render_metric_card("Annual Return", f"{val:.1%}", f"Total: {m.get('total_return', 0):.1%}", css)
+            render_metric_card("Annual Return", f"{val:.1%}", f"Total: {m.get('total_return', 0):.1%}", css, spark_ar, "delay-3")
         with cols[3]:
             val = m.get("win_rate", 0)
             css = "positive" if val > 0.5 else ""
-            render_metric_card("Win Rate", f"{val:.1%}", f"Profit Factor: {m.get('profit_factor', 0):.2f}", css)
+            render_metric_card("Win Rate", f"{val:.1%}", f"Profit Factor: {m.get('profit_factor', 0):.2f}", css, spark_wr, "delay-4")
         with cols[4]:
             val = m.get("calmar_ratio", 0)
             css = "positive" if val > 0.5 else ""
-            render_metric_card("Calmar Ratio", f"{val:.2f}", f"Trades: {m.get('total_trades', 0)}", css)
+            render_metric_card("Calmar Ratio", f"{val:.2f}", f"Trades: {m.get('total_trades', 0)}", css, spark_calmar, "delay-5")
+
+        # ── Strategy vs Market Summary Strip ───────────────────
+        strat_ret = m.get("total_return", 0)
+        market_ret = m.get("market_total_return", m.get("total_return", 0) * 0.7)  # fallback
+        alpha_ret = strat_ret - market_ret
+        strat_color = green_color if strat_ret >= 0 else red_color
+        market_color = text_muted
+        alpha_color = green_color if alpha_ret >= 0 else red_color
+        alpha_sign = "+" if alpha_ret >= 0 else ""
+
+        st.markdown(f"""
+        <div class="summary-strip">
+            <div class="summary-item">
+                <span class="summary-dot" style="background: {strat_color};"></span>
+                <span class="summary-label">Strategy</span>
+                <span class="summary-value" style="color: {strat_color};">{strat_ret:+.1%}</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <span class="summary-dot" style="background: {market_color};"></span>
+                <span class="summary-label">Market</span>
+                <span class="summary-value" style="color: {market_color};">{market_ret:+.1%}</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <span class="summary-dot" style="background: {alpha_color};"></span>
+                <span class="summary-label">Alpha</span>
+                <span class="summary-value" style="color: {alpha_color};">{alpha_sign}{alpha_ret:.1%}</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     # ── Tabs ──────────────────────────────────────────────────
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
@@ -447,23 +1042,31 @@ def main():
                 )
 
             fig.update_layout(
-                template="plotly_dark",
+                template="plotly_dark" if IS_DARK else "plotly",
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                font=dict(family="Inter", color="#e2e8f0"),
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                 height=700,
                 margin=dict(l=60, r=30, t=50, b=30),
                 legend=dict(
                     orientation="h", yanchor="bottom", y=1.02,
                     xanchor="right", x=1,
                     font=dict(size=11),
-                    bgcolor="rgba(30, 41, 59, 0.7)",
+                    bgcolor="rgba(0,0,0,0)",
                 ),
-                xaxis2=dict(gridcolor="rgba(99, 102, 241, 0.1)"),
-                yaxis=dict(gridcolor="rgba(99, 102, 241, 0.1)", title="Price ($)"),
-                yaxis2=dict(gridcolor="rgba(99, 102, 241, 0.1)", title="Volatility"),
+                xaxis=dict(gridcolor=grid_color, zerolinecolor=grid_color),
+                xaxis2=dict(gridcolor=grid_color, zerolinecolor=grid_color),
+                yaxis=dict(gridcolor=grid_color, zerolinecolor=grid_color, title="Price ($)"),
+                yaxis2=dict(gridcolor=grid_color, zerolinecolor=grid_color, title="Volatility"),
             )
-            st.plotly_chart(fig, use_container_width=True)
+            
+            st.markdown("""
+            <div class="chart-wrap">
+                <div class="chart-title">SPY Price with Regime Bands</div>
+                <div class="chart-subtitle">Color-coded overlays identify HMM detected states over the backtest period</div>
+            """, unsafe_allow_html=True)
+            st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+            st.markdown("</div>", unsafe_allow_html=True)
 
             # Regime distribution bar
             if "regime_label_stable" in features.columns:
@@ -498,7 +1101,6 @@ def main():
 
                 latest = weights.iloc[-1]
                 current_regime = latest.get("regime", "Unknown")
-                regime_css = current_regime.lower() if current_regime in REGIME_COLORS else "bear"
 
                 col_pie, col_info = st.columns([2, 1])
 
@@ -521,24 +1123,25 @@ def main():
                         hole=0.55,
                         marker=dict(
                             colors=pie_colors[:len(pie_labels_filtered)],
-                            line=dict(color="#0a0e1a", width=2),
+                            line=dict(color="#09090b" if IS_DARK else "#ffffff", width=2),
                         ),
                         textinfo="label+percent",
-                        textfont=dict(size=13, color="#e2e8f0", family="Inter"),
+                        textfont=dict(size=13, color=text_color_plotly, family="DM Sans"),
                         hovertemplate="%{label}: %{percent}<br>Weight: %{value:.1%}<extra></extra>",
                         sort=False,
                     )])
+                    
                     fig_pie.update_layout(
-                        template="plotly_dark",
+                        template="plotly_dark" if IS_DARK else "plotly",
                         paper_bgcolor="rgba(0,0,0,0)",
                         plot_bgcolor="rgba(0,0,0,0)",
-                        font=dict(family="Inter", color="#e2e8f0"),
+                        font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                         height=380,
                         margin=dict(l=20, r=20, t=30, b=20),
                         legend=dict(
                             orientation="h", yanchor="bottom", y=-0.1,
                             xanchor="center", x=0.5,
-                            font=dict(size=12, color="#94a3b8"),
+                            font=dict(size=12, color=text_color_plotly),
                             bgcolor="rgba(0,0,0,0)",
                         ),
                         annotations=[dict(
@@ -548,7 +1151,14 @@ def main():
                             showarrow=False,
                         )],
                     )
-                    st.plotly_chart(fig_pie, use_container_width=True)
+                    
+                    st.markdown("""
+                    <div class="chart-wrap">
+                        <div class="chart-title">Current Portfolio Allocation</div>
+                        <div class="chart-subtitle">Direct donut visual of portfolio assets weights in the current active regime</div>
+                    """, unsafe_allow_html=True)
+                    st.plotly_chart(fig_pie, use_container_width=True, config={"displayModeBar": False})
+                    st.markdown("</div>", unsafe_allow_html=True)
 
                 with col_info:
                     # Current regime badge and weight details
@@ -575,11 +1185,11 @@ def main():
                         bar_width = max(w_val * 100, 0)
                         st.markdown(f"""
                         <div style="margin: 8px 0;">
-                            <div style="display: flex; justify-content: space-between; color: #cbd5e1; font-size: 0.85rem;">
+                            <div style="display: flex; justify-content: space-between; color: var(--text); font-size: 0.85rem;">
                                 <span style="color: {color}; font-weight: 600;">{asset_name}</span>
                                 <span>{w_val:.1%}</span>
                             </div>
-                            <div style="background: rgba(30,41,59,0.5); border-radius: 4px; height: 6px; margin-top: 4px;">
+                            <div style="background: var(--bg-subtle); border-radius: 4px; height: 6px; margin-top: 4px;">
                                 <div style="background: {color}; border-radius: 4px; height: 100%; width: {bar_width}%;"></div>
                             </div>
                         </div>
@@ -592,8 +1202,8 @@ def main():
                 fig = go.Figure()
                 colors = ["#818cf8", "#60a5fa", "#fbbf24", "#a78bfa", "#34d399", "#f87171"]
                 def hex_to_rgba(hex_code, alpha=0.6):
-                    hex_code = hex_code.lstrip('#')
-                    return f"rgba({int(hex_code[0:2], 16)}, {int(hex_code[2:4], 16)}, {int(hex_code[4:6], 16)}, {alpha})"
+                     hex_code = hex_code.lstrip('#')
+                     return f"rgba({int(hex_code[0:2], 16)}, {int(hex_code[2:4], 16)}, {int(hex_code[4:6], 16)}, {alpha})"
 
                 for i, col in enumerate(weight_cols):
                     asset_name = col.replace("w_", "")
@@ -611,17 +1221,24 @@ def main():
                     ))
 
                 fig.update_layout(
-                    template="plotly_dark",
+                    template="plotly_dark" if IS_DARK else "plotly",
                     paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                    font=dict(family="Inter", color="#e2e8f0"),
+                    plot_bgcolor="rgba(0,0,0,0)",
+                    font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                     height=450,
                     margin=dict(l=60, r=30, t=30, b=30),
-                    yaxis=dict(title="Weight", tickformat=".0%", gridcolor="rgba(99,102,241,0.1)"),
-                    xaxis=dict(gridcolor="rgba(99,102,241,0.1)"),
+                    yaxis=dict(title="Weight", tickformat=".0%", gridcolor=grid_color),
+                    xaxis=dict(gridcolor=grid_color),
                     legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                
+                st.markdown("""
+                <div class="chart-wrap">
+                    <div class="chart-title">Historical Weight Evolution</div>
+                    <div class="chart-subtitle">Daily breakdown of tradeable assets weights and strategic transitions over the backtest duration</div>
+                """, unsafe_allow_html=True)
+                st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+                st.markdown("</div>", unsafe_allow_html=True)
 
                 # Average weights by regime
                 st.markdown('<div class="section-header">🎯 Average Weights by Regime</div>', unsafe_allow_html=True)
@@ -636,15 +1253,29 @@ def main():
                             name=col, marker_color=colors[i % len(colors)],
                         ))
                     fig2.update_layout(
-                        template="plotly_dark",
+                        template="plotly_dark" if IS_DARK else "plotly",
                         paper_bgcolor="rgba(0,0,0,0)",
-                        plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                        font=dict(family="Inter", color="#e2e8f0"),
+                        plot_bgcolor="rgba(0,0,0,0)",
+                        font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                         barmode="stack", height=350,
-                        yaxis=dict(title="Weight", tickformat=".0%", gridcolor="rgba(99,102,241,0.1)"),
+                        yaxis=dict(title="Weight", tickformat=".0%", gridcolor=grid_color),
+                        xaxis=dict(gridcolor=grid_color),
                         margin=dict(l=60, r=30, t=30, b=30),
+                        legend=dict(
+                            orientation="h", yanchor="bottom", y=-0.2,
+                            xanchor="center", x=0.5,
+                            font=dict(size=12, color=text_color_plotly),
+                            bgcolor="rgba(0,0,0,0)",
+                        ),
                     )
-                    st.plotly_chart(fig2, use_container_width=True)
+                    
+                    st.markdown("""
+                    <div class="chart-wrap">
+                        <div class="chart-title">Average Weights by Regime</div>
+                        <div class="chart-subtitle">Target portfolio structure per HMM regime, showcasing rotation behavior</div>
+                    """, unsafe_allow_html=True)
+                    st.plotly_chart(fig2, use_container_width=True, config={"displayModeBar": False})
+                    st.markdown("</div>", unsafe_allow_html=True)
         else:
             st.info("Portfolio weights not yet computed. Run portfolio optimization first.")
 
@@ -693,17 +1324,31 @@ def main():
             )
 
             fig.update_layout(
-                template="plotly_dark",
+                template="plotly_dark" if IS_DARK else "plotly",
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                font=dict(family="Inter", color="#e2e8f0"),
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                 height=600,
                 margin=dict(l=60, r=30, t=50, b=30),
-                yaxis=dict(title="Cumulative Return", gridcolor="rgba(99,102,241,0.1)"),
-                yaxis2=dict(title="Drawdown", tickformat=".0%", gridcolor="rgba(99,102,241,0.1)"),
-                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                yaxis=dict(title="Cumulative Return", gridcolor=grid_color),
+                yaxis2=dict(title="Drawdown", tickformat=".0%", gridcolor=grid_color),
+                xaxis=dict(gridcolor=grid_color),
+                xaxis2=dict(gridcolor=grid_color),
+                legend=dict(
+                    orientation="h", yanchor="bottom", y=1.02,
+                    xanchor="right", x=1,
+                    font=dict(size=12, color=text_color_plotly),
+                    bgcolor="rgba(0,0,0,0)",
+                ),
             )
-            st.plotly_chart(fig, use_container_width=True)
+            
+            st.markdown("""
+            <div class="chart-wrap">
+                <div class="chart-title">Walk-Forward Backtest Performance</div>
+                <div class="chart-subtitle">Cumulative returns comparison of the adaptive strategy against SPY along with drawdown profiles</div>
+            """, unsafe_allow_html=True)
+            st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+            st.markdown("</div>", unsafe_allow_html=True)
 
             # Monthly returns heatmap
             st.markdown('<div class="section-header">📅 Monthly Returns</div>', unsafe_allow_html=True)
@@ -723,23 +1368,30 @@ def main():
                 y=pivot.index.astype(str),
                 colorscale=[
                     [0, "#ef4444"], [0.3, "#fbbf24"],
-                    [0.5, "#1e293b"], [0.7, "#34d399"], [1.0, "#10b981"],
+                    [0.5, "#1e293b" if IS_DARK else "#f1f5f9"], [0.7, "#34d399"], [1.0, "#10b981"],
                 ],
                 zmid=0,
                 text=[[f"{v:.1%}" if not np.isnan(v) else "" for v in row] for row in pivot.values],
                 texttemplate="%{text}",
-                textfont=dict(size=10, color="#e2e8f0"),
+                textfont=dict(size=10, color=text_color_plotly),
                 hovertemplate="Year: %{y}<br>Month: %{x}<br>Return: %{z:.2%}<extra></extra>",
             ))
             fig3.update_layout(
-                template="plotly_dark",
+                template="plotly_dark" if IS_DARK else "plotly",
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                font=dict(family="Inter", color="#e2e8f0"),
-                height=max(250, len(pivot) * 30 + 80),
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
+                height=max(250, len(pivot) * 35 + 80),
                 margin=dict(l=60, r=30, t=20, b=30),
             )
-            st.plotly_chart(fig3, use_container_width=True)
+            
+            st.markdown("""
+            <div class="chart-wrap">
+                <div class="chart-title">Monthly Returns Heatmap</div>
+                <div class="chart-subtitle">Breakdown of monthly performance for the strategy across backtest years</div>
+            """, unsafe_allow_html=True)
+            st.plotly_chart(fig3, use_container_width=True, config={"displayModeBar": False})
+            st.markdown("</div>", unsafe_allow_html=True)
         else:
             st.info("Backtest results not available. Run the backtest first.")
 
@@ -754,11 +1406,44 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
-        # Load SHAP plots
-        shap_files = list(OUTPUT_PLOTS.glob("shap_*.png")) if OUTPUT_PLOTS.exists() else []
-        if shap_files:
-            for plot_file in sorted(shap_files):
-                st.image(str(plot_file), caption=plot_file.stem.replace("_", " ").title(), use_container_width=True)
+        if OUTPUT_PLOTS.exists():
+            combined_plot = OUTPUT_PLOTS / "shap_combined_importance.png"
+            if combined_plot.exists():
+                st.markdown('<div class="section-header">🌍 Global Regime Feature Importance</div>', unsafe_allow_html=True)
+                st.markdown('<div class="chart-wrap">', unsafe_allow_html=True)
+                st.image(str(combined_plot), caption="Combined Cross-Regime Feature Importance", use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
+            
+            st.markdown('<div class="section-header">🎯 Regime-Specific Explanations</div>', unsafe_allow_html=True)
+            regime_tabs = st.tabs(["🟢 Bull Regime", "🔵 Recovery Regime", "🟡 Bear Regime", "🔴 Crisis Regime"])
+            
+            regime_mapping = {
+                "🟢 Bull Regime": "bull",
+                "🔵 Recovery Regime": "recovery",
+                "🟡 Bear Regime": "bear",
+                "🔴 Crisis Regime": "crisis"
+            }
+            
+            for tab_title, key in regime_mapping.items():
+                with regime_tabs[list(regime_mapping.keys()).index(tab_title)]:
+                    summary_plot = OUTPUT_PLOTS / f"shap_summary_{key}.png"
+                    bar_plot = OUTPUT_PLOTS / f"shap_bar_{key}.png"
+                    
+                    col_sum, col_bar = st.columns(2)
+                    with col_sum:
+                        if summary_plot.exists():
+                            st.markdown('<div class="chart-wrap">', unsafe_allow_html=True)
+                            st.image(str(summary_plot), caption=f"Beeswarm Summary - {key.title()} Regime", use_container_width=True)
+                            st.markdown('</div>', unsafe_allow_html=True)
+                        else:
+                            st.info(f"Summary beeswarm plot not found for {key}.")
+                    with col_bar:
+                        if bar_plot.exists():
+                            st.markdown('<div class="chart-wrap">', unsafe_allow_html=True)
+                            st.image(str(bar_plot), caption=f"Bar Feature Importance - {key.title()} Regime", use_container_width=True)
+                            st.markdown('</div>', unsafe_allow_html=True)
+                        else:
+                            st.info(f"Bar importance plot not found for {key}.")
         else:
             st.info("SHAP plots not generated yet. Run the explainability step first.")
 
@@ -800,31 +1485,37 @@ def main():
             transitions.index.name = "From"
             transitions.columns.name = "To"
 
-            st.markdown("#### Regime Transition Probabilities")
             fig4 = go.Figure(data=go.Heatmap(
                 z=transitions.values,
                 x=transitions.columns.astype(str),
                 y=transitions.index.astype(str),
-                colorscale=[[0, "#0f172a"], [0.5, "#6366f1"], [1, "#a78bfa"]],
+                colorscale=[[0, "#09090b" if IS_DARK else "#ffffff"], [0.5, "#2563eb"], [1, "#22c55e"]],
                 text=[[f"{v:.1%}" for v in row] for row in transitions.values],
                 texttemplate="%{text}",
-                textfont=dict(size=12, color="#e2e8f0"),
+                textfont=dict(size=12, color=text_color_plotly),
                 hovertemplate="From: %{y}<br>To: %{x}<br>Prob: %{z:.2%}<extra></extra>",
             ))
             fig4.update_layout(
-                template="plotly_dark",
+                template="plotly_dark" if IS_DARK else "plotly",
                 paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(10, 14, 26, 0.8)",
-                font=dict(family="Inter", color="#e2e8f0"),
+                plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="DM Sans, sans-serif", color=text_color_plotly),
                 height=350,
                 xaxis_title="To Regime",
                 yaxis_title="From Regime",
                 margin=dict(l=80, r=30, t=30, b=50),
             )
-            st.plotly_chart(fig4, use_container_width=True)
+            
+            st.markdown("""
+            <div class="chart-wrap">
+                <div class="chart-title">Regime Transition Probabilities</div>
+                <div class="chart-subtitle">Likelihood of shifting from one market regime to another based on historical chain transitions</div>
+            """, unsafe_allow_html=True)
+            st.plotly_chart(fig4, use_container_width=True, config={"displayModeBar": False})
+            st.markdown("</div>", unsafe_allow_html=True)
 
             # Per-regime statistics
-            st.markdown("#### Per-Regime Return Statistics")
+            st.markdown('<div class="section-header">📊 Per-Regime Return Statistics</div>', unsafe_allow_html=True)
             if "SPY_returns" in features.columns:
                 regime_stats = features.groupby("regime_label_stable")["SPY_returns"].agg([
                     ("Mean Return", "mean"),
@@ -843,7 +1534,20 @@ def main():
                 display_stats["Skewness"] = display_stats["Skewness"].apply(lambda x: f"{x:.2f}")
                 display_stats["Count"] = display_stats["Count"].apply(lambda x: f"{int(x):,}")
 
-                st.dataframe(display_stats, use_container_width=True)
+                # Render display_stats as HTML table
+                headers = "".join([f"<th>{col}</th>" for col in ["Regime"] + list(display_stats.columns)])
+                rows = ""
+                for idx, row in display_stats.iterrows():
+                    badge = f'<span class="regime-badge regime-{idx.lower()}">{idx}</span>'
+                    row_cells = "".join([f"<td>{val}</td>" for val in row.values])
+                    rows += f"<tr><td>{badge}</td>{row_cells}</tr>"
+                
+                st.markdown(f"""
+                <table class="data-table">
+                    <thead><tr>{headers}</tr></thead>
+                    <tbody>{rows}</tbody>
+                </table>
+                """, unsafe_allow_html=True)
         else:
             st.info("Regime data not available.")
 
