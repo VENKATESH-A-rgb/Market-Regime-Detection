@@ -1,0 +1,11 @@
+            Open  High  Low  ...  (Low, ^NSEI)  (Open, ^NSEI)  (Volume, ^NSEI)
+Date                         ...                                              
+1990-07-03   NaN   NaN  NaN  ...           NaN            NaN              NaN
+1990-07-05   NaN   NaN  NaN  ...           NaN            NaN              NaN
+1990-07-06   NaN   NaN  NaN  ...           NaN            NaN              NaN
+1990-07-09   NaN   NaN  NaN  ...           NaN            NaN              NaN
+1990-07-10   NaN   NaN  NaN  ...           NaN            NaN              NaN
+
+[5 rows x 10 columns]
+(8692, 10)
+Min date: 1990-07-03 00:00:00

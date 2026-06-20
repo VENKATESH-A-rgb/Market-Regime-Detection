@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Python script to replace SPY, TLT, GLD, QQQ, DIA with NSE/BSE counterparts in feature_engineering.py",
+  "updatedAt": "2026-06-13T08:18:54.482540200Z"
+}

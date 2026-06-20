@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T11:38:43+05:30
+Prompt: Check Streamlit startup logs to confirm success with clean width configurations
+
+[2026-06-13T11:38:38+05:30] Still waiting. Remaining time: 5s
+[2026-06-13T11:38:43+05:30] Timer fired.

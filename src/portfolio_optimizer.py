@@ -18,8 +18,8 @@ DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
 OUTPUT_METRICS = PROJECT_ROOT / "output" / "metrics"
 
 # Tradeable assets (^VIX is feature-only)
-TRADEABLE_ASSETS = ["SPY", "TLT", "GLD", "QQQ", "DIA"]
-SAFE_HAVEN_ASSETS = ["TLT", "GLD"]
+TRADEABLE_ASSETS = ["LIQUIDBEES.NS", "GOLDBEES.NS", "NIFTYBEES.NS", "JUNIORBEES.NS", "BANKBEES.NS"]
+SAFE_HAVEN_ASSETS = ["LIQUIDBEES.NS", "GOLDBEES.NS"]
 
 # Regime-specific optimization configurations
 REGIME_CONFIGS = {
@@ -66,14 +66,16 @@ class RegimePortfolioOptimizer:
         self.rebalance_days = rebalance_days
         self.weight_history = []
 
-    def _get_asset_columns(self, df: pd.DataFrame) -> list[str]:
-        """Find available asset close price columns."""
+    def _get_asset_columns(self, df: pd.DataFrame, lookback: int = None) -> list[str]:
+        """Find available asset close price columns with sufficient data in the active window."""
         available = []
+        check_df = df.tail(lookback) if lookback is not None else df
         for asset in self.assets:
             col = f"{asset.replace('-', '_')}_Close"
             if col in df.columns:
-                # Check if asset has data (not all NaN)
-                if df[col].notna().sum() > 252:
+                # Check if asset has enough data in the active window
+                min_days = min(126, len(check_df))
+                if check_df[col].notna().sum() >= min_days:
                     available.append(asset)
         return available
 
@@ -84,7 +86,10 @@ class RegimePortfolioOptimizer:
         price_cols = {a: f"{a.replace('-', '_')}_Close" for a in assets}
         prices = df[[price_cols[a] for a in assets]].tail(lookback).copy()
         prices.columns = assets
-        returns = np.log(prices / prices.shift(1)).dropna()
+        # Clip returns to +/- 15% to protect against Yahoo Finance data glitches
+        returns = np.log(prices / prices.shift(1)).clip(-0.15, 0.15)
+        returns = returns.replace([np.inf, -np.inf], np.nan)
+        returns = returns.ffill().fillna(0.0)
         return returns
 
     def optimize_weights(
@@ -110,7 +115,7 @@ class RegimePortfolioOptimizer:
         dict mapping asset name → weight.
         """
         config = REGIME_CONFIGS.get(regime, REGIME_CONFIGS["Bear"])
-        available_assets = self._get_asset_columns(df)
+        available_assets = self._get_asset_columns(df, lookback)
 
         if len(available_assets) < 2:
             # Too few assets — equal weight
@@ -149,11 +154,11 @@ class RegimePortfolioOptimizer:
 
         # Expected returns: exponentially weighted mean
         mu = expected_returns.ema_historical_return(
-            returns, span=126, frequency=252
+            returns, span=126, frequency=252, returns_data=True, log_returns=True
         )
 
         # Covariance: Ledoit-Wolf shrinkage
-        cov = risk_models.CovarianceShrinkage(returns).ledoit_wolf()
+        cov = risk_models.CovarianceShrinkage(returns, returns_data=True, log_returns=True).ledoit_wolf()
 
         # Build EfficientFrontier
         weight_bounds = config.get("weight_bounds", (0.0, 0.50))

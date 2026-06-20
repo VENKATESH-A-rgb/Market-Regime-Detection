@@ -1,0 +1,35 @@
+============================================================
+2026-06-13 21:03:30,498 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 21:03:30,498 [INFO] ======================================================================
+2026-06-13 21:03:31,913 [INFO] Engineering features...
+Traceback (most recent call last):
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'NSEI_Close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Market regime detection\run_pipeline.py", line 91, in <module>
+    main()
+  File "D:\Market regime detection\run_pipeline.py", line 35, in main
+    features_df, ffd_params = run_feature_pipeline(master)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 358, in run_feature_pipeline
+    df = engineer_features(master)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 146, in engineer_features
+    nsei_close = df["NSEI_Close"]
+                 ~~^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'NSEI_Close'
+

@@ -1,0 +1,2404 @@
+2026-06-13 20:40:31,231 [INFO] ======================================================================
+2026-06-13 20:40:31,231 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 20:40:31,231 [INFO] ======================================================================
+2026-06-13 20:40:32,485 [INFO] Downloading OHLCV for ['^NSEI', '^INDIAVIX', 'LIQUIDBEES.NS', 'GOLDBEES.NS', 'NIFTYBEES.NS', 'JUNIORBEES.NS', 'BANKBEES.NS'] from 1990-01-01 to 2026-06-13
+2026-06-13 20:40:32,485 [INFO]   Downloading ^NSEI...
+2026-06-13 20:40:35,541 [INFO]   Fetching deep historical inception data via nsepython...
+2026-06-13 20:40:48,244 [INFO]   Successfully spliced deep history. Earliest date: 1990-07-03
+2026-06-13 20:40:48,244 [INFO]   Downloading ^INDIAVIX...
+2026-06-13 20:40:49,481 [INFO]   Downloading LIQUIDBEES.NS...
+2026-06-13 20:40:50,809 [INFO]   Downloading GOLDBEES.NS...
+2026-06-13 20:40:51,752 [INFO]   Downloading NIFTYBEES.NS...
+2026-06-13 20:40:52,644 [INFO]   Downloading JUNIORBEES.NS...
+2026-06-13 20:40:53,579 [INFO]   Downloading BANKBEES.NS...
+2026-06-13 20:40:54,626 [INFO]   Saved ^NSEI: 8692 rows
+2026-06-13 20:40:54,663 [INFO]   Saved ^INDIAVIX: 4476 rows
+2026-06-13 20:40:54,696 [INFO]   Saved LIQUIDBEES.NS: 4300 rows
+2026-06-13 20:40:54,735 [INFO]   Saved GOLDBEES.NS: 4299 rows
+2026-06-13 20:40:54,774 [INFO]   Saved NIFTYBEES.NS: 4300 rows
+2026-06-13 20:40:54,811 [INFO]   Saved JUNIORBEES.NS: 4300 rows
+2026-06-13 20:40:54,845 [INFO]   Saved BANKBEES.NS: 4300 rows
+2026-06-13 20:40:54,845 [INFO] OHLCV download complete: (8716, 40)
+2026-06-13 20:40:54,847 [INFO]   Fetching FRED: DGS10 (10Y Treasury Yield)
+2026-06-13 20:40:57,160 [INFO]   Fetching FRED: DGS2 (2Y Treasury Yield)
+2026-06-13 20:41:00,597 [INFO]   Fetching FRED: FEDFUNDS (Fed Funds Rate)
+2026-06-13 20:41:01,984 [INFO]   Fetching FRED: CPIAUCSL (CPI (All Urban Consumers))
+2026-06-13 20:41:02,733 [INFO]   Fetching FRED: UNRATE (Unemployment Rate)
+2026-06-13 20:41:03,648 [INFO] FRED macro download complete: (9634, 5)
+2026-06-13 20:41:03,649 [INFO] Merging OHLCV and macro datasets...
+2026-06-13 20:41:03,649 [INFO] Detected yfinance MultiIndex format: (Ticker, Price)
+2026-06-13 20:41:03,681 [INFO] Master DataFrame shape: (8716, 22)
+2026-06-13 20:41:03,681 [INFO] Date range: 1990-07-03 00:00:00 to 2026-06-12 00:00:00
+2026-06-13 20:41:03,682 [INFO]   NSEI_Close: 0.0% null, starts 1990-07-03 00:00:00
+2026-06-13 20:41:03,682 [INFO]   NSEI_Open: 12.9% null, starts 1995-11-03 00:00:00
+2026-06-13 20:41:03,683 [INFO]   NSEI_High: 12.9% null, starts 1995-11-03 00:00:00
+2026-06-13 20:41:03,683 [INFO]   NSEI_Low: 12.9% null, starts 1995-11-03 00:00:00
+2026-06-13 20:41:03,684 [INFO]   INDIAVIX_Close: 48.3% null, starts 2008-03-03 00:00:00
+2026-06-13 20:41:03,684 [INFO]   LIQUIDBEES.NS_Close: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,685 [INFO]   GOLDBEES.NS_Close: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,685 [INFO]   NIFTYBEES.NS_Close: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,685 [INFO]   JUNIORBEES.NS_Close: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,685 [INFO]   BANKBEES.NS_Close: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,686 [INFO]   NSEI_Volume: 0.0% null, starts 1990-07-03 00:00:00
+2026-06-13 20:41:03,686 [INFO]   INDIAVIX_Volume: 48.3% null, starts 2008-03-03 00:00:00
+2026-06-13 20:41:03,686 [INFO]   LIQUIDBEES.NS_Volume: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,686 [INFO]   GOLDBEES.NS_Volume: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,687 [INFO]   NIFTYBEES.NS_Volume: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,687 [INFO]   JUNIORBEES.NS_Volume: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,687 [INFO]   BANKBEES.NS_Volume: 50.6% null, starts 2009-01-02 00:00:00
+2026-06-13 20:41:03,687 [INFO]   DGS10: 0.0% null, starts 1990-07-03 00:00:00
+2026-06-13 20:41:03,688 [INFO]   DGS2: 0.0% null, starts 1990-07-03 00:00:00
+2026-06-13 20:41:03,688 [INFO]   FEDFUNDS: 0.7% null, starts 1990-11-01 00:00:00
+2026-06-13 20:41:03,688 [INFO]   CPIAUCSL: 0.7% null, starts 1990-11-01 00:00:00
+2026-06-13 20:41:03,688 [INFO]   UNRATE: 0.7% null, starts 1990-11-01 00:00:00
+2026-06-13 20:41:03,888 [INFO] Saved master dataset to D:\Market regime detection\data\cleaned\master.parquet
+2026-06-13 20:41:03,893 [WARNING] Maximum date gap: 19.0 days � check for missing data
+2026-06-13 20:41:03,893 [INFO] Data pipeline complete. Report: (8716, 22), range: ('1990-07-03 00:00:00', '2026-06-12 00:00:00')
+2026-06-13 20:41:03,893 [INFO]   \u2192 Master dataset: (8716, 22)
+2026-06-13 20:41:03,893 [INFO] ======================================================================
+2026-06-13 20:41:03,893 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 20:41:03,893 [INFO] ======================================================================
+2026-06-13 20:41:04,252 [INFO] Engineering features...
+2026-06-13 20:41:05,304 [INFO] Engineered 35 features
+2026-06-13 20:41:05,304 [INFO] Applying Fractional Differentiation (FFD)...
+2026-06-13 20:41:05,375 [INFO]   NSEI_Close: min d=0.05 (ADF p=0.0133)
+2026-06-13 20:41:05,555 [INFO]   LIQUIDBEES.NS_Close: min d=0.40 (ADF p=0.0033)
+2026-06-13 20:41:05,674 [INFO]   GOLDBEES.NS_Close: min d=0.30 (ADF p=0.0000)
+2026-06-13 20:41:05,735 [INFO]   NIFTYBEES.NS_Close: min d=0.20 (ADF p=0.0225)
+2026-06-13 20:41:05,766 [INFO]   JUNIORBEES.NS_Close: min d=0.10 (ADF p=0.0082)
+2026-06-13 20:41:05,813 [INFO]   BANKBEES.NS_Close: min d=0.20 (ADF p=0.0004)
+2026-06-13 20:41:05,826 [INFO] FFD params: {'NSEI_Close': np.float64(0.05), 'LIQUIDBEES.NS_Close': np.float64(0.4), 'GOLDBEES.NS_Close': np.float64(0.30000000000000004), 'NIFTYBEES.NS_Close': np.float64(0.2), 'JUNIORBEES.NS_Close': np.float64(0.1), 'BANKBEES.NS_Close': np.float64(0.2)}
+2026-06-13 20:41:05,835 [INFO] Dropping columns that are entirely NaN: ['INDIAVIX_Close', 'LIQUIDBEES.NS_Close', 'GOLDBEES.NS_Close', 'NIFTYBEES.NS_Close', 'JUNIORBEES.NS_Close', 'BANKBEES.NS_Close', 'INDIAVIX_Volume', 'LIQUIDBEES.NS_Volume', 'GOLDBEES.NS_Volume', 'NIFTYBEES.NS_Volume', 'JUNIORBEES.NS_Volume', 'BANKBEES.NS_Volume', 'VIX_zscore', 'VIX_term_structure', 'mcclellan_osc', 'mcclellan_sum', 'volume_zscore', 'NSEI_LIQUID_ratio', 'NSEI_GOLD_ratio', 'BTC_mom_30d', 'corr_NSEI_LIQUID_60d', 'corr_NSEI_GOLD_60d', 'LIQUIDBEES.NS_ffd', 'GOLDBEES.NS_ffd', 'NIFTYBEES.NS_ffd', 'JUNIORBEES.NS_ffd', 'BANKBEES.NS_ffd']
+2026-06-13 20:41:05,844 [INFO] Dropped 4627 warmup rows, 4089 remaining
+2026-06-13 20:41:05,878 [INFO] Saved features to D:\Market regime detection\data\processed\features.parquet
+2026-06-13 20:41:05,879 [INFO]   \u2192 Features: (4089, 37), FFD params: {'NSEI_Close': np.float64(0.05), 'LIQUIDBEES.NS_Close': np.float64(0.4), 'GOLDBEES.NS_Close': np.float64(0.30000000000000004), 'NIFTYBEES.NS_Close': np.float64(0.2), 'JUNIORBEES.NS_Close': np.float64(0.1), 'BANKBEES.NS_Close': np.float64(0.2)}
+2026-06-13 20:41:05,879 [INFO] ======================================================================
+2026-06-13 20:41:05,879 [INFO] STEP 4: REGIME DETECTION (HMM)
+2026-06-13 20:41:05,879 [INFO] ======================================================================
+2026-06-13 20:41:06,171 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:06,172 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:08,159 [INFO] HMM converged in 23 iterations
+2026-06-13 20:41:08,168 [INFO]   State 0 \u2192 Bull: mean_ret=0.001803, std=0.021824, n=595
+2026-06-13 20:41:08,168 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000698, std=0.015386, n=1385
+2026-06-13 20:41:08,168 [INFO]   State 2 \u2192 Bear: mean_ret=0.000305, std=0.016201, n=1971
+2026-06-13 20:41:08,168 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000002, std=0.027535, n=138
+2026-06-13 20:41:08,168 [INFO] Regime distribution: {2: 1971, 1: 1385, 0: 595, 3: 138}
+2026-06-13 20:41:08,307 [INFO] Saved HMM model to D:\Market regime detection\output\models
+2026-06-13 20:41:08,307 [INFO] 
+=== Regime Summary ===
+2026-06-13 20:41:08,308 [INFO]   Bull: 595 days (14.6%)
+2026-06-13 20:41:08,308 [INFO]   Crisis: 138 days (3.4%)
+2026-06-13 20:41:08,309 [INFO]   Recovery: 1385 days (33.9%)
+2026-06-13 20:41:08,310 [INFO]   Bear: 1971 days (48.2%)
+2026-06-13 20:41:08,311 [INFO]   \u2192 Regimes assigned: {'Bear': 1971, 'Recovery': 1385, 'Bull': 595, 'Crisis': 138}
+2026-06-13 20:41:08,311 [INFO] ======================================================================
+2026-06-13 20:41:08,311 [INFO] STEP 5: SPECIALIST RANDOM FORESTS
+2026-06-13 20:41:08,312 [INFO] ======================================================================
+2026-06-13 20:41:08,349 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:08,349 [INFO] Using 26 features for RF
+2026-06-13 20:41:08,350 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:08,355 [INFO]   Bull: 595 samples, class balance: {1.0: 320, 0.0: 275}
+2026-06-13 20:41:13,633 [INFO]   Bull: CV accuracy = 0.4790 (�0.0466)
+2026-06-13 20:41:13,727 [INFO]   Top 5 features: {'NSEI_returns': 0.12808839842504768, 'NSEI_mom_1y': 0.053007330624898444, 'RSI_divergence': 0.04692195720879729, 'MACD_line': 0.0425714112424501, 'return_skew_20d': 0.04158908420096517}
+2026-06-13 20:41:13,728 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:13,732 [INFO]   Crisis: 138 samples, class balance: {1.0: 75, 0.0: 63}
+2026-06-13 20:41:18,490 [INFO]   Crisis: CV accuracy = 0.4574 (�0.1007)
+2026-06-13 20:41:18,575 [INFO]   Top 5 features: {'NSEI_returns': 0.10164566296103773, 'NSEI_mom_3m': 0.08592616218967689, 'BB_pct_b': 0.07752443712164131, 'NSEI_mom_1m': 0.06090813044557859, 'NSEI_SMA50_dist': 0.06007371570243995}
+2026-06-13 20:41:18,576 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:18,581 [INFO]   Recovery: 1385 samples, class balance: {1.0: 741, 0.0: 644}
+2026-06-13 20:41:24,520 [INFO]   Recovery: CV accuracy = 0.4809 (�0.0387)
+2026-06-13 20:41:24,611 [INFO]   Top 5 features: {'NSEI_returns': 0.11516024760662387, 'NSEI_mom_3m': 0.058079709587049, 'BB_bandwidth': 0.050675540115057864, 'NSEI_mom_1y': 0.045784966116747, 'BB_pct_b': 0.04526595268439011}
+2026-06-13 20:41:24,612 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:24,618 [INFO]   Bear: 1971 samples, class balance: {1.0: 1035, 0.0: 936}
+2026-06-13 20:41:30,676 [INFO]   Bear: CV accuracy = 0.4089 (�0.0889)
+2026-06-13 20:41:30,770 [INFO]   Top 5 features: {'NSEI_returns': 0.10033987780705964, 'BB_bandwidth': 0.07102654488298114, 'BB_pct_b': 0.055583507086322335, 'NSEI_mom_1m': 0.05504433948472273, 'real_rate': 0.04688032765843697}
+2026-06-13 20:41:30,771 [INFO] 
+Trained 4 specialists: ['Bull', 'Crisis', 'Recovery', 'Bear']
+2026-06-13 20:41:30,771 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:32,074 [INFO] Signal distribution: {1: 2161, -1: 1928}
+2026-06-13 20:41:32,074 [INFO] Next-regime routing: {'Bear': 1971, 'Recovery': 1385, 'Bull': 595, 'Crisis': 138}
+2026-06-13 20:41:32,702 [INFO] Saved 4 specialists to D:\Market regime detection\output\models
+2026-06-13 20:41:32,742 [INFO]   \u2192 Signals: {1: 2161, -1: 1928}
+2026-06-13 20:41:32,742 [INFO] ======================================================================
+2026-06-13 20:41:32,742 [INFO] STEP 6+7: BACKTEST (WALK-FORWARD OPTIMIZATION)
+2026-06-13 20:41:32,742 [INFO] ======================================================================
+2026-06-13 20:41:32,745 [INFO] ============================================================
+2026-06-13 20:41:32,745 [INFO] WALK-FORWARD OPTIMIZATION (Multi-Asset)
+2026-06-13 20:41:32,745 [INFO] Train: 252d, Test: 63d, Step: 63d
+2026-06-13 20:41:32,745 [INFO] Fees: 0.1bps, Slippage: 0.1bps
+2026-06-13 20:41:32,746 [INFO] ============================================================
+2026-06-13 20:41:32,747 [INFO] 
+--- Window 1: Train [1990-08-09 \u2192 1991-11-19], Test [1991-11-20 \u2192 1992-03-03] ---
+2026-06-13 20:41:32,747 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:32,747 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:32,803 [INFO] HMM converged in 7 iterations
+2026-06-13 20:41:32,808 [INFO]   State 3 \u2192 Bull: mean_ret=0.005077, std=0.013110, n=21
+2026-06-13 20:41:32,808 [INFO]   State 1 \u2192 Recovery: mean_ret=0.004490, std=0.033173, n=51
+2026-06-13 20:41:32,808 [INFO]   State 0 \u2192 Bear: mean_ret=0.002376, std=0.016386, n=104
+2026-06-13 20:41:32,808 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000105, std=0.022769, n=76
+2026-06-13 20:41:32,809 [INFO] Regime distribution: {0: 104, 2: 76, 1: 51, 3: 21}
+2026-06-13 20:41:32,826 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:32,827 [INFO] Using 26 features for RF
+2026-06-13 20:41:32,828 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:32,831 [WARNING]   Recovery: only 51 samples � skipping specialist
+2026-06-13 20:41:32,831 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:32,834 [WARNING]   Crisis: only 76 samples � skipping specialist
+2026-06-13 20:41:32,834 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:32,836 [INFO]   Bear: 104 samples, class balance: {1.0: 58, 0.0: 46}
+2026-06-13 20:41:33,923 [INFO]   Bear: CV accuracy = 0.4424 (�0.0872)
+2026-06-13 20:41:33,954 [INFO]   Top 5 features: {'return_kurt_20d': 0.12583966429991827, 'NSEI_SMA20_dist': 0.11275168780546217, 'NSEI_mom_3m': 0.08179063789013664, 'realized_vol_60d': 0.07559254453203265, 'return_skew_20d': 0.07368179440014615}
+2026-06-13 20:41:33,955 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:33,958 [WARNING]   Bull: only 21 samples � skipping specialist
+2026-06-13 20:41:33,958 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:33,958 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:34,187 [INFO] Signal distribution: {1: 59, -1: 4}
+2026-06-13 20:41:34,189 [INFO] Next-regime routing: {'Bull': 48, 'Bear': 10, 'Crisis': 5}
+2026-06-13 20:41:34,203 [INFO] 
+--- Window 2: Train [1990-12-17 \u2192 1992-03-03], Test [1992-03-09 \u2192 1992-07-31] ---
+2026-06-13 20:41:34,203 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:34,203 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:34,252 [WARNING] Model is not converging.  Current: 45.55854085973244 is not greater than 45.56216917308474. Delta is -0.0036283133523014044
+2026-06-13 20:41:34,252 [INFO] HMM converged in 7 iterations
+2026-06-13 20:41:34,257 [INFO]   State 3 \u2192 Bull: mean_ret=0.031971, std=0.037048, n=10
+2026-06-13 20:41:34,257 [INFO]   State 1 \u2192 Recovery: mean_ret=0.004717, std=0.016199, n=73
+2026-06-13 20:41:34,257 [INFO]   State 0 \u2192 Bear: mean_ret=0.002459, std=0.016073, n=114
+2026-06-13 20:41:34,258 [INFO]   State 2 \u2192 Crisis: mean_ret=0.000229, std=0.023985, n=55
+2026-06-13 20:41:34,258 [INFO] Regime distribution: {0: 114, 1: 73, 2: 55, 3: 10}
+2026-06-13 20:41:34,276 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:34,278 [INFO] Using 26 features for RF
+2026-06-13 20:41:34,278 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:34,280 [WARNING]   Crisis: only 55 samples � skipping specialist
+2026-06-13 20:41:34,280 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:34,282 [INFO]   Bear: 114 samples, class balance: {1.0: 64, 0.0: 50}
+2026-06-13 20:41:35,425 [INFO]   Bear: CV accuracy = 0.4992 (�0.0810)
+2026-06-13 20:41:35,459 [INFO]   Top 5 features: {'return_kurt_20d': 0.14655458975018865, 'NSEI_mom_3m': 0.10185048120062504, 'NSEI_returns': 0.07754227972175247, 'return_skew_20d': 0.06539352119269223, 'realized_vol_20d': 0.058480641314921346}
+2026-06-13 20:41:35,459 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:35,462 [WARNING]   Recovery: only 73 samples � skipping specialist
+2026-06-13 20:41:35,462 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:35,463 [WARNING]   Bull: only 10 samples � skipping specialist
+2026-06-13 20:41:35,464 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:35,464 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:35,739 [INFO] Signal distribution: {-1: 34, 1: 29}
+2026-06-13 20:41:35,740 [INFO] Next-regime routing: {'Recovery': 33, 'Crisis': 14, 'Bull': 11, 'Bear': 5}
+2026-06-13 20:41:35,753 [INFO] 
+--- Window 3: Train [1991-04-23 \u2192 1992-07-31], Test [1992-08-03 \u2192 1992-11-18] ---
+2026-06-13 20:41:35,753 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:35,753 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:35,818 [WARNING] Model is not converging.  Current: -130.0911914038179 is not greater than -130.02271637816028. Delta is -0.06847502565761943
+2026-06-13 20:41:35,818 [INFO] HMM converged in 13 iterations
+2026-06-13 20:41:35,822 [INFO]   State 1 \u2192 Bull: mean_ret=0.010702, std=0.048976, n=43
+2026-06-13 20:41:35,823 [INFO]   State 2 \u2192 Recovery: mean_ret=0.002989, std=0.016079, n=156
+2026-06-13 20:41:35,823 [INFO]   State 3 \u2192 Bear: mean_ret=-0.003554, std=0.021282, n=19
+2026-06-13 20:41:35,823 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.006427, std=0.037202, n=34
+2026-06-13 20:41:35,823 [INFO] Regime distribution: {2: 156, 1: 43, 0: 34, 3: 19}
+2026-06-13 20:41:35,841 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:35,842 [INFO] Using 26 features for RF
+2026-06-13 20:41:35,842 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:35,845 [WARNING]   Bear: only 23 samples � skipping specialist
+2026-06-13 20:41:35,845 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:35,846 [INFO]   Recovery: 156 samples, class balance: {1.0: 90, 0.0: 66}
+2026-06-13 20:41:37,005 [INFO]   Recovery: CV accuracy = 0.4159 (�0.1274)
+2026-06-13 20:41:37,043 [INFO]   Top 5 features: {'yield_spread_zscore': 0.13521529783622765, 'realized_vol_60d': 0.0889734411553626, 'BB_bandwidth': 0.06791744319765786, 'return_skew_20d': 0.06581454026556284, 'NSEI_mom_3m': 0.05922575911981526}
+2026-06-13 20:41:37,044 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:37,047 [WARNING]   Bull: only 43 samples � skipping specialist
+2026-06-13 20:41:37,047 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:37,049 [WARNING]   Crisis: only 30 samples � skipping specialist
+2026-06-13 20:41:37,049 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:37,049 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:37,326 [INFO] Signal distribution: {1: 61, -1: 2}
+2026-06-13 20:41:37,327 [INFO] Next-regime routing: {'Recovery': 33, 'Crisis': 20, 'Bear': 5, 'Bull': 5}
+2026-06-13 20:41:37,343 [INFO] 
+--- Window 4: Train [1991-08-01 \u2192 1992-11-18], Test [1992-11-19 \u2192 1993-03-04] ---
+2026-06-13 20:41:37,343 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:37,343 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:37,397 [WARNING] Model is not converging.  Current: 66.7043010407563 is not greater than 66.71678253587488. Delta is -0.012481495118578323
+2026-06-13 20:41:37,397 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:37,402 [INFO]   State 2 \u2192 Bull: mean_ret=0.008705, std=0.050182, n=44
+2026-06-13 20:41:37,402 [INFO]   State 0 \u2192 Recovery: mean_ret=0.002407, std=0.015497, n=111
+2026-06-13 20:41:37,402 [INFO]   State 1 \u2192 Bear: mean_ret=-0.002245, std=0.021844, n=76
+2026-06-13 20:41:37,402 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.005042, std=0.043700, n=21
+2026-06-13 20:41:37,403 [INFO] Regime distribution: {0: 111, 1: 76, 2: 44, 3: 21}
+2026-06-13 20:41:37,424 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:37,425 [INFO] Using 26 features for RF
+2026-06-13 20:41:37,425 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:37,428 [INFO]   Recovery: 111 samples, class balance: {1.0: 62, 0.0: 49}
+2026-06-13 20:41:38,627 [INFO]   Recovery: CV accuracy = 0.4040 (�0.1597)
+2026-06-13 20:41:38,660 [INFO]   Top 5 features: {'yield_spread_zscore': 0.1238247585589878, 'NSEI_mom_6m': 0.12030883909461865, 'BB_bandwidth': 0.07878355579712676, 'realized_vol_60d': 0.06772958114413943, 'NSEI_mom_1m': 0.05572682743428753}
+2026-06-13 20:41:38,661 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:38,664 [WARNING]   Bull: only 44 samples � skipping specialist
+2026-06-13 20:41:38,664 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:38,666 [WARNING]   Crisis: only 21 samples � skipping specialist
+2026-06-13 20:41:38,666 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:38,668 [WARNING]   Bear: only 76 samples � skipping specialist
+2026-06-13 20:41:38,668 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:38,668 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:38,739 [INFO] Signal distribution: {-1: 36, 1: 27}
+2026-06-13 20:41:38,740 [INFO] Next-regime routing: {'Recovery': 63}
+2026-06-13 20:41:38,751 [INFO] 
+--- Window 5: Train [1991-11-20 \u2192 1993-03-04], Test [1993-03-05 \u2192 1993-06-17] ---
+2026-06-13 20:41:38,751 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:38,751 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:38,807 [INFO] HMM converged in 10 iterations
+2026-06-13 20:41:38,813 [INFO]   State 2 \u2192 Bull: mean_ret=0.004900, std=0.017634, n=80
+2026-06-13 20:41:38,813 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001289, std=0.024127, n=35
+2026-06-13 20:41:38,813 [INFO]   State 0 \u2192 Bear: mean_ret=0.000948, std=0.051560, n=54
+2026-06-13 20:41:38,813 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002798, std=0.020821, n=83
+2026-06-13 20:41:38,813 [INFO] Regime distribution: {1: 83, 2: 80, 0: 54, 3: 35}
+2026-06-13 20:41:38,832 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:38,834 [INFO] Using 26 features for RF
+2026-06-13 20:41:38,834 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:38,836 [WARNING]   Bull: only 80 samples � skipping specialist
+2026-06-13 20:41:38,836 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:38,839 [WARNING]   Bear: only 54 samples � skipping specialist
+2026-06-13 20:41:38,839 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:38,841 [WARNING]   Recovery: only 35 samples � skipping specialist
+2026-06-13 20:41:38,841 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:38,843 [WARNING]   Crisis: only 83 samples � skipping specialist
+2026-06-13 20:41:38,843 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:38,843 [INFO] Generating batch signals...
+2026-06-13 20:41:38,851 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:38,851 [INFO] Next-regime routing: {'Crisis': 58, 'Bull': 5}
+2026-06-13 20:41:38,866 [INFO] 
+--- Window 6: Train [1992-03-09 \u2192 1993-06-17], Test [1993-06-18 \u2192 1993-09-27] ---
+2026-06-13 20:41:38,866 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:38,866 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:38,914 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:38,918 [INFO]   State 0 \u2192 Bull: mean_ret=0.010978, std=0.045983, n=23
+2026-06-13 20:41:38,918 [INFO]   State 3 \u2192 Recovery: mean_ret=0.002745, std=0.018144, n=39
+2026-06-13 20:41:38,918 [INFO]   State 1 \u2192 Bear: mean_ret=-0.001863, std=0.020568, n=141
+2026-06-13 20:41:38,918 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.010098, std=0.041550, n=49
+2026-06-13 20:41:38,918 [INFO] Regime distribution: {1: 141, 2: 49, 3: 39, 0: 23}
+2026-06-13 20:41:38,938 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:38,940 [INFO] Using 26 features for RF
+2026-06-13 20:41:38,940 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:38,943 [WARNING]   Bull: only 23 samples � skipping specialist
+2026-06-13 20:41:38,943 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:38,944 [WARNING]   Crisis: only 49 samples � skipping specialist
+2026-06-13 20:41:38,944 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:38,945 [WARNING]   Recovery: only 39 samples � skipping specialist
+2026-06-13 20:41:38,946 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:38,948 [INFO]   Bear: 141 samples, class balance: {1.0: 73, 0.0: 68}
+2026-06-13 20:41:40,131 [INFO]   Bear: CV accuracy = 0.5953 (�0.1358)
+2026-06-13 20:41:40,163 [INFO]   Top 5 features: {'NSEI_returns': 0.21152852351878848, 'NSEI_mom_3m': 0.12985145997210418, 'yield_spread_zscore': 0.10821708418667465, 'yield_spread': 0.05207966345136216, 'RSI_divergence': 0.05193101088909645}
+2026-06-13 20:41:40,164 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:40,164 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:40,304 [INFO] Signal distribution: {-1: 56, 1: 7}
+2026-06-13 20:41:40,306 [INFO] Next-regime routing: {'Bear': 58, 'Bull': 5}
+2026-06-13 20:41:40,324 [INFO] 
+--- Window 7: Train [1992-08-03 \u2192 1993-09-27], Test [1993-09-28 \u2192 1994-01-25] ---
+2026-06-13 20:41:40,324 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:40,325 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:40,379 [WARNING] Model is not converging.  Current: -240.2567739054291 is not greater than -240.25560638019283. Delta is -0.0011675252362692845
+2026-06-13 20:41:40,379 [INFO] HMM converged in 6 iterations
+2026-06-13 20:41:40,385 [INFO]   State 3 \u2192 Bull: mean_ret=0.005834, std=0.022715, n=20
+2026-06-13 20:41:40,386 [INFO]   State 2 \u2192 Recovery: mean_ret=0.002748, std=0.015431, n=109
+2026-06-13 20:41:40,386 [INFO]   State 0 \u2192 Bear: mean_ret=-0.002544, std=0.022222, n=82
+2026-06-13 20:41:40,386 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.003048, std=0.019738, n=41
+2026-06-13 20:41:40,386 [INFO] Regime distribution: {2: 109, 0: 82, 1: 41, 3: 20}
+2026-06-13 20:41:40,406 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:40,408 [INFO] Using 26 features for RF
+2026-06-13 20:41:40,408 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:40,410 [WARNING]   Bull: only 20 samples � skipping specialist
+2026-06-13 20:41:40,410 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:40,412 [WARNING]   Crisis: only 41 samples � skipping specialist
+2026-06-13 20:41:40,412 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:40,414 [WARNING]   Bear: only 82 samples � skipping specialist
+2026-06-13 20:41:40,414 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:40,415 [INFO]   Recovery: 109 samples, class balance: {1.0: 62, 0.0: 47}
+2026-06-13 20:41:41,711 [INFO]   Recovery: CV accuracy = 0.5693 (�0.1525)
+2026-06-13 20:41:41,744 [INFO]   Top 5 features: {'NSEI_returns': 0.1587985260470562, 'RSI_divergence': 0.12492997916193596, 'real_rate': 0.0928990565278688, 'NSEI_mom_6m': 0.07153847316906643, 'NSEI_mom_3m': 0.0498335290980003}
+2026-06-13 20:41:41,745 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:41,746 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:41,902 [INFO] Signal distribution: {1: 46, -1: 17}
+2026-06-13 20:41:41,903 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 20:41:41,920 [INFO] 
+--- Window 8: Train [1992-11-19 \u2192 1994-01-25], Test [1994-01-27 \u2192 1994-05-03] ---
+2026-06-13 20:41:41,920 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:41,920 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:41,991 [INFO] HMM converged in 14 iterations
+2026-06-13 20:41:41,998 [INFO]   State 1 \u2192 Bull: mean_ret=0.008930, std=0.019218, n=69
+2026-06-13 20:41:41,998 [INFO]   State 3 \u2192 Recovery: mean_ret=0.003240, std=0.014367, n=41
+2026-06-13 20:41:41,998 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000067, std=0.012251, n=67
+2026-06-13 20:41:41,998 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002730, std=0.022611, n=75
+2026-06-13 20:41:41,999 [INFO] Regime distribution: {0: 75, 1: 69, 2: 67, 3: 41}
+2026-06-13 20:41:42,022 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:42,023 [INFO] Using 26 features for RF
+2026-06-13 20:41:42,024 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:42,026 [WARNING]   Crisis: only 75 samples � skipping specialist
+2026-06-13 20:41:42,026 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:42,027 [WARNING]   Recovery: only 41 samples � skipping specialist
+2026-06-13 20:41:42,027 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:42,029 [WARNING]   Bear: only 67 samples � skipping specialist
+2026-06-13 20:41:42,029 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:42,031 [WARNING]   Bull: only 69 samples � skipping specialist
+2026-06-13 20:41:42,031 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:42,031 [INFO] Generating batch signals...
+2026-06-13 20:41:42,037 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:42,037 [INFO] Next-regime routing: {'Bear': 53, 'Crisis': 5, 'Bull': 5}
+2026-06-13 20:41:42,049 [INFO] 
+--- Window 9: Train [1993-03-05 \u2192 1994-05-03], Test [1994-05-04 \u2192 1994-08-03] ---
+2026-06-13 20:41:42,049 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:42,050 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:42,112 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:42,116 [INFO]   State 1 \u2192 Bull: mean_ret=0.007288, std=0.018349, n=89
+2026-06-13 20:41:42,116 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.001236, std=0.019045, n=74
+2026-06-13 20:41:42,116 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001410, std=0.016786, n=73
+2026-06-13 20:41:42,117 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001760, std=0.008439, n=16
+2026-06-13 20:41:42,117 [INFO] Regime distribution: {1: 89, 0: 74, 2: 73, 3: 16}
+2026-06-13 20:41:42,138 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:42,139 [INFO] Using 26 features for RF
+2026-06-13 20:41:42,140 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:42,142 [WARNING]   Recovery: only 74 samples � skipping specialist
+2026-06-13 20:41:42,142 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:42,144 [WARNING]   Crisis: only 16 samples � skipping specialist
+2026-06-13 20:41:42,144 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:42,146 [WARNING]   Bull: only 89 samples � skipping specialist
+2026-06-13 20:41:42,146 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:42,148 [WARNING]   Bear: only 73 samples � skipping specialist
+2026-06-13 20:41:42,148 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:42,148 [INFO] Generating batch signals...
+2026-06-13 20:41:42,156 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:42,156 [INFO] Next-regime routing: {'Bull': 49, 'Bear': 9, 'Recovery': 5}
+2026-06-13 20:41:42,171 [INFO] 
+--- Window 10: Train [1993-06-18 \u2192 1994-08-03], Test [1994-08-04 \u2192 1994-11-16] ---
+2026-06-13 20:41:42,171 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:42,171 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:42,242 [INFO] HMM converged in 12 iterations
+2026-06-13 20:41:42,247 [INFO]   State 0 \u2192 Bull: mean_ret=0.006690, std=0.020229, n=69
+2026-06-13 20:41:42,247 [INFO]   State 2 \u2192 Recovery: mean_ret=0.002320, std=0.013154, n=79
+2026-06-13 20:41:42,247 [INFO]   State 1 \u2192 Bear: mean_ret=0.000784, std=0.010250, n=75
+2026-06-13 20:41:42,247 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001239, std=0.019944, n=29
+2026-06-13 20:41:42,247 [INFO] Regime distribution: {2: 79, 1: 75, 0: 69, 3: 29}
+2026-06-13 20:41:42,268 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:42,269 [INFO] Using 26 features for RF
+2026-06-13 20:41:42,270 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:42,272 [WARNING]   Recovery: only 79 samples � skipping specialist
+2026-06-13 20:41:42,273 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:42,275 [WARNING]   Bull: only 69 samples � skipping specialist
+2026-06-13 20:41:42,275 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:42,277 [WARNING]   Crisis: only 29 samples � skipping specialist
+2026-06-13 20:41:42,277 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:42,279 [WARNING]   Bear: only 75 samples � skipping specialist
+2026-06-13 20:41:42,279 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:42,279 [INFO] Generating batch signals...
+2026-06-13 20:41:42,287 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:42,288 [INFO] Next-regime routing: {'Bear': 43, 'Recovery': 10, 'Bull': 10}
+2026-06-13 20:41:42,302 [INFO] 
+--- Window 11: Train [1993-09-28 \u2192 1994-11-16], Test [1994-11-17 \u2192 1995-02-22] ---
+2026-06-13 20:41:42,302 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:42,302 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:42,364 [INFO] HMM converged in 11 iterations
+2026-06-13 20:41:42,369 [INFO]   State 2 \u2192 Bull: mean_ret=0.007574, std=0.019837, n=57
+2026-06-13 20:41:42,369 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000551, std=0.009770, n=127
+2026-06-13 20:41:42,369 [INFO]   State 3 \u2192 Bear: mean_ret=-0.001566, std=0.010366, n=23
+2026-06-13 20:41:42,369 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001681, std=0.017880, n=45
+2026-06-13 20:41:42,370 [INFO] Regime distribution: {1: 127, 2: 57, 0: 45, 3: 23}
+2026-06-13 20:41:42,391 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:42,392 [INFO] Using 26 features for RF
+2026-06-13 20:41:42,393 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:42,395 [WARNING]   Bull: only 57 samples � skipping specialist
+2026-06-13 20:41:42,395 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:42,396 [WARNING]   Bear: only 23 samples � skipping specialist
+2026-06-13 20:41:42,397 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:42,399 [WARNING]   Crisis: only 45 samples � skipping specialist
+2026-06-13 20:41:42,399 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:42,401 [INFO]   Recovery: 127 samples, class balance: {0.0: 65, 1.0: 62}
+2026-06-13 20:41:43,875 [INFO]   Recovery: CV accuracy = 0.3692 (�0.1704)
+2026-06-13 20:41:43,906 [INFO]   Top 5 features: {'yield_spread_zscore': 0.11643433942462517, 'NSEI_returns': 0.11195107292498399, 'return_skew_20d': 0.09945814109276974, 'NSEI_mom_6m': 0.08915789867911997, 'yield_spread': 0.06771403075267968}
+2026-06-13 20:41:43,908 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:43,908 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:44,053 [INFO] Signal distribution: {-1: 41, 1: 22}
+2026-06-13 20:41:44,053 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 20:41:44,066 [INFO] 
+--- Window 12: Train [1994-01-27 \u2192 1995-02-22], Test [1995-02-23 \u2192 1995-06-06] ---
+2026-06-13 20:41:44,066 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:44,067 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:44,114 [WARNING] Model is not converging.  Current: 205.39917197611015 is not greater than 205.40287293031474. Delta is -0.0037009542045893795
+2026-06-13 20:41:44,114 [INFO] HMM converged in 6 iterations
+2026-06-13 20:41:44,119 [INFO]   State 2 \u2192 Bull: mean_ret=0.001257, std=0.010860, n=51
+2026-06-13 20:41:44,119 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000178, std=0.009004, n=110
+2026-06-13 20:41:44,119 [INFO]   State 0 \u2192 Bear: mean_ret=-0.001271, std=0.022289, n=37
+2026-06-13 20:41:44,119 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.004955, std=0.011828, n=54
+2026-06-13 20:41:44,120 [INFO] Regime distribution: {1: 110, 3: 54, 2: 51, 0: 37}
+2026-06-13 20:41:44,140 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:44,142 [INFO] Using 26 features for RF
+2026-06-13 20:41:44,142 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:44,146 [WARNING]   Bear: only 37 samples � skipping specialist
+2026-06-13 20:41:44,146 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:44,149 [WARNING]   Bull: only 51 samples � skipping specialist
+2026-06-13 20:41:44,149 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:44,151 [INFO]   Recovery: 110 samples, class balance: {0.0: 61, 1.0: 49}
+2026-06-13 20:41:45,376 [INFO]   Recovery: CV accuracy = 0.4636 (�0.0603)
+2026-06-13 20:41:45,410 [INFO]   Top 5 features: {'NSEI_mom_6m': 0.1135825332380479, 'NSEI_returns': 0.1070332004482795, 'return_kurt_20d': 0.09531650128734168, 'NSEI_mom_3m': 0.09241855010005802, 'return_skew_20d': 0.08434646577486594}
+2026-06-13 20:41:45,411 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:45,413 [WARNING]   Crisis: only 54 samples � skipping specialist
+2026-06-13 20:41:45,414 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:45,414 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:45,555 [INFO] Signal distribution: {-1: 42, 1: 21}
+2026-06-13 20:41:45,556 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 20:41:45,576 [INFO] 
+--- Window 13: Train [1994-05-04 \u2192 1995-06-06], Test [1995-06-07 \u2192 1995-09-12] ---
+2026-06-13 20:41:45,576 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:45,577 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:45,648 [INFO] HMM converged in 12 iterations
+2026-06-13 20:41:45,653 [INFO]   State 2 \u2192 Bull: mean_ret=0.004366, std=0.011322, n=26
+2026-06-13 20:41:45,653 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.000491, std=0.008890, n=99
+2026-06-13 20:41:45,653 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000667, std=0.015216, n=85
+2026-06-13 20:41:45,653 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.002766, std=0.011245, n=42
+2026-06-13 20:41:45,654 [INFO] Regime distribution: {0: 99, 1: 85, 3: 42, 2: 26}
+2026-06-13 20:41:45,676 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:45,678 [INFO] Using 26 features for RF
+2026-06-13 20:41:45,678 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:45,679 [WARNING]   Bull: only 26 samples � skipping specialist
+2026-06-13 20:41:45,680 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:45,681 [WARNING]   Recovery: only 99 samples � skipping specialist
+2026-06-13 20:41:45,681 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:45,683 [WARNING]   Crisis: only 42 samples � skipping specialist
+2026-06-13 20:41:45,683 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:45,684 [WARNING]   Bear: only 85 samples � skipping specialist
+2026-06-13 20:41:45,685 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:45,685 [INFO] Generating batch signals...
+2026-06-13 20:41:45,693 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:45,693 [INFO] Next-regime routing: {'Bear': 45, 'Crisis': 13, 'Bull': 5}
+2026-06-13 20:41:45,709 [INFO] 
+--- Window 14: Train [1994-08-04 \u2192 1995-09-12], Test [1995-09-13 \u2192 1995-12-14] ---
+2026-06-13 20:41:45,709 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:45,709 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:45,761 [INFO] HMM converged in 7 iterations
+2026-06-13 20:41:45,766 [INFO]   State 1 \u2192 Bull: mean_ret=-0.000070, std=0.009621, n=68
+2026-06-13 20:41:45,766 [INFO]   State 3 \u2192 Recovery: mean_ret=-0.000234, std=0.015070, n=57
+2026-06-13 20:41:45,766 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000809, std=0.009106, n=66
+2026-06-13 20:41:45,766 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.003657, std=0.012929, n=61
+2026-06-13 20:41:45,767 [INFO] Regime distribution: {1: 68, 2: 66, 0: 61, 3: 57}
+2026-06-13 20:41:45,789 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:45,789 [INFO] Using 26 features for RF
+2026-06-13 20:41:45,790 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:45,792 [WARNING]   Bear: only 66 samples � skipping specialist
+2026-06-13 20:41:45,793 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:45,794 [WARNING]   Crisis: only 61 samples � skipping specialist
+2026-06-13 20:41:45,795 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:45,797 [WARNING]   Recovery: only 57 samples � skipping specialist
+2026-06-13 20:41:45,797 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:45,799 [WARNING]   Bull: only 68 samples � skipping specialist
+2026-06-13 20:41:45,799 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:45,799 [INFO] Generating batch signals...
+2026-06-13 20:41:45,806 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:45,807 [INFO] Next-regime routing: {'Bull': 35, 'Crisis': 28}
+2026-06-13 20:41:45,820 [INFO] 
+--- Window 15: Train [1994-11-17 \u2192 1995-12-14], Test [1995-12-15 \u2192 1996-03-18] ---
+2026-06-13 20:41:45,820 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:45,820 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:45,865 [INFO] HMM converged in 6 iterations
+2026-06-13 20:41:45,870 [INFO]   State 0 \u2192 Bull: mean_ret=0.001359, std=0.015498, n=70
+2026-06-13 20:41:45,870 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000471, std=0.009054, n=106
+2026-06-13 20:41:45,870 [INFO]   State 2 \u2192 Bear: mean_ret=-0.004142, std=0.011597, n=63
+2026-06-13 20:41:45,871 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.008903, std=0.015042, n=13
+2026-06-13 20:41:45,871 [INFO] Regime distribution: {1: 106, 0: 70, 2: 63, 3: 13}
+2026-06-13 20:41:45,891 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:45,892 [INFO] Using 26 features for RF
+2026-06-13 20:41:45,892 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:45,894 [WARNING]   Bear: only 63 samples � skipping specialist
+2026-06-13 20:41:45,894 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:45,896 [WARNING]   Bull: only 70 samples � skipping specialist
+2026-06-13 20:41:45,896 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:45,899 [INFO]   Recovery: 106 samples, class balance: {0.0: 57, 1.0: 49}
+2026-06-13 20:41:47,119 [INFO]   Recovery: CV accuracy = 0.4814 (�0.1068)
+2026-06-13 20:41:47,153 [INFO]   Top 5 features: {'yield_spread_zscore': 0.14379557583311278, 'NSEI_returns': 0.1283316894115819, 'return_skew_20d': 0.09370320682593375, 'NSEI_mom_1m': 0.08749326733119539, 'MACD_line': 0.07932527632997569}
+2026-06-13 20:41:47,154 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:47,160 [WARNING]   Crisis: only 13 samples � skipping specialist
+2026-06-13 20:41:47,160 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:41:47,161 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:47,315 [INFO] Signal distribution: {-1: 41, 1: 22}
+2026-06-13 20:41:47,316 [INFO] Next-regime routing: {'Bear': 45, 'Bull': 18}
+2026-06-13 20:41:47,334 [INFO] 
+--- Window 16: Train [1995-02-23 \u2192 1996-03-18], Test [1996-03-19 \u2192 1996-06-17] ---
+2026-06-13 20:41:47,334 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:47,334 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:47,416 [INFO] HMM converged in 16 iterations
+2026-06-13 20:41:47,420 [INFO]   State 1 \u2192 Bull: mean_ret=0.003529, std=0.020807, n=37
+2026-06-13 20:41:47,420 [INFO]   State 3 \u2192 Recovery: mean_ret=0.002760, std=0.015531, n=41
+2026-06-13 20:41:47,420 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000485, std=0.010432, n=112
+2026-06-13 20:41:47,421 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.002834, std=0.011640, n=62
+2026-06-13 20:41:47,421 [INFO] Regime distribution: {0: 112, 2: 62, 3: 41, 1: 37}
+2026-06-13 20:41:47,442 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:47,443 [INFO] Using 26 features for RF
+2026-06-13 20:41:47,444 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:47,446 [WARNING]   Recovery: only 41 samples � skipping specialist
+2026-06-13 20:41:47,446 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:47,448 [INFO]   Bear: 112 samples, class balance: {0.0: 60, 1.0: 52}
+2026-06-13 20:41:48,656 [INFO]   Bear: CV accuracy = 0.5447 (�0.1588)
+2026-06-13 20:41:48,687 [INFO]   Top 5 features: {'yield_spread_zscore': 0.1445688824673679, 'NSEI_mom_1y': 0.1380066779728431, 'NSEI_returns': 0.11475398657377668, 'MACD_line': 0.1078147189805288, 'RSI_divergence': 0.06274376030395674}
+2026-06-13 20:41:48,689 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:48,693 [WARNING]   Crisis: only 62 samples � skipping specialist
+2026-06-13 20:41:48,694 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:48,696 [WARNING]   Bull: only 37 samples � skipping specialist
+2026-06-13 20:41:48,696 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:48,696 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:48,848 [INFO] Signal distribution: {-1: 60, 1: 3}
+2026-06-13 20:41:48,849 [INFO] Next-regime routing: {'Bull': 58, 'Recovery': 5}
+2026-06-13 20:41:48,866 [INFO] 
+--- Window 17: Train [1995-06-07 \u2192 1996-06-17], Test [1996-06-18 \u2192 1996-09-16] ---
+2026-06-13 20:41:48,866 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:48,866 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:48,927 [INFO] HMM converged in 11 iterations
+2026-06-13 20:41:48,931 [INFO]   State 2 \u2192 Bull: mean_ret=0.003544, std=0.019994, n=41
+2026-06-13 20:41:48,932 [INFO]   State 3 \u2192 Recovery: mean_ret=0.003543, std=0.015121, n=54
+2026-06-13 20:41:48,932 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000673, std=0.009053, n=102
+2026-06-13 20:41:48,932 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002073, std=0.012404, n=55
+2026-06-13 20:41:48,932 [INFO] Regime distribution: {1: 102, 0: 55, 3: 54, 2: 41}
+2026-06-13 20:41:48,951 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:48,952 [INFO] Using 26 features for RF
+2026-06-13 20:41:48,952 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:48,955 [INFO]   Bear: 102 samples, class balance: {0.0: 54, 1.0: 48}
+2026-06-13 20:41:50,191 [INFO]   Bear: CV accuracy = 0.5076 (�0.1167)
+2026-06-13 20:41:50,226 [INFO]   Top 5 features: {'yield_spread_zscore': 0.14545509003537396, 'MACD_line': 0.1102336100866762, 'NSEI_returns': 0.11020587964155572, 'return_skew_20d': 0.08459580674787331, 'RSI_divergence': 0.07218050178225521}
+2026-06-13 20:41:50,226 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:50,230 [WARNING]   Crisis: only 55 samples � skipping specialist
+2026-06-13 20:41:50,230 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:50,232 [WARNING]   Bull: only 41 samples � skipping specialist
+2026-06-13 20:41:50,232 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:50,235 [WARNING]   Recovery: only 54 samples � skipping specialist
+2026-06-13 20:41:50,235 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:50,235 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:50,474 [INFO] Signal distribution: {-1: 39, 1: 24}
+2026-06-13 20:41:50,475 [INFO] Next-regime routing: {'Bull': 48, 'Recovery': 10, 'Bear': 5}
+2026-06-13 20:41:50,491 [INFO] 
+--- Window 18: Train [1995-09-13 \u2192 1996-09-16], Test [1996-09-17 \u2192 1996-12-16] ---
+2026-06-13 20:41:50,492 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:50,492 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:50,578 [INFO] HMM converged in 22 iterations
+2026-06-13 20:41:50,584 [INFO]   State 0 \u2192 Bull: mean_ret=0.003527, std=0.020487, n=40
+2026-06-13 20:41:50,584 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001729, std=0.013946, n=85
+2026-06-13 20:41:50,584 [INFO]   State 3 \u2192 Bear: mean_ret=0.001341, std=0.007423, n=27
+2026-06-13 20:41:50,584 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.003329, std=0.011950, n=100
+2026-06-13 20:41:50,585 [INFO] Regime distribution: {2: 100, 1: 85, 0: 40, 3: 27}
+2026-06-13 20:41:50,606 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:50,608 [INFO] Using 26 features for RF
+2026-06-13 20:41:50,608 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:50,611 [WARNING]   Bear: only 27 samples � skipping specialist
+2026-06-13 20:41:50,611 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:50,613 [INFO]   Crisis: 100 samples, class balance: {0.0: 63, 1.0: 37}
+2026-06-13 20:41:51,816 [INFO]   Crisis: CV accuracy = 0.5800 (�0.0927)
+2026-06-13 20:41:51,852 [INFO]   Top 5 features: {'NSEI_mom_6m': 0.1259483905939704, 'NSEI_returns': 0.12157589528029683, 'NSEI_mom_1y': 0.08498496765583868, 'NSEI_SMA100_dist': 0.08341648193031488, 'NSEI_SMA50_dist': 0.0754725035266193}
+2026-06-13 20:41:51,853 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:51,860 [WARNING]   Bull: only 40 samples � skipping specialist
+2026-06-13 20:41:51,860 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:51,863 [WARNING]   Recovery: only 85 samples � skipping specialist
+2026-06-13 20:41:51,863 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 20:41:51,863 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:52,020 [INFO] Signal distribution: {1: 45, -1: 18}
+2026-06-13 20:41:52,021 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 20:41:52,035 [INFO] 
+--- Window 19: Train [1995-12-15 \u2192 1996-12-16], Test [1996-12-17 \u2192 1997-03-19] ---
+2026-06-13 20:41:52,036 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:52,036 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:52,117 [INFO] HMM converged in 23 iterations
+2026-06-13 20:41:52,123 [INFO]   State 3 \u2192 Bull: mean_ret=0.003177, std=0.015558, n=38
+2026-06-13 20:41:52,124 [INFO]   State 0 \u2192 Recovery: mean_ret=0.003126, std=0.019404, n=52
+2026-06-13 20:41:52,124 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000844, std=0.013943, n=43
+2026-06-13 20:41:52,124 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002435, std=0.012610, n=119
+2026-06-13 20:41:52,124 [INFO] Regime distribution: {1: 119, 0: 52, 2: 43, 3: 38}
+2026-06-13 20:41:52,144 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:52,146 [INFO] Using 26 features for RF
+2026-06-13 20:41:52,147 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:52,149 [WARNING]   Bear: only 43 samples � skipping specialist
+2026-06-13 20:41:52,149 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:52,152 [INFO]   Crisis: 119 samples, class balance: {0.0: 73, 1.0: 46}
+2026-06-13 20:41:53,392 [INFO]   Crisis: CV accuracy = 0.5130 (�0.0790)
+2026-06-13 20:41:53,426 [INFO]   Top 5 features: {'NSEI_returns': 0.15393797573263762, 'MACD_histogram': 0.09674323877615972, 'NSEI_mom_3m': 0.07714476212987051, 'return_skew_20d': 0.07484574380170231, 'NSEI_SMA20_dist': 0.0673971794127115}
+2026-06-13 20:41:53,427 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:53,429 [WARNING]   Bull: only 42 samples � skipping specialist
+2026-06-13 20:41:53,430 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:53,432 [WARNING]   Recovery: only 48 samples � skipping specialist
+2026-06-13 20:41:53,432 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 20:41:53,433 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:53,635 [INFO] Signal distribution: {1: 40, -1: 23}
+2026-06-13 20:41:53,636 [INFO] Next-regime routing: {'Crisis': 41, 'Recovery': 17, 'Bear': 5}
+2026-06-13 20:41:53,652 [INFO] 
+--- Window 20: Train [1996-03-19 \u2192 1997-03-19], Test [1997-03-20 \u2192 1997-06-24] ---
+2026-06-13 20:41:53,652 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:53,653 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:53,724 [INFO] HMM converged in 12 iterations
+2026-06-13 20:41:53,729 [INFO]   State 2 \u2192 Bull: mean_ret=0.002975, std=0.023385, n=50
+2026-06-13 20:41:53,730 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001414, std=0.013965, n=84
+2026-06-13 20:41:53,730 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000262, std=0.015315, n=52
+2026-06-13 20:41:53,730 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.002493, std=0.013770, n=66
+2026-06-13 20:41:53,730 [INFO] Regime distribution: {1: 84, 3: 66, 0: 52, 2: 50}
+2026-06-13 20:41:53,750 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:53,752 [INFO] Using 26 features for RF
+2026-06-13 20:41:53,752 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:53,754 [WARNING]   Recovery: only 84 samples � skipping specialist
+2026-06-13 20:41:53,754 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:53,756 [WARNING]   Crisis: only 66 samples � skipping specialist
+2026-06-13 20:41:53,756 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:53,760 [WARNING]   Bull: only 50 samples � skipping specialist
+2026-06-13 20:41:53,760 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:53,763 [WARNING]   Bear: only 52 samples � skipping specialist
+2026-06-13 20:41:53,763 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:53,763 [INFO] Generating batch signals...
+2026-06-13 20:41:53,770 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:53,770 [INFO] Next-regime routing: {'Bear': 38, 'Bull': 20, 'Recovery': 5}
+2026-06-13 20:41:53,786 [INFO] 
+--- Window 21: Train [1996-06-18 \u2192 1997-06-24], Test [1997-06-25 \u2192 1997-09-23] ---
+2026-06-13 20:41:53,786 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:53,786 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:53,842 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:53,847 [INFO]   State 2 \u2192 Bull: mean_ret=0.001605, std=0.019833, n=74
+2026-06-13 20:41:53,847 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001304, std=0.010536, n=50
+2026-06-13 20:41:53,847 [INFO]   State 3 \u2192 Bear: mean_ret=0.001032, std=0.026139, n=20
+2026-06-13 20:41:53,847 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002133, std=0.014409, n=108
+2026-06-13 20:41:53,848 [INFO] Regime distribution: {0: 108, 2: 74, 1: 50, 3: 20}
+2026-06-13 20:41:53,868 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:53,869 [INFO] Using 26 features for RF
+2026-06-13 20:41:53,870 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:53,874 [WARNING]   Bull: only 74 samples � skipping specialist
+2026-06-13 20:41:53,874 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:53,877 [INFO]   Crisis: 108 samples, class balance: {0.0: 62, 1.0: 46}
+2026-06-13 20:41:55,106 [INFO]   Crisis: CV accuracy = 0.4623 (�0.0964)
+2026-06-13 20:41:55,140 [INFO]   Top 5 features: {'NSEI_returns': 0.14805296529450507, 'NSEI_SMA200_dist': 0.08708472147348706, 'NSEI_SMA50_dist': 0.07723334928340446, 'NSEI_mom_1y': 0.07621076946261257, 'MACD_line': 0.07557688687480663}
+2026-06-13 20:41:55,141 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:55,144 [WARNING]   Recovery: only 50 samples � skipping specialist
+2026-06-13 20:41:55,144 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:55,146 [WARNING]   Bear: only 20 samples � skipping specialist
+2026-06-13 20:41:55,146 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 20:41:55,146 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:55,388 [INFO] Signal distribution: {-1: 63}
+2026-06-13 20:41:55,390 [INFO] Next-regime routing: {'Crisis': 46, 'Bull': 10, 'Recovery': 7}
+2026-06-13 20:41:55,404 [INFO] 
+--- Window 22: Train [1996-09-17 \u2192 1997-09-23], Test [1997-09-24 \u2192 1997-12-31] ---
+2026-06-13 20:41:55,405 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:55,405 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:55,467 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:55,474 [INFO]   State 2 \u2192 Bull: mean_ret=0.001526, std=0.021221, n=93
+2026-06-13 20:41:55,474 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001338, std=0.007991, n=10
+2026-06-13 20:41:55,474 [INFO]   State 0 \u2192 Bear: mean_ret=0.000279, std=0.012721, n=79
+2026-06-13 20:41:55,474 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.000770, std=0.015622, n=70
+2026-06-13 20:41:55,475 [INFO] Regime distribution: {2: 93, 0: 79, 1: 70, 3: 10}
+2026-06-13 20:41:55,497 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:55,498 [INFO] Using 26 features for RF
+2026-06-13 20:41:55,498 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:55,501 [WARNING]   Crisis: only 70 samples � skipping specialist
+2026-06-13 20:41:55,502 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:55,503 [WARNING]   Bull: only 93 samples � skipping specialist
+2026-06-13 20:41:55,503 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:55,508 [WARNING]   Recovery: only 10 samples � skipping specialist
+2026-06-13 20:41:55,508 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:55,511 [WARNING]   Bear: only 79 samples � skipping specialist
+2026-06-13 20:41:55,511 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:55,511 [INFO] Generating batch signals...
+2026-06-13 20:41:55,517 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:55,518 [INFO] Next-regime routing: {'Bear': 58, 'Bull': 5}
+2026-06-13 20:41:55,532 [INFO] 
+--- Window 23: Train [1996-12-17 \u2192 1997-12-31], Test [1998-01-01 \u2192 1998-04-02] ---
+2026-06-13 20:41:55,533 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:55,533 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:55,604 [INFO] HMM converged in 14 iterations
+2026-06-13 20:41:55,609 [INFO]   State 2 \u2192 Bull: mean_ret=0.002268, std=0.016716, n=62
+2026-06-13 20:41:55,610 [INFO]   State 0 \u2192 Recovery: mean_ret=0.002021, std=0.018605, n=94
+2026-06-13 20:41:55,610 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000855, std=0.022174, n=44
+2026-06-13 20:41:55,610 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000977, std=0.013738, n=52
+2026-06-13 20:41:55,610 [INFO] Regime distribution: {0: 94, 2: 62, 3: 52, 1: 44}
+2026-06-13 20:41:55,628 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:55,629 [INFO] Using 26 features for RF
+2026-06-13 20:41:55,629 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:55,631 [WARNING]   Bull: only 62 samples � skipping specialist
+2026-06-13 20:41:55,631 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:55,633 [WARNING]   Recovery: only 94 samples � skipping specialist
+2026-06-13 20:41:55,633 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:55,634 [WARNING]   Crisis: only 52 samples � skipping specialist
+2026-06-13 20:41:55,634 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:55,637 [WARNING]   Bear: only 44 samples � skipping specialist
+2026-06-13 20:41:55,637 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:55,637 [INFO] Generating batch signals...
+2026-06-13 20:41:55,644 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:55,645 [INFO] Next-regime routing: {'Bull': 51, 'Bear': 12}
+2026-06-13 20:41:55,658 [INFO] 
+--- Window 24: Train [1997-03-20 \u2192 1998-04-02], Test [1998-04-03 \u2192 1998-07-06] ---
+2026-06-13 20:41:55,659 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:55,659 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:55,733 [INFO] HMM converged in 16 iterations
+2026-06-13 20:41:55,740 [INFO]   State 0 \u2192 Bull: mean_ret=0.001884, std=0.013975, n=95
+2026-06-13 20:41:55,740 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001611, std=0.015922, n=65
+2026-06-13 20:41:55,740 [INFO]   State 1 \u2192 Bear: mean_ret=-0.002029, std=0.020386, n=60
+2026-06-13 20:41:55,740 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.002080, std=0.012730, n=32
+2026-06-13 20:41:55,741 [INFO] Regime distribution: {0: 95, 2: 65, 1: 60, 3: 32}
+2026-06-13 20:41:55,763 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:55,764 [INFO] Using 26 features for RF
+2026-06-13 20:41:55,764 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:55,766 [WARNING]   Recovery: only 65 samples � skipping specialist
+2026-06-13 20:41:55,766 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:55,769 [WARNING]   Bull: only 95 samples � skipping specialist
+2026-06-13 20:41:55,769 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:55,772 [WARNING]   Crisis: only 32 samples � skipping specialist
+2026-06-13 20:41:55,772 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:55,775 [WARNING]   Bear: only 60 samples � skipping specialist
+2026-06-13 20:41:55,775 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:41:55,775 [INFO] Generating batch signals...
+2026-06-13 20:41:55,781 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:41:55,782 [INFO] Next-regime routing: {'Bull': 58, 'Recovery': 5}
+2026-06-13 20:41:55,797 [INFO] 
+--- Window 25: Train [1997-06-25 \u2192 1998-07-06], Test [1998-07-07 \u2192 1998-10-06] ---
+2026-06-13 20:41:55,798 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:55,798 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:55,854 [WARNING] Model is not converging.  Current: -846.5223581261122 is not greater than -846.5073055287007. Delta is -0.015052597411454371
+2026-06-13 20:41:55,854 [INFO] HMM converged in 8 iterations
+2026-06-13 20:41:55,860 [INFO]   State 2 \u2192 Bull: mean_ret=0.000862, std=0.014114, n=139
+2026-06-13 20:41:55,860 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000537, std=0.024689, n=56
+2026-06-13 20:41:55,860 [INFO]   State 3 \u2192 Bear: mean_ret=-0.002991, std=0.014176, n=20
+2026-06-13 20:41:55,861 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.007040, std=0.018316, n=37
+2026-06-13 20:41:55,861 [INFO] Regime distribution: {2: 139, 1: 56, 0: 37, 3: 20}
+2026-06-13 20:41:55,882 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:55,883 [INFO] Using 26 features for RF
+2026-06-13 20:41:55,883 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:55,885 [WARNING]   Crisis: only 40 samples � skipping specialist
+2026-06-13 20:41:55,885 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:55,889 [INFO]   Bull: 136 samples, class balance: {0.0: 72, 1.0: 64}
+2026-06-13 20:41:57,131 [INFO]   Bull: CV accuracy = 0.5291 (�0.0770)
+2026-06-13 20:41:57,166 [INFO]   Top 5 features: {'NSEI_returns': 0.11077743485681385, 'NSEI_mom_3m': 0.10499924998817922, 'yield_spread_zscore': 0.0928994687081466, 'NSEI_mom_1y': 0.08840724125112112, 'realized_vol_60d': 0.07488779871024823}
+2026-06-13 20:41:57,167 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:57,170 [WARNING]   Recovery: only 56 samples � skipping specialist
+2026-06-13 20:41:57,170 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:57,174 [WARNING]   Bear: only 20 samples � skipping specialist
+2026-06-13 20:41:57,175 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 20:41:57,175 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:57,406 [INFO] Signal distribution: {1: 62, -1: 1}
+2026-06-13 20:41:57,407 [INFO] Next-regime routing: {'Crisis': 37, 'Bull': 19, 'Recovery': 7}
+2026-06-13 20:41:57,430 [INFO] 
+--- Window 26: Train [1997-09-24 \u2192 1998-10-06], Test [1998-10-07 \u2192 1999-01-04] ---
+2026-06-13 20:41:57,431 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:57,431 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:57,507 [INFO] HMM converged in 12 iterations
+2026-06-13 20:41:57,512 [INFO]   State 3 \u2192 Bull: mean_ret=0.001532, std=0.012577, n=19
+2026-06-13 20:41:57,512 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001364, std=0.015323, n=72
+2026-06-13 20:41:57,512 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001725, std=0.016771, n=109
+2026-06-13 20:41:57,512 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.003688, std=0.027324, n=52
+2026-06-13 20:41:57,513 [INFO] Regime distribution: {2: 109, 0: 72, 1: 52, 3: 19}
+2026-06-13 20:41:57,533 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:57,534 [INFO] Using 26 features for RF
+2026-06-13 20:41:57,535 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:41:57,537 [WARNING]   Bull: only 19 samples � skipping specialist
+2026-06-13 20:41:57,537 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:41:57,540 [WARNING]   Crisis: only 52 samples � skipping specialist
+2026-06-13 20:41:57,540 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:57,543 [INFO]   Bear: 109 samples, class balance: {0.0: 57, 1.0: 52}
+2026-06-13 20:41:58,769 [INFO]   Bear: CV accuracy = 0.4511 (�0.1508)
+2026-06-13 20:41:58,806 [INFO]   Top 5 features: {'BB_bandwidth': 0.09456934882378583, 'NSEI_returns': 0.08999651707532669, 'NSEI_SMA200_dist': 0.07507833768314104, 'real_rate': 0.07096518041853857, 'yield_spread_zscore': 0.0709082873787361}
+2026-06-13 20:41:58,806 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:58,810 [WARNING]   Recovery: only 72 samples � skipping specialist
+2026-06-13 20:41:58,810 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:41:58,810 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:41:58,955 [INFO] Signal distribution: {1: 43, -1: 20}
+2026-06-13 20:41:58,956 [INFO] Next-regime routing: {'Bear': 58, 'Bull': 5}
+2026-06-13 20:41:58,969 [INFO] 
+--- Window 27: Train [1998-01-01 \u2192 1999-01-04], Test [1999-01-05 \u2192 1999-04-06] ---
+2026-06-13 20:41:58,969 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:41:58,970 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:41:59,036 [WARNING] Model is not converging.  Current: -620.3884786090788 is not greater than -620.3880474552116. Delta is -0.00043115386722547555
+2026-06-13 20:41:59,036 [INFO] HMM converged in 13 iterations
+2026-06-13 20:41:59,041 [INFO]   State 1 \u2192 Bull: mean_ret=0.000576, std=0.016393, n=29
+2026-06-13 20:41:59,041 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000358, std=0.013397, n=73
+2026-06-13 20:41:59,041 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000773, std=0.020480, n=115
+2026-06-13 20:41:59,041 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003948, std=0.017172, n=35
+2026-06-13 20:41:59,042 [INFO] Regime distribution: {2: 115, 0: 73, 3: 35, 1: 29}
+2026-06-13 20:41:59,060 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:41:59,062 [INFO] Using 26 features for RF
+2026-06-13 20:41:59,062 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:41:59,065 [WARNING]   Recovery: only 73 samples � skipping specialist
+2026-06-13 20:41:59,065 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:41:59,067 [INFO]   Bear: 115 samples, class balance: {0.0: 60, 1.0: 55}
+2026-06-13 20:42:00,316 [INFO]   Bear: CV accuracy = 0.5043 (�0.0590)
+2026-06-13 20:42:00,355 [INFO]   Top 5 features: {'NSEI_mom_6m': 0.11128180738839705, 'NSEI_SMA20_dist': 0.08773860312120343, 'MACD_histogram': 0.0695404309690564, 'return_kurt_20d': 0.06667740585187974, 'NSEI_returns': 0.06526218106534065}
+2026-06-13 20:42:00,356 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:00,358 [WARNING]   Crisis: only 35 samples � skipping specialist
+2026-06-13 20:42:00,359 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:00,360 [WARNING]   Bull: only 29 samples � skipping specialist
+2026-06-13 20:42:00,361 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:00,361 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:00,501 [INFO] Signal distribution: {-1: 51, 1: 12}
+2026-06-13 20:42:00,502 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 20:42:00,517 [INFO] 
+--- Window 28: Train [1998-04-03 \u2192 1999-04-06], Test [1999-04-07 \u2192 1999-07-05] ---
+2026-06-13 20:42:00,517 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:00,517 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:00,569 [INFO] HMM converged in 8 iterations
+2026-06-13 20:42:00,575 [INFO]   State 1 \u2192 Bull: mean_ret=0.001046, std=0.012642, n=50
+2026-06-13 20:42:00,575 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.000441, std=0.021469, n=58
+2026-06-13 20:42:00,575 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000688, std=0.019718, n=125
+2026-06-13 20:42:00,575 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003314, std=0.016449, n=19
+2026-06-13 20:42:00,576 [INFO] Regime distribution: {2: 125, 0: 58, 1: 50, 3: 19}
+2026-06-13 20:42:00,595 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:00,596 [INFO] Using 26 features for RF
+2026-06-13 20:42:00,597 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:00,599 [INFO]   Bear: 127 samples, class balance: {1.0: 64, 0.0: 63}
+2026-06-13 20:42:01,793 [INFO]   Bear: CV accuracy = 0.3674 (�0.1748)
+2026-06-13 20:42:01,828 [INFO]   Top 5 features: {'NSEI_mom_3m': 0.12058873944042647, 'MACD_histogram': 0.09402435579301148, 'realized_vol_60d': 0.08944698592324139, 'NSEI_mom_1y': 0.07978016327491143, 'NSEI_SMA100_dist': 0.06135593282976558}
+2026-06-13 20:42:01,829 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:01,832 [WARNING]   Recovery: only 58 samples � skipping specialist
+2026-06-13 20:42:01,833 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:01,836 [WARNING]   Bull: only 50 samples � skipping specialist
+2026-06-13 20:42:01,836 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:01,841 [WARNING]   Crisis: only 17 samples � skipping specialist
+2026-06-13 20:42:01,841 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:01,841 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:01,925 [INFO] Signal distribution: {1: 51, -1: 12}
+2026-06-13 20:42:01,926 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 20:42:01,943 [INFO] 
+--- Window 29: Train [1998-07-07 \u2192 1999-07-05], Test [1999-07-06 \u2192 1999-10-01] ---
+2026-06-13 20:42:01,943 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:01,944 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:01,991 [INFO] HMM converged in 5 iterations
+2026-06-13 20:42:01,996 [INFO]   State 1 \u2192 Bull: mean_ret=0.002924, std=0.021443, n=56
+2026-06-13 20:42:01,996 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001526, std=0.018442, n=139
+2026-06-13 20:42:01,996 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000328, std=0.017247, n=46
+2026-06-13 20:42:01,996 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.006118, std=0.018365, n=11
+2026-06-13 20:42:01,996 [INFO] Regime distribution: {2: 139, 1: 56, 0: 46, 3: 11}
+2026-06-13 20:42:02,016 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:02,017 [INFO] Using 26 features for RF
+2026-06-13 20:42:02,017 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:02,020 [WARNING]   Bear: only 46 samples � skipping specialist
+2026-06-13 20:42:02,020 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:02,024 [INFO]   Recovery: 139 samples, class balance: {0.0: 70, 1.0: 69}
+2026-06-13 20:42:03,337 [INFO]   Recovery: CV accuracy = 0.3172 (�0.0761)
+2026-06-13 20:42:03,372 [INFO]   Top 5 features: {'unrate_3m_chg': 0.07248871150203191, 'RSI_divergence': 0.0619760140519342, 'yield_spread_zscore': 0.0580303070977231, 'return_kurt_20d': 0.057575554988507, 'NSEI_mom_6m': 0.05663649762154515}
+2026-06-13 20:42:03,373 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:03,375 [WARNING]   Crisis: only 11 samples � skipping specialist
+2026-06-13 20:42:03,376 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:03,379 [WARNING]   Bull: only 56 samples � skipping specialist
+2026-06-13 20:42:03,379 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:03,379 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:03,465 [INFO] Signal distribution: {-1: 52, 1: 11}
+2026-06-13 20:42:03,465 [INFO] Next-regime routing: {'Recovery': 63}
+2026-06-13 20:42:03,482 [INFO] 
+--- Window 30: Train [1998-10-07 \u2192 1999-10-01], Test [1999-10-04 \u2192 1999-12-30] ---
+2026-06-13 20:42:03,482 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:03,482 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:03,536 [INFO] HMM converged in 7 iterations
+2026-06-13 20:42:03,542 [INFO]   State 0 \u2192 Bull: mean_ret=0.004233, std=0.022548, n=61
+2026-06-13 20:42:03,542 [INFO]   State 3 \u2192 Recovery: mean_ret=0.002866, std=0.016275, n=35
+2026-06-13 20:42:03,542 [INFO]   State 1 \u2192 Bear: mean_ret=0.001032, std=0.016170, n=127
+2026-06-13 20:42:03,542 [INFO]   State 2 \u2192 Crisis: mean_ret=0.000576, std=0.016393, n=29
+2026-06-13 20:42:03,542 [INFO] Regime distribution: {1: 127, 0: 61, 3: 35, 2: 29}
+2026-06-13 20:42:03,561 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:03,563 [INFO] Using 26 features for RF
+2026-06-13 20:42:03,563 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:03,565 [WARNING]   Crisis: only 29 samples � skipping specialist
+2026-06-13 20:42:03,565 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:03,567 [INFO]   Bear: 127 samples, class balance: {0.0: 64, 1.0: 63}
+2026-06-13 20:42:04,757 [INFO]   Bear: CV accuracy = 0.4957 (�0.0555)
+2026-06-13 20:42:04,792 [INFO]   Top 5 features: {'yield_spread_zscore': 0.14129528870825833, 'RSI_14': 0.08039053970957814, 'NSEI_mom_3m': 0.07954308147989071, 'NSEI_mom_1m': 0.06875331064295243, 'NSEI_SMA20_dist': 0.06199362733020448}
+2026-06-13 20:42:04,792 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:04,794 [WARNING]   Recovery: only 35 samples � skipping specialist
+2026-06-13 20:42:04,795 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:04,796 [WARNING]   Bull: only 61 samples � skipping specialist
+2026-06-13 20:42:04,796 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:04,797 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:04,872 [INFO] Signal distribution: {1: 44, -1: 19}
+2026-06-13 20:42:04,873 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 20:42:04,891 [INFO] 
+--- Window 31: Train [1999-01-05 \u2192 1999-12-30], Test [2000-01-03 \u2192 2000-04-03] ---
+2026-06-13 20:42:04,891 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:04,891 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:04,969 [INFO] HMM converged in 13 iterations
+2026-06-13 20:42:04,975 [INFO]   State 3 \u2192 Bull: mean_ret=0.004510, std=0.017212, n=35
+2026-06-13 20:42:04,976 [INFO]   State 2 \u2192 Recovery: mean_ret=0.004233, std=0.022548, n=61
+2026-06-13 20:42:04,976 [INFO]   State 1 \u2192 Bear: mean_ret=0.002538, std=0.016092, n=79
+2026-06-13 20:42:04,976 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001513, std=0.017425, n=77
+2026-06-13 20:42:04,976 [INFO] Regime distribution: {1: 79, 0: 77, 2: 61, 3: 35}
+2026-06-13 20:42:04,996 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:04,998 [INFO] Using 26 features for RF
+2026-06-13 20:42:04,998 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:05,002 [WARNING]   Bear: only 79 samples � skipping specialist
+2026-06-13 20:42:05,002 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:05,004 [WARNING]   Bull: only 35 samples � skipping specialist
+2026-06-13 20:42:05,004 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:05,007 [WARNING]   Crisis: only 77 samples � skipping specialist
+2026-06-13 20:42:05,008 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:05,010 [WARNING]   Recovery: only 61 samples � skipping specialist
+2026-06-13 20:42:05,010 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:05,010 [INFO] Generating batch signals...
+2026-06-13 20:42:05,017 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:05,018 [INFO] Next-regime routing: {'Bear': 45, 'Crisis': 13, 'Recovery': 5}
+2026-06-13 20:42:05,034 [INFO] 
+--- Window 32: Train [1999-04-07 \u2192 2000-04-03], Test [2000-04-04 \u2192 2000-07-04] ---
+2026-06-13 20:42:05,034 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:05,035 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:05,119 [INFO] HMM converged in 20 iterations
+2026-06-13 20:42:05,126 [INFO]   State 1 \u2192 Bull: mean_ret=0.003782, std=0.019312, n=62
+2026-06-13 20:42:05,126 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001727, std=0.015210, n=101
+2026-06-13 20:42:05,126 [INFO]   State 3 \u2192 Bear: mean_ret=0.000194, std=0.019609, n=40
+2026-06-13 20:42:05,126 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000248, std=0.024781, n=49
+2026-06-13 20:42:05,127 [INFO] Regime distribution: {2: 101, 1: 62, 0: 49, 3: 40}
+2026-06-13 20:42:05,148 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:05,149 [INFO] Using 26 features for RF
+2026-06-13 20:42:05,150 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:05,152 [WARNING]   Crisis: only 51 samples � skipping specialist
+2026-06-13 20:42:05,152 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:05,155 [WARNING]   Bull: only 62 samples � skipping specialist
+2026-06-13 20:42:05,155 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:05,159 [INFO]   Recovery: 101 samples, class balance: {1.0: 52, 0.0: 49}
+2026-06-13 20:42:06,330 [INFO]   Recovery: CV accuracy = 0.5652 (�0.0579)
+2026-06-13 20:42:06,362 [INFO]   Top 5 features: {'yield_spread_zscore': 0.24051322017645216, 'BB_bandwidth': 0.13455422536039302, 'yield_spread': 0.08690965027821342, 'realized_vol_60d': 0.059638255877378823, 'MACD_histogram': 0.057819799911844584}
+2026-06-13 20:42:06,363 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:06,366 [WARNING]   Bear: only 38 samples � skipping specialist
+2026-06-13 20:42:06,367 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:06,367 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:06,447 [INFO] Signal distribution: {1: 63}
+2026-06-13 20:42:06,447 [INFO] Next-regime routing: {'Crisis': 63}
+2026-06-13 20:42:06,465 [INFO] 
+--- Window 33: Train [1999-07-06 \u2192 2000-07-04], Test [2000-07-05 \u2192 2000-10-04] ---
+2026-06-13 20:42:06,465 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:06,465 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:06,524 [INFO] HMM converged in 9 iterations
+2026-06-13 20:42:06,528 [INFO]   State 3 \u2192 Bull: mean_ret=0.006847, std=0.015399, n=28
+2026-06-13 20:42:06,528 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001778, std=0.017107, n=143
+2026-06-13 20:42:06,528 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000416, std=0.019671, n=43
+2026-06-13 20:42:06,528 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.005850, std=0.029567, n=38
+2026-06-13 20:42:06,529 [INFO] Regime distribution: {2: 143, 0: 43, 1: 38, 3: 28}
+2026-06-13 20:42:06,548 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:06,549 [INFO] Using 26 features for RF
+2026-06-13 20:42:06,550 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:06,552 [INFO]   Recovery: 143 samples, class balance: {1.0: 75, 0.0: 68}
+2026-06-13 20:42:07,690 [INFO]   Recovery: CV accuracy = 0.5594 (�0.0677)
+2026-06-13 20:42:07,725 [INFO]   Top 5 features: {'yield_spread_zscore': 0.1489046728960435, 'NSEI_mom_6m': 0.09169082140692639, 'NSEI_mom_1y': 0.07330490477965294, 'yield_spread': 0.06314252504764578, 'BB_pct_b': 0.05930558160951484}
+2026-06-13 20:42:07,726 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:07,729 [WARNING]   Bear: only 43 samples � skipping specialist
+2026-06-13 20:42:07,729 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:07,731 [WARNING]   Crisis: only 38 samples � skipping specialist
+2026-06-13 20:42:07,731 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:07,732 [WARNING]   Bull: only 28 samples � skipping specialist
+2026-06-13 20:42:07,732 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:07,732 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:07,808 [INFO] Signal distribution: {1: 63}
+2026-06-13 20:42:07,808 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 20:42:07,824 [INFO] 
+--- Window 34: Train [1999-10-04 \u2192 2000-10-04], Test [2000-10-05 \u2192 2001-01-02] ---
+2026-06-13 20:42:07,824 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:07,824 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:07,895 [WARNING] Model is not converging.  Current: -318.3326023693582 is not greater than -318.3325984611456. Delta is -3.908212590886251e-06
+2026-06-13 20:42:07,896 [INFO] HMM converged in 15 iterations
+2026-06-13 20:42:07,901 [INFO]   State 2 \u2192 Bull: mean_ret=0.001650, std=0.019189, n=81
+2026-06-13 20:42:07,901 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000450, std=0.016190, n=86
+2026-06-13 20:42:07,901 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000979, std=0.019266, n=45
+2026-06-13 20:42:07,901 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003225, std=0.030424, n=40
+2026-06-13 20:42:07,902 [INFO] Regime distribution: {1: 86, 2: 81, 0: 45, 3: 40}
+2026-06-13 20:42:07,923 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:07,924 [INFO] Using 26 features for RF
+2026-06-13 20:42:07,925 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:07,927 [WARNING]   Bull: only 81 samples � skipping specialist
+2026-06-13 20:42:07,928 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:07,929 [WARNING]   Bear: only 45 samples � skipping specialist
+2026-06-13 20:42:07,929 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:07,931 [WARNING]   Crisis: only 40 samples � skipping specialist
+2026-06-13 20:42:07,931 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:07,934 [WARNING]   Recovery: only 86 samples � skipping specialist
+2026-06-13 20:42:07,934 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:07,934 [INFO] Generating batch signals...
+2026-06-13 20:42:07,942 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:07,942 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 20:42:07,956 [INFO] 
+--- Window 35: Train [2000-01-03 \u2192 2001-01-02], Test [2001-01-03 \u2192 2001-04-03] ---
+2026-06-13 20:42:07,956 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:07,956 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:08,020 [INFO] HMM converged in 13 iterations
+2026-06-13 20:42:08,025 [INFO]   State 3 \u2192 Bull: mean_ret=0.004066, std=0.025777, n=17
+2026-06-13 20:42:08,025 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000656, std=0.024609, n=60
+2026-06-13 20:42:08,025 [INFO]   State 1 \u2192 Bear: mean_ret=-0.001369, std=0.015841, n=126
+2026-06-13 20:42:08,025 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.001793, std=0.021265, n=49
+2026-06-13 20:42:08,025 [INFO] Regime distribution: {1: 126, 0: 60, 2: 49, 3: 17}
+2026-06-13 20:42:08,045 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:08,046 [INFO] Using 26 features for RF
+2026-06-13 20:42:08,046 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:08,048 [WARNING]   Bull: only 17 samples � skipping specialist
+2026-06-13 20:42:08,048 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:08,050 [WARNING]   Crisis: only 49 samples � skipping specialist
+2026-06-13 20:42:08,050 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:08,053 [WARNING]   Recovery: only 60 samples � skipping specialist
+2026-06-13 20:42:08,053 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:08,056 [INFO]   Bear: 126 samples, class balance: {1.0: 65, 0.0: 61}
+2026-06-13 20:42:09,215 [INFO]   Bear: CV accuracy = 0.4197 (�0.1336)
+2026-06-13 20:42:09,251 [INFO]   Top 5 features: {'MACD_histogram': 0.1364434374862011, 'NSEI_mom_3m': 0.07361791037765424, 'BB_pct_b': 0.07186327531701321, 'NSEI_mom_1y': 0.06902640456437698, 'NSEI_SMA200_dist': 0.06415320791409813}
+2026-06-13 20:42:09,252 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:09,252 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:09,481 [INFO] Signal distribution: {-1: 34, 1: 29}
+2026-06-13 20:42:09,481 [INFO] Next-regime routing: {'Bear': 29, 'Crisis': 29, 'Bull': 5}
+2026-06-13 20:42:09,498 [INFO] 
+--- Window 36: Train [2000-04-04 \u2192 2001-04-03], Test [2001-04-04 \u2192 2001-07-04] ---
+2026-06-13 20:42:09,498 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:09,499 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:09,565 [INFO] HMM converged in 11 iterations
+2026-06-13 20:42:09,570 [INFO]   State 3 \u2192 Bull: mean_ret=0.001440, std=0.025123, n=15
+2026-06-13 20:42:09,570 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.000779, std=0.015541, n=132
+2026-06-13 20:42:09,570 [INFO]   State 1 \u2192 Bear: mean_ret=-0.001364, std=0.028321, n=49
+2026-06-13 20:42:09,570 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.002521, std=0.018771, n=56
+2026-06-13 20:42:09,571 [INFO] Regime distribution: {0: 132, 2: 56, 1: 49, 3: 15}
+2026-06-13 20:42:09,591 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:09,593 [INFO] Using 26 features for RF
+2026-06-13 20:42:09,594 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:09,596 [WARNING]   Bear: only 49 samples � skipping specialist
+2026-06-13 20:42:09,596 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:09,597 [INFO]   Recovery: 132 samples, class balance: {1.0: 70, 0.0: 62}
+2026-06-13 20:42:10,828 [INFO]   Recovery: CV accuracy = 0.5154 (�0.0409)
+2026-06-13 20:42:10,874 [INFO]   Top 5 features: {'MACD_histogram': 0.15314998806241567, 'BB_pct_b': 0.10267850599259688, 'NSEI_mom_3m': 0.10229556682014597, 'NSEI_SMA200_dist': 0.07126973184974257, 'yield_spread_zscore': 0.06261166950954591}
+2026-06-13 20:42:10,875 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:10,878 [WARNING]   Crisis: only 56 samples � skipping specialist
+2026-06-13 20:42:10,878 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:10,881 [WARNING]   Bull: only 15 samples � skipping specialist
+2026-06-13 20:42:10,881 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:10,881 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:11,035 [INFO] Signal distribution: {1: 47, -1: 16}
+2026-06-13 20:42:11,035 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 20:42:11,053 [INFO] 
+--- Window 37: Train [2000-07-05 \u2192 2001-07-04], Test [2001-07-05 \u2192 2001-10-04] ---
+2026-06-13 20:42:11,053 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:11,053 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:11,112 [INFO] HMM converged in 8 iterations
+2026-06-13 20:42:11,117 [INFO]   State 3 \u2192 Bull: mean_ret=0.000171, std=0.021451, n=25
+2026-06-13 20:42:11,117 [INFO]   State 2 \u2192 Recovery: mean_ret=-0.000548, std=0.015553, n=59
+2026-06-13 20:42:11,117 [INFO]   State 1 \u2192 Bear: mean_ret=-0.001635, std=0.015837, n=120
+2026-06-13 20:42:11,117 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002561, std=0.019020, n=48
+2026-06-13 20:42:11,118 [INFO] Regime distribution: {1: 120, 2: 59, 0: 48, 3: 25}
+2026-06-13 20:42:11,141 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:11,143 [INFO] Using 26 features for RF
+2026-06-13 20:42:11,143 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:11,146 [INFO]   Bear: 120 samples, class balance: {0.0: 60, 1.0: 60}
+2026-06-13 20:42:12,402 [INFO]   Bear: CV accuracy = 0.4167 (�0.1667)
+2026-06-13 20:42:12,435 [INFO]   Top 5 features: {'MACD_histogram': 0.1316486542184018, 'NSEI_mom_3m': 0.08624380532672338, 'BB_pct_b': 0.0773518363240558, 'NSEI_SMA20_dist': 0.07230845247010302, 'return_skew_20d': 0.061955194015888435}
+2026-06-13 20:42:12,436 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:12,440 [WARNING]   Bull: only 25 samples � skipping specialist
+2026-06-13 20:42:12,440 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:12,443 [WARNING]   Crisis: only 48 samples � skipping specialist
+2026-06-13 20:42:12,443 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:12,445 [WARNING]   Recovery: only 59 samples � skipping specialist
+2026-06-13 20:42:12,445 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:12,446 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:12,624 [INFO] Signal distribution: {-1: 35, 1: 28}
+2026-06-13 20:42:12,625 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:12,641 [INFO] 
+--- Window 38: Train [2000-10-05 \u2192 2001-10-04], Test [2001-10-05 \u2192 2002-01-08] ---
+2026-06-13 20:42:12,641 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:12,641 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:12,699 [INFO] HMM converged in 8 iterations
+2026-06-13 20:42:12,704 [INFO]   State 3 \u2192 Bull: mean_ret=0.003616, std=0.011633, n=24
+2026-06-13 20:42:12,704 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.001565, std=0.024135, n=60
+2026-06-13 20:42:12,704 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001940, std=0.016628, n=86
+2026-06-13 20:42:12,704 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002185, std=0.010251, n=82
+2026-06-13 20:42:12,705 [INFO] Regime distribution: {2: 86, 1: 82, 0: 60, 3: 24}
+2026-06-13 20:42:12,729 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:12,730 [INFO] Using 26 features for RF
+2026-06-13 20:42:12,730 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:12,733 [WARNING]   Bear: only 86 samples � skipping specialist
+2026-06-13 20:42:12,733 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:12,736 [WARNING]   Bull: only 24 samples � skipping specialist
+2026-06-13 20:42:12,736 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:12,741 [WARNING]   Recovery: only 60 samples � skipping specialist
+2026-06-13 20:42:12,741 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:12,744 [WARNING]   Crisis: only 82 samples � skipping specialist
+2026-06-13 20:42:12,744 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:12,744 [INFO] Generating batch signals...
+2026-06-13 20:42:12,752 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:12,753 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:12,772 [INFO] 
+--- Window 39: Train [2001-01-03 \u2192 2002-01-08], Test [2002-01-09 \u2192 2002-04-09] ---
+2026-06-13 20:42:12,772 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:12,773 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:12,830 [INFO] HMM converged in 7 iterations
+2026-06-13 20:42:12,835 [INFO]   State 3 \u2192 Bull: mean_ret=0.004419, std=0.020257, n=15
+2026-06-13 20:42:12,835 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001674, std=0.013932, n=84
+2026-06-13 20:42:12,835 [INFO]   State 2 \u2192 Bear: mean_ret=-0.002125, std=0.020084, n=67
+2026-06-13 20:42:12,836 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002334, std=0.013927, n=86
+2026-06-13 20:42:12,836 [INFO] Regime distribution: {1: 86, 0: 84, 2: 67, 3: 15}
+2026-06-13 20:42:12,860 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:12,861 [INFO] Using 26 features for RF
+2026-06-13 20:42:12,861 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:12,863 [WARNING]   Bear: only 67 samples � skipping specialist
+2026-06-13 20:42:12,863 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:12,865 [WARNING]   Recovery: only 84 samples � skipping specialist
+2026-06-13 20:42:12,866 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:12,867 [WARNING]   Crisis: only 86 samples � skipping specialist
+2026-06-13 20:42:12,867 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:12,869 [WARNING]   Bull: only 15 samples � skipping specialist
+2026-06-13 20:42:12,869 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:12,869 [INFO] Generating batch signals...
+2026-06-13 20:42:12,879 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:12,879 [INFO] Next-regime routing: {'Crisis': 31, 'Recovery': 27, 'Bear': 5}
+2026-06-13 20:42:12,894 [INFO] 
+--- Window 40: Train [2001-04-04 \u2192 2002-04-09], Test [2002-04-10 \u2192 2002-07-08] ---
+2026-06-13 20:42:12,895 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:12,895 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:12,963 [INFO] HMM converged in 13 iterations
+2026-06-13 20:42:12,969 [INFO]   State 3 \u2192 Bull: mean_ret=0.005349, std=0.020164, n=18
+2026-06-13 20:42:12,969 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001331, std=0.011882, n=120
+2026-06-13 20:42:12,969 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000742, std=0.016206, n=44
+2026-06-13 20:42:12,969 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.003474, std=0.013451, n=70
+2026-06-13 20:42:12,970 [INFO] Regime distribution: {1: 120, 2: 70, 0: 44, 3: 18}
+2026-06-13 20:42:12,994 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:12,995 [INFO] Using 26 features for RF
+2026-06-13 20:42:12,996 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:12,998 [WARNING]   Bear: only 44 samples � skipping specialist
+2026-06-13 20:42:12,998 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:13,000 [WARNING]   Crisis: only 70 samples � skipping specialist
+2026-06-13 20:42:13,001 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:13,003 [WARNING]   Bull: only 18 samples � skipping specialist
+2026-06-13 20:42:13,003 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:13,007 [INFO]   Recovery: 120 samples, class balance: {0.0: 61, 1.0: 59}
+2026-06-13 20:42:14,278 [INFO]   Recovery: CV accuracy = 0.4417 (�0.0425)
+2026-06-13 20:42:14,319 [INFO]   Top 5 features: {'NSEI_mom_3m': 0.10029586676358487, 'MACD_line': 0.0854483211909474, 'yield_spread_zscore': 0.07270683427019696, 'real_rate': 0.055680021978700533, 'NSEI_mom_1y': 0.05520760080028872}
+2026-06-13 20:42:14,320 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:14,320 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:14,514 [INFO] Signal distribution: {1: 63}
+2026-06-13 20:42:14,515 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:14,539 [INFO] 
+--- Window 41: Train [2001-07-05 \u2192 2002-07-08], Test [2002-07-09 \u2192 2002-10-08] ---
+2026-06-13 20:42:14,539 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:14,540 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:14,623 [INFO] HMM converged in 6 iterations
+2026-06-13 20:42:14,629 [INFO]   State 3 \u2192 Bull: mean_ret=0.005349, std=0.020164, n=18
+2026-06-13 20:42:14,629 [INFO]   State 0 \u2192 Recovery: mean_ret=0.003282, std=0.011224, n=41
+2026-06-13 20:42:14,629 [INFO]   State 1 \u2192 Bear: mean_ret=0.000143, std=0.011885, n=139
+2026-06-13 20:42:14,629 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.004400, std=0.013276, n=54
+2026-06-13 20:42:14,630 [INFO] Regime distribution: {1: 139, 2: 54, 0: 41, 3: 18}
+2026-06-13 20:42:14,666 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:14,668 [INFO] Using 26 features for RF
+2026-06-13 20:42:14,668 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:14,674 [WARNING]   Crisis: only 56 samples � skipping specialist
+2026-06-13 20:42:14,674 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:14,677 [WARNING]   Bull: only 18 samples � skipping specialist
+2026-06-13 20:42:14,677 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:14,680 [WARNING]   Recovery: only 41 samples � skipping specialist
+2026-06-13 20:42:14,681 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:14,684 [INFO]   Bear: 137 samples, class balance: {1.0: 70, 0.0: 67}
+2026-06-13 20:42:16,040 [INFO]   Bear: CV accuracy = 0.5333 (�0.0767)
+2026-06-13 20:42:16,074 [INFO]   Top 5 features: {'NSEI_mom_1m': 0.127643985628971, 'NSEI_SMA20_dist': 0.07202123432838557, 'yield_spread_zscore': 0.07180659959539203, 'RSI_14': 0.07050924429813665, 'RSI_divergence': 0.06543133725457055}
+2026-06-13 20:42:16,076 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:16,076 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:16,226 [INFO] Signal distribution: {1: 41, -1: 22}
+2026-06-13 20:42:16,227 [INFO] Next-regime routing: {'Bear': 58, 'Crisis': 5}
+2026-06-13 20:42:16,244 [INFO] 
+--- Window 42: Train [2001-10-05 \u2192 2002-10-08], Test [2002-10-09 \u2192 2003-01-09] ---
+2026-06-13 20:42:16,245 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:16,245 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:16,299 [WARNING] Model is not converging.  Current: -624.4450594245698 is not greater than -624.4444954440577. Delta is -0.0005639805120836172
+2026-06-13 20:42:16,299 [INFO] HMM converged in 7 iterations
+2026-06-13 20:42:16,303 [INFO]   State 2 \u2192 Bull: mean_ret=0.003972, std=0.011651, n=47
+2026-06-13 20:42:16,303 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001319, std=0.012821, n=59
+2026-06-13 20:42:16,303 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000907, std=0.010301, n=120
+2026-06-13 20:42:16,303 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003965, std=0.010302, n=26
+2026-06-13 20:42:16,305 [INFO] Regime distribution: {1: 120, 0: 59, 2: 47, 3: 26}
+2026-06-13 20:42:16,324 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:16,326 [INFO] Using 26 features for RF
+2026-06-13 20:42:16,326 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:16,329 [WARNING]   Bull: only 47 samples � skipping specialist
+2026-06-13 20:42:16,329 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:16,332 [WARNING]   Recovery: only 59 samples � skipping specialist
+2026-06-13 20:42:16,332 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:16,335 [INFO]   Bear: 120 samples, class balance: {1.0: 62, 0.0: 58}
+2026-06-13 20:42:17,536 [INFO]   Bear: CV accuracy = 0.4833 (�0.0624)
+2026-06-13 20:42:17,572 [INFO]   Top 5 features: {'yield_spread_zscore': 0.10029725599096037, 'NSEI_mom_1y': 0.09878046911669978, 'NSEI_mom_1m': 0.09409963956588588, 'RSI_divergence': 0.08003154065822454, 'MACD_line': 0.06747197734337479}
+2026-06-13 20:42:17,574 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:17,579 [WARNING]   Crisis: only 26 samples � skipping specialist
+2026-06-13 20:42:17,580 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:17,580 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:17,721 [INFO] Signal distribution: {-1: 40, 1: 23}
+2026-06-13 20:42:17,723 [INFO] Next-regime routing: {'Bear': 36, 'Recovery': 27}
+2026-06-13 20:42:17,741 [INFO] 
+--- Window 43: Train [2002-01-09 \u2192 2003-01-09], Test [2003-01-10 \u2192 2003-04-10] ---
+2026-06-13 20:42:17,741 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:17,741 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:17,832 [INFO] HMM converged in 15 iterations
+2026-06-13 20:42:17,840 [INFO]   State 1 \u2192 Bull: mean_ret=0.002293, std=0.008805, n=55
+2026-06-13 20:42:17,840 [INFO]   State 2 \u2192 Recovery: mean_ret=-0.000022, std=0.011454, n=88
+2026-06-13 20:42:17,840 [INFO]   State 3 \u2192 Bear: mean_ret=-0.001106, std=0.006780, n=31
+2026-06-13 20:42:17,840 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001298, std=0.011503, n=78
+2026-06-13 20:42:17,841 [INFO] Regime distribution: {2: 88, 0: 78, 1: 55, 3: 31}
+2026-06-13 20:42:17,863 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:17,865 [INFO] Using 26 features for RF
+2026-06-13 20:42:17,865 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:17,868 [WARNING]   Recovery: only 88 samples � skipping specialist
+2026-06-13 20:42:17,868 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:17,874 [WARNING]   Crisis: only 78 samples � skipping specialist
+2026-06-13 20:42:17,874 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:17,878 [WARNING]   Bear: only 31 samples � skipping specialist
+2026-06-13 20:42:17,878 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:17,881 [WARNING]   Bull: only 55 samples � skipping specialist
+2026-06-13 20:42:17,881 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:17,882 [INFO] Generating batch signals...
+2026-06-13 20:42:17,891 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:17,892 [INFO] Next-regime routing: {'Crisis': 55, 'Recovery': 8}
+2026-06-13 20:42:17,908 [INFO] 
+--- Window 44: Train [2002-04-10 \u2192 2003-04-10], Test [2003-04-11 \u2192 2003-07-11] ---
+2026-06-13 20:42:17,908 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:17,909 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:17,992 [INFO] HMM converged in 14 iterations
+2026-06-13 20:42:17,997 [INFO]   State 0 \u2192 Bull: mean_ret=0.000472, std=0.008917, n=67
+2026-06-13 20:42:17,997 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000657, std=0.011593, n=64
+2026-06-13 20:42:17,997 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001178, std=0.010868, n=104
+2026-06-13 20:42:17,997 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001467, std=0.006757, n=17
+2026-06-13 20:42:17,997 [INFO] Regime distribution: {2: 104, 0: 67, 1: 64, 3: 17}
+2026-06-13 20:42:18,020 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:18,021 [INFO] Using 26 features for RF
+2026-06-13 20:42:18,022 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:18,026 [WARNING]   Recovery: only 64 samples � skipping specialist
+2026-06-13 20:42:18,026 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:18,029 [INFO]   Bear: 104 samples, class balance: {0.0: 54, 1.0: 50}
+2026-06-13 20:42:19,379 [INFO]   Bear: CV accuracy = 0.5105 (�0.0645)
+2026-06-13 20:42:19,411 [INFO]   Top 5 features: {'NSEI_returns': 0.20462956779700128, 'RSI_divergence': 0.13586468891290443, 'MACD_line': 0.09500137147864571, 'BB_pct_b': 0.09373350263821122, 'NSEI_mom_6m': 0.08165114851455549}
+2026-06-13 20:42:19,412 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:19,415 [WARNING]   Crisis: only 17 samples � skipping specialist
+2026-06-13 20:42:19,415 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:19,417 [WARNING]   Bull: only 67 samples � skipping specialist
+2026-06-13 20:42:19,417 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:19,417 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:19,584 [INFO] Signal distribution: {1: 35, -1: 28}
+2026-06-13 20:42:19,585 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 20:42:19,602 [INFO] 
+--- Window 45: Train [2002-07-09 \u2192 2003-07-11], Test [2003-07-14 \u2192 2003-10-10] ---
+2026-06-13 20:42:19,602 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:19,603 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:19,653 [WARNING] Model is not converging.  Current: -801.0994142901022 is not greater than -788.2477940415528. Delta is -12.851620248549466
+2026-06-13 20:42:19,654 [INFO] HMM converged in 5 iterations
+2026-06-13 20:42:19,660 [INFO]   State 0 \u2192 Bull: mean_ret=0.004941, std=0.008376, n=40
+2026-06-13 20:42:19,661 [INFO]   State 3 \u2192 Recovery: mean_ret=0.004583, std=0.009972, n=4
+2026-06-13 20:42:19,661 [INFO]   State 2 \u2192 Bear: mean_ret=0.000098, std=0.008597, n=143
+2026-06-13 20:42:19,661 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002445, std=0.011551, n=65
+2026-06-13 20:42:19,661 [INFO] Regime distribution: {2: 143, 1: 65, 0: 40, 3: 4}
+2026-06-13 20:42:19,682 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:19,683 [INFO] Using 26 features for RF
+2026-06-13 20:42:19,684 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:19,686 [WARNING]   Crisis: only 65 samples � skipping specialist
+2026-06-13 20:42:19,686 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:19,692 [INFO]   Bear: 143 samples, class balance: {1.0: 74, 0.0: 69}
+2026-06-13 20:42:21,073 [INFO]   Bear: CV accuracy = 0.4680 (�0.0467)
+2026-06-13 20:42:21,110 [INFO]   Top 5 features: {'RSI_14': 0.09316639180194466, 'BB_bandwidth': 0.06765045898038954, 'MACD_line': 0.06488645033067192, 'real_rate': 0.06322833630613008, 'realized_vol_20d': 0.06267201129567197}
+2026-06-13 20:42:21,111 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:21,114 [WARNING]   Bull: only 40 samples � skipping specialist
+2026-06-13 20:42:21,114 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:21,116 [WARNING]   Recovery: only 4 samples � skipping specialist
+2026-06-13 20:42:21,117 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 20:42:21,117 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:21,205 [INFO] Signal distribution: {1: 44, -1: 19}
+2026-06-13 20:42:21,206 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 20:42:21,223 [INFO] 
+--- Window 46: Train [2002-10-09 \u2192 2003-10-10], Test [2003-10-13 \u2192 2004-01-07] ---
+2026-06-13 20:42:21,224 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:21,224 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:21,285 [INFO] HMM converged in 9 iterations
+2026-06-13 20:42:21,292 [INFO]   State 3 \u2192 Bull: mean_ret=0.004941, std=0.008376, n=40
+2026-06-13 20:42:21,292 [INFO]   State 1 \u2192 Recovery: mean_ret=0.004223, std=0.015067, n=64
+2026-06-13 20:42:21,292 [INFO]   State 0 \u2192 Bear: mean_ret=0.000990, std=0.008770, n=95
+2026-06-13 20:42:21,292 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.001911, std=0.011510, n=53
+2026-06-13 20:42:21,292 [INFO] Regime distribution: {0: 95, 1: 64, 2: 53, 3: 40}
+2026-06-13 20:42:21,316 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:21,317 [INFO] Using 26 features for RF
+2026-06-13 20:42:21,318 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:21,321 [WARNING]   Bear: only 95 samples � skipping specialist
+2026-06-13 20:42:21,321 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:21,324 [WARNING]   Crisis: only 55 samples � skipping specialist
+2026-06-13 20:42:21,324 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:21,326 [WARNING]   Bull: only 40 samples � skipping specialist
+2026-06-13 20:42:21,326 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:21,330 [WARNING]   Recovery: only 62 samples � skipping specialist
+2026-06-13 20:42:21,330 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:21,330 [INFO] Generating batch signals...
+2026-06-13 20:42:21,339 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:21,340 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:21,357 [INFO] 
+--- Window 47: Train [2003-01-10 \u2192 2004-01-07], Test [2004-01-08 \u2192 2004-04-08] ---
+2026-06-13 20:42:21,357 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:21,357 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:21,412 [WARNING] Model is not converging.  Current: -194.75803114226315 is not greater than -194.75802631359753. Delta is -4.8286656237905845e-06
+2026-06-13 20:42:21,412 [INFO] HMM converged in 7 iterations
+2026-06-13 20:42:21,417 [INFO]   State 0 \u2192 Bull: mean_ret=0.004941, std=0.008376, n=40
+2026-06-13 20:42:21,417 [INFO]   State 1 \u2192 Recovery: mean_ret=0.004077, std=0.014249, n=82
+2026-06-13 20:42:21,417 [INFO]   State 3 \u2192 Bear: mean_ret=0.003599, std=0.015801, n=19
+2026-06-13 20:42:21,417 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000384, std=0.011254, n=111
+2026-06-13 20:42:21,418 [INFO] Regime distribution: {2: 111, 1: 82, 0: 40, 3: 19}
+2026-06-13 20:42:21,439 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:21,440 [INFO] Using 26 features for RF
+2026-06-13 20:42:21,441 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:21,443 [INFO]   Crisis: 111 samples, class balance: {1.0: 57, 0.0: 54}
+2026-06-13 20:42:22,720 [INFO]   Crisis: CV accuracy = 0.4862 (�0.0697)
+2026-06-13 20:42:22,756 [INFO]   Top 5 features: {'NSEI_returns': 0.1154949229461875, 'yield_spread_zscore': 0.10406269889757759, 'yield_spread': 0.09508683760143047, 'real_rate': 0.07465350745144284, 'realized_vol_20d': 0.07001313895923278}
+2026-06-13 20:42:22,757 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:22,762 [WARNING]   Bull: only 40 samples � skipping specialist
+2026-06-13 20:42:22,762 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:22,764 [WARNING]   Bear: only 19 samples � skipping specialist
+2026-06-13 20:42:22,764 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:22,767 [WARNING]   Recovery: only 82 samples � skipping specialist
+2026-06-13 20:42:22,767 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 20:42:22,767 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:22,947 [INFO] Signal distribution: {1: 54, -1: 9}
+2026-06-13 20:42:22,948 [INFO] Next-regime routing: {'Recovery': 58, 'Crisis': 5}
+2026-06-13 20:42:22,965 [INFO] 
+--- Window 48: Train [2003-04-11 \u2192 2004-04-08], Test [2004-04-12 \u2192 2004-07-08] ---
+2026-06-13 20:42:22,965 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:22,966 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:23,035 [INFO] HMM converged in 11 iterations
+2026-06-13 20:42:23,043 [INFO]   State 2 \u2192 Bull: mean_ret=0.004025, std=0.008490, n=51
+2026-06-13 20:42:23,043 [INFO]   State 0 \u2192 Recovery: mean_ret=0.003860, std=0.015141, n=93
+2026-06-13 20:42:23,043 [INFO]   State 1 \u2192 Bear: mean_ret=0.001099, std=0.015961, n=93
+2026-06-13 20:42:23,043 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000721, std=0.008309, n=15
+2026-06-13 20:42:23,043 [INFO] Regime distribution: {1: 93, 0: 93, 2: 51, 3: 15}
+2026-06-13 20:42:23,066 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:23,067 [INFO] Using 26 features for RF
+2026-06-13 20:42:23,068 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:23,071 [WARNING]   Crisis: only 15 samples � skipping specialist
+2026-06-13 20:42:23,072 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:23,075 [WARNING]   Bull: only 51 samples � skipping specialist
+2026-06-13 20:42:23,075 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:23,077 [WARNING]   Recovery: only 93 samples � skipping specialist
+2026-06-13 20:42:23,077 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:23,079 [WARNING]   Bear: only 93 samples � skipping specialist
+2026-06-13 20:42:23,080 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:23,080 [INFO] Generating batch signals...
+2026-06-13 20:42:23,089 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:23,089 [INFO] Next-regime routing: {'Recovery': 39, 'Bear': 19, 'Crisis': 5}
+2026-06-13 20:42:23,104 [INFO] 
+--- Window 49: Train [2003-07-14 \u2192 2004-07-08], Test [2004-07-09 \u2192 2004-10-05] ---
+2026-06-13 20:42:23,104 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:23,105 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:23,162 [WARNING] Model is not converging.  Current: 239.77534820137416 is not greater than 239.78143086507694. Delta is -0.00608266370278443
+2026-06-13 20:42:23,162 [INFO] HMM converged in 6 iterations
+2026-06-13 20:42:23,166 [INFO]   State 2 \u2192 Bull: mean_ret=0.003618, std=0.014408, n=135
+2026-06-13 20:42:23,166 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001363, std=0.014656, n=18
+2026-06-13 20:42:23,166 [INFO]   State 0 \u2192 Bear: mean_ret=-0.002299, std=0.019356, n=78
+2026-06-13 20:42:23,166 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.003142, std=0.039876, n=21
+2026-06-13 20:42:23,167 [INFO] Regime distribution: {2: 135, 0: 78, 1: 21, 3: 18}
+2026-06-13 20:42:23,189 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:23,191 [INFO] Using 26 features for RF
+2026-06-13 20:42:23,191 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:23,195 [INFO]   Bull: 135 samples, class balance: {1.0: 91, 0.0: 44}
+2026-06-13 20:42:24,491 [INFO]   Bull: CV accuracy = 0.5778 (�0.1253)
+2026-06-13 20:42:24,525 [INFO]   Top 5 features: {'NSEI_mom_1m': 0.07829529190908839, 'NSEI_mom_6m': 0.07582705034488854, 'MACD_line': 0.06924781837523893, 'NSEI_mom_3m': 0.06675815391623034, 'BB_pct_b': 0.06664318805139749}
+2026-06-13 20:42:24,526 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:24,529 [WARNING]   Bear: only 78 samples � skipping specialist
+2026-06-13 20:42:24,529 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:24,531 [WARNING]   Crisis: only 21 samples � skipping specialist
+2026-06-13 20:42:24,532 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:24,533 [WARNING]   Recovery: only 18 samples � skipping specialist
+2026-06-13 20:42:24,533 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 20:42:24,533 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:24,690 [INFO] Signal distribution: {1: 61, -1: 2}
+2026-06-13 20:42:24,691 [INFO] Next-regime routing: {'Bull': 48, 'Recovery': 15}
+2026-06-13 20:42:24,705 [INFO] 
+--- Window 50: Train [2003-10-13 \u2192 2004-10-05], Test [2004-10-06 \u2192 2005-01-05] ---
+2026-06-13 20:42:24,705 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:24,706 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:24,752 [INFO] HMM converged in 5 iterations
+2026-06-13 20:42:24,758 [INFO]   State 3 \u2192 Bull: mean_ret=0.004352, std=0.028167, n=19
+2026-06-13 20:42:24,758 [INFO]   State 2 \u2192 Recovery: mean_ret=0.002477, std=0.009265, n=42
+2026-06-13 20:42:24,758 [INFO]   State 1 \u2192 Bear: mean_ret=0.001990, std=0.012663, n=40
+2026-06-13 20:42:24,758 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000612, std=0.020065, n=151
+2026-06-13 20:42:24,759 [INFO] Regime distribution: {0: 151, 2: 42, 1: 40, 3: 19}
+2026-06-13 20:42:24,779 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:24,780 [INFO] Using 26 features for RF
+2026-06-13 20:42:24,781 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:24,783 [INFO]   Crisis: 151 samples, class balance: {1.0: 86, 0.0: 65}
+2026-06-13 20:42:26,044 [INFO]   Crisis: CV accuracy = 0.4099 (�0.1262)
+2026-06-13 20:42:26,081 [INFO]   Top 5 features: {'NSEI_returns': 0.1398815711070226, 'NSEI_mom_1y': 0.12102635387761503, 'fed_funds_3m_chg': 0.06338393141996224, 'NSEI_SMA50_dist': 0.06201533803215493, 'NSEI_mom_6m': 0.05993369737668083}
+2026-06-13 20:42:26,082 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:26,084 [WARNING]   Bull: only 19 samples � skipping specialist
+2026-06-13 20:42:26,085 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:26,089 [WARNING]   Bear: only 40 samples � skipping specialist
+2026-06-13 20:42:26,089 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:26,093 [WARNING]   Recovery: only 42 samples � skipping specialist
+2026-06-13 20:42:26,093 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 20:42:26,093 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:26,257 [INFO] Signal distribution: {1: 47, -1: 16}
+2026-06-13 20:42:26,258 [INFO] Next-regime routing: {'Recovery': 58, 'Crisis': 5}
+2026-06-13 20:42:26,276 [INFO] 
+--- Window 51: Train [2004-01-08 \u2192 2005-01-05], Test [2005-01-06 \u2192 2005-04-07] ---
+2026-06-13 20:42:26,276 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:26,276 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:26,332 [INFO] HMM converged in 8 iterations
+2026-06-13 20:42:26,338 [INFO]   State 3 \u2192 Bull: mean_ret=0.002916, std=0.012290, n=38
+2026-06-13 20:42:26,338 [INFO]   State 1 \u2192 Recovery: mean_ret=0.002081, std=0.009147, n=105
+2026-06-13 20:42:26,338 [INFO]   State 2 \u2192 Bear: mean_ret=-0.002327, std=0.019095, n=88
+2026-06-13 20:42:26,338 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.003142, std=0.039876, n=21
+2026-06-13 20:42:26,339 [INFO] Regime distribution: {1: 105, 2: 88, 3: 38, 0: 21}
+2026-06-13 20:42:26,358 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:26,358 [INFO] Using 26 features for RF
+2026-06-13 20:42:26,359 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:26,362 [WARNING]   Bear: only 92 samples � skipping specialist
+2026-06-13 20:42:26,362 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:26,364 [WARNING]   Crisis: only 21 samples � skipping specialist
+2026-06-13 20:42:26,364 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:26,366 [WARNING]   Bull: only 38 samples � skipping specialist
+2026-06-13 20:42:26,366 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:26,368 [INFO]   Recovery: 101 samples, class balance: {1.0: 62, 0.0: 39}
+2026-06-13 20:42:27,613 [INFO]   Recovery: CV accuracy = 0.5038 (�0.1087)
+2026-06-13 20:42:27,647 [INFO]   Top 5 features: {'NSEI_SMA50_dist': 0.10617720252914702, 'yield_spread_zscore': 0.1019947982212967, 'NSEI_mom_1m': 0.0872277029157593, 'MACD_histogram': 0.07901056433099012, 'NSEI_SMA100_dist': 0.05959015368738746}
+2026-06-13 20:42:27,648 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:27,648 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:27,793 [INFO] Signal distribution: {1: 59, -1: 4}
+2026-06-13 20:42:27,793 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:27,809 [INFO] 
+--- Window 52: Train [2004-04-12 \u2192 2005-04-07], Test [2005-04-08 \u2192 2005-07-05] ---
+2026-06-13 20:42:27,810 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:27,810 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:27,858 [INFO] HMM converged in 5 iterations
+2026-06-13 20:42:27,863 [INFO]   State 3 \u2192 Bull: mean_ret=0.002225, std=0.012435, n=38
+2026-06-13 20:42:27,863 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001361, std=0.009932, n=168
+2026-06-13 20:42:27,863 [INFO]   State 2 \u2192 Bear: mean_ret=-0.002401, std=0.039071, n=22
+2026-06-13 20:42:27,863 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.006590, std=0.022408, n=24
+2026-06-13 20:42:27,864 [INFO] Regime distribution: {1: 168, 3: 38, 0: 24, 2: 22}
+2026-06-13 20:42:27,884 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:27,885 [INFO] Using 26 features for RF
+2026-06-13 20:42:27,886 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:27,890 [WARNING]   Crisis: only 24 samples � skipping specialist
+2026-06-13 20:42:27,890 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:27,892 [WARNING]   Bear: only 22 samples � skipping specialist
+2026-06-13 20:42:27,892 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:27,894 [WARNING]   Bull: only 38 samples � skipping specialist
+2026-06-13 20:42:27,894 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:27,897 [INFO]   Recovery: 168 samples, class balance: {1.0: 92, 0.0: 76}
+2026-06-13 20:42:29,152 [INFO]   Recovery: CV accuracy = 0.3916 (�0.1575)
+2026-06-13 20:42:29,191 [INFO]   Top 5 features: {'NSEI_mom_1y': 0.0749182813113609, 'NSEI_ffd': 0.0731056716631895, 'return_kurt_20d': 0.06845993588053925, 'NSEI_mom_6m': 0.06268970308982187, 'real_rate': 0.06243546328514703}
+2026-06-13 20:42:29,192 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:29,192 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:29,282 [INFO] Signal distribution: {-1: 40, 1: 23}
+2026-06-13 20:42:29,283 [INFO] Next-regime routing: {'Recovery': 63}
+2026-06-13 20:42:29,299 [INFO] 
+--- Window 53: Train [2004-07-09 \u2192 2005-07-05], Test [2005-07-06 \u2192 2005-10-05] ---
+2026-06-13 20:42:29,300 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:29,300 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:29,362 [INFO] HMM converged in 9 iterations
+2026-06-13 20:42:29,368 [INFO]   State 2 \u2192 Bull: mean_ret=0.003678, std=0.009891, n=23
+2026-06-13 20:42:29,368 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001717, std=0.009469, n=106
+2026-06-13 20:42:29,368 [INFO]   State 3 \u2192 Bear: mean_ret=0.001654, std=0.007941, n=62
+2026-06-13 20:42:29,368 [INFO]   State 1 \u2192 Crisis: mean_ret=0.000109, std=0.011935, n=61
+2026-06-13 20:42:29,369 [INFO] Regime distribution: {0: 106, 3: 62, 1: 61, 2: 23}
+2026-06-13 20:42:29,395 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:29,396 [INFO] Using 26 features for RF
+2026-06-13 20:42:29,397 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:29,399 [WARNING]   Bull: only 23 samples � skipping specialist
+2026-06-13 20:42:29,400 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:29,402 [INFO]   Recovery: 106 samples, class balance: {1.0: 63, 0.0: 43}
+2026-06-13 20:42:30,733 [INFO]   Recovery: CV accuracy = 0.4134 (�0.1001)
+2026-06-13 20:42:30,769 [INFO]   Top 5 features: {'RSI_divergence': 0.11684011047244601, 'NSEI_mom_1m': 0.08246106221960778, 'MACD_histogram': 0.0816228193432671, 'yield_spread_zscore': 0.07918010585618454, 'realized_vol_20d': 0.06075663474089445}
+2026-06-13 20:42:30,770 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:30,774 [WARNING]   Crisis: only 61 samples � skipping specialist
+2026-06-13 20:42:30,774 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:30,776 [WARNING]   Bear: only 62 samples � skipping specialist
+2026-06-13 20:42:30,776 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:30,776 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:31,008 [INFO] Signal distribution: {-1: 53, 1: 10}
+2026-06-13 20:42:31,009 [INFO] Next-regime routing: {'Bear': 48, 'Crisis': 10, 'Bull': 5}
+2026-06-13 20:42:31,025 [INFO] 
+--- Window 54: Train [2004-10-06 \u2192 2005-10-05], Test [2005-10-06 \u2192 2006-01-05] ---
+2026-06-13 20:42:31,025 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:31,026 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:31,083 [INFO] HMM converged in 6 iterations
+2026-06-13 20:42:31,091 [INFO]   State 1 \u2192 Bull: mean_ret=0.002762, std=0.010454, n=62
+2026-06-13 20:42:31,091 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001417, std=0.012753, n=29
+2026-06-13 20:42:31,091 [INFO]   State 0 \u2192 Bear: mean_ret=0.001068, std=0.008729, n=84
+2026-06-13 20:42:31,091 [INFO]   State 2 \u2192 Crisis: mean_ret=0.000983, std=0.009957, n=77
+2026-06-13 20:42:31,091 [INFO] Regime distribution: {0: 84, 2: 77, 1: 62, 3: 29}
+2026-06-13 20:42:31,112 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:31,113 [INFO] Using 26 features for RF
+2026-06-13 20:42:31,114 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:31,116 [WARNING]   Crisis: only 77 samples � skipping specialist
+2026-06-13 20:42:31,116 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:31,118 [WARNING]   Recovery: only 29 samples � skipping specialist
+2026-06-13 20:42:31,118 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:31,121 [WARNING]   Bear: only 84 samples � skipping specialist
+2026-06-13 20:42:31,121 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:31,125 [WARNING]   Bull: only 62 samples � skipping specialist
+2026-06-13 20:42:31,125 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:31,125 [INFO] Generating batch signals...
+2026-06-13 20:42:31,132 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:31,133 [INFO] Next-regime routing: {'Bull': 58, 'Crisis': 5}
+2026-06-13 20:42:31,148 [INFO] 
+--- Window 55: Train [2005-01-06 \u2192 2006-01-05], Test [2006-01-06 \u2192 2006-04-12] ---
+2026-06-13 20:42:31,148 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:31,148 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:31,206 [WARNING] Model is not converging.  Current: -597.6273973729026 is not greater than -597.6265225827328. Delta is -0.0008747901697461202
+2026-06-13 20:42:31,206 [INFO] HMM converged in 7 iterations
+2026-06-13 20:42:31,211 [INFO]   State 2 \u2192 Bull: mean_ret=0.002512, std=0.010363, n=79
+2026-06-13 20:42:31,211 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001918, std=0.012379, n=59
+2026-06-13 20:42:31,211 [INFO]   State 0 \u2192 Bear: mean_ret=0.000628, std=0.008840, n=84
+2026-06-13 20:42:31,211 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000295, std=0.014041, n=30
+2026-06-13 20:42:31,211 [INFO] Regime distribution: {0: 84, 2: 79, 1: 59, 3: 30}
+2026-06-13 20:42:31,229 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:31,231 [INFO] Using 26 features for RF
+2026-06-13 20:42:31,231 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:31,233 [WARNING]   Crisis: only 30 samples � skipping specialist
+2026-06-13 20:42:31,233 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:31,235 [WARNING]   Bear: only 84 samples � skipping specialist
+2026-06-13 20:42:31,235 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:31,238 [WARNING]   Bull: only 79 samples � skipping specialist
+2026-06-13 20:42:31,238 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:31,240 [WARNING]   Recovery: only 59 samples � skipping specialist
+2026-06-13 20:42:31,240 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:31,240 [INFO] Generating batch signals...
+2026-06-13 20:42:31,246 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:31,247 [INFO] Next-regime routing: {'Bull': 53, 'Crisis': 5, 'Recovery': 5}
+2026-06-13 20:42:31,263 [INFO] 
+--- Window 56: Train [2005-04-08 \u2192 2006-04-12], Test [2006-04-13 \u2192 2006-07-10] ---
+2026-06-13 20:42:31,263 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:31,263 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:31,344 [INFO] HMM converged in 13 iterations
+2026-06-13 20:42:31,349 [INFO]   State 0 \u2192 Bull: mean_ret=0.003121, std=0.009513, n=106
+2026-06-13 20:42:31,349 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001638, std=0.009253, n=55
+2026-06-13 20:42:31,349 [INFO]   State 1 \u2192 Bear: mean_ret=0.001260, std=0.011765, n=69
+2026-06-13 20:42:31,349 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000417, std=0.014334, n=22
+2026-06-13 20:42:31,350 [INFO] Regime distribution: {0: 106, 1: 69, 2: 55, 3: 22}
+2026-06-13 20:42:31,395 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:31,397 [INFO] Using 26 features for RF
+2026-06-13 20:42:31,397 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:31,401 [WARNING]   Crisis: only 22 samples � skipping specialist
+2026-06-13 20:42:31,401 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:31,405 [WARNING]   Recovery: only 57 samples � skipping specialist
+2026-06-13 20:42:31,405 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:31,411 [INFO]   Bull: 106 samples, class balance: {1.0: 70, 0.0: 36}
+2026-06-13 20:42:32,758 [INFO]   Bull: CV accuracy = 0.5935 (�0.1510)
+2026-06-13 20:42:32,791 [INFO]   Top 5 features: {'NSEI_mom_3m': 0.1343489496069447, 'NSEI_mom_1m': 0.10280723984592105, 'NSEI_SMA50_dist': 0.08859247799657478, 'NSEI_SMA20_dist': 0.06649433936148692, 'MACD_line': 0.06295578271455989}
+2026-06-13 20:42:32,792 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:32,795 [WARNING]   Bear: only 67 samples � skipping specialist
+2026-06-13 20:42:32,795 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 20:42:32,795 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:33,036 [INFO] Signal distribution: {1: 43, -1: 20}
+2026-06-13 20:42:33,037 [INFO] Next-regime routing: {'Bear': 24, 'Crisis': 20, 'Bull': 19}
+2026-06-13 20:42:33,052 [INFO] 
+--- Window 57: Train [2005-07-06 \u2192 2006-07-10], Test [2006-07-11 \u2192 2006-10-09] ---
+2026-06-13 20:42:33,052 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:33,052 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:33,192 [INFO] HMM converged in 40 iterations
+2026-06-13 20:42:33,198 [INFO]   State 3 \u2192 Bull: mean_ret=0.003220, std=0.014133, n=52
+2026-06-13 20:42:33,198 [INFO]   State 0 \u2192 Recovery: mean_ret=0.002127, std=0.009596, n=64
+2026-06-13 20:42:33,198 [INFO]   State 2 \u2192 Bear: mean_ret=0.001998, std=0.011720, n=97
+2026-06-13 20:42:33,199 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.003738, std=0.031398, n=39
+2026-06-13 20:42:33,199 [INFO] Regime distribution: {2: 97, 0: 64, 3: 52, 1: 39}
+2026-06-13 20:42:33,218 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:33,219 [INFO] Using 26 features for RF
+2026-06-13 20:42:33,220 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:33,223 [WARNING]   Bear: only 97 samples � skipping specialist
+2026-06-13 20:42:33,223 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:33,227 [WARNING]   Recovery: only 64 samples � skipping specialist
+2026-06-13 20:42:33,227 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:33,229 [WARNING]   Bull: only 52 samples � skipping specialist
+2026-06-13 20:42:33,229 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:33,231 [WARNING]   Crisis: only 39 samples � skipping specialist
+2026-06-13 20:42:33,232 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:33,232 [INFO] Generating batch signals...
+2026-06-13 20:42:33,238 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:33,239 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 20:42:33,252 [INFO] 
+--- Window 58: Train [2005-10-06 \u2192 2006-10-09], Test [2006-10-10 \u2192 2007-01-09] ---
+2026-06-13 20:42:33,252 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:33,252 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:33,392 [INFO] HMM converged in 36 iterations
+2026-06-13 20:42:33,398 [INFO]   State 1 \u2192 Bull: mean_ret=0.003041, std=0.015874, n=63
+2026-06-13 20:42:33,398 [INFO]   State 2 \u2192 Recovery: mean_ret=0.002811, std=0.010096, n=115
+2026-06-13 20:42:33,398 [INFO]   State 0 \u2192 Bear: mean_ret=0.000865, std=0.015327, n=53
+2026-06-13 20:42:33,398 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.012450, std=0.036723, n=21
+2026-06-13 20:42:33,399 [INFO] Regime distribution: {2: 115, 1: 63, 0: 53, 3: 21}
+2026-06-13 20:42:33,425 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:33,426 [INFO] Using 26 features for RF
+2026-06-13 20:42:33,426 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:33,428 [WARNING]   Bear: only 53 samples � skipping specialist
+2026-06-13 20:42:33,429 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:33,432 [INFO]   Recovery: 115 samples, class balance: {1.0: 68, 0.0: 47}
+2026-06-13 20:42:34,756 [INFO]   Recovery: CV accuracy = 0.4783 (�0.0953)
+2026-06-13 20:42:34,792 [INFO]   Top 5 features: {'yield_spread_zscore': 0.10665859505722901, 'RSI_14': 0.09954164075860898, 'NSEI_SMA20_dist': 0.08796251146941009, 'MACD_histogram': 0.08585249564433198, 'NSEI_mom_6m': 0.060508441557758544}
+2026-06-13 20:42:34,793 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:34,795 [WARNING]   Crisis: only 21 samples � skipping specialist
+2026-06-13 20:42:34,795 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:34,797 [WARNING]   Bull: only 63 samples � skipping specialist
+2026-06-13 20:42:34,797 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:34,797 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:34,964 [INFO] Signal distribution: {1: 46, -1: 17}
+2026-06-13 20:42:34,964 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 20:42:34,982 [INFO] 
+--- Window 59: Train [2006-01-06 \u2192 2007-01-09], Test [2007-01-10 \u2192 2007-04-13] ---
+2026-06-13 20:42:34,983 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:34,983 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:35,077 [INFO] HMM converged in 17 iterations
+2026-06-13 20:42:35,084 [INFO]   State 1 \u2192 Bull: mean_ret=0.002521, std=0.012758, n=76
+2026-06-13 20:42:35,084 [INFO]   State 3 \u2192 Recovery: mean_ret=0.002197, std=0.006789, n=43
+2026-06-13 20:42:35,084 [INFO]   State 2 \u2192 Bear: mean_ret=0.001608, std=0.013117, n=96
+2026-06-13 20:42:35,084 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.003816, std=0.031774, n=37
+2026-06-13 20:42:35,084 [INFO] Regime distribution: {2: 96, 1: 76, 3: 43, 0: 37}
+2026-06-13 20:42:35,111 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:35,112 [INFO] Using 26 features for RF
+2026-06-13 20:42:35,113 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:35,116 [WARNING]   Bull: only 76 samples � skipping specialist
+2026-06-13 20:42:35,116 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:35,119 [WARNING]   Recovery: only 43 samples � skipping specialist
+2026-06-13 20:42:35,120 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:35,123 [WARNING]   Crisis: only 37 samples � skipping specialist
+2026-06-13 20:42:35,123 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:35,125 [WARNING]   Bear: only 96 samples � skipping specialist
+2026-06-13 20:42:35,125 [INFO] 
+Trained 0 specialists: []
+2026-06-13 20:42:35,125 [INFO] Generating batch signals...
+2026-06-13 20:42:35,134 [INFO] Signal distribution: {0: 63}
+2026-06-13 20:42:35,134 [INFO] Next-regime routing: {'Bear': 58, 'Bull': 5}
+2026-06-13 20:42:35,150 [INFO] 
+--- Window 60: Train [2006-04-13 \u2192 2007-04-13], Test [2007-04-16 \u2192 2007-07-13] ---
+2026-06-13 20:42:35,150 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:35,150 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:35,302 [INFO] HMM converged in 42 iterations
+2026-06-13 20:42:35,308 [INFO]   State 0 \u2192 Bull: mean_ret=0.004637, std=0.017266, n=60
+2026-06-13 20:42:35,308 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001081, std=0.011312, n=116
+2026-06-13 20:42:35,308 [INFO]   State 3 \u2192 Bear: mean_ret=-0.000196, std=0.021095, n=32
+2026-06-13 20:42:35,308 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.005678, std=0.027231, n=44
+2026-06-13 20:42:35,309 [INFO] Regime distribution: {1: 116, 0: 60, 2: 44, 3: 32}
+2026-06-13 20:42:35,329 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:35,330 [INFO] Using 26 features for RF
+2026-06-13 20:42:35,331 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:35,334 [WARNING]   Crisis: only 44 samples � skipping specialist
+2026-06-13 20:42:35,334 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:35,336 [WARNING]   Bull: only 60 samples � skipping specialist
+2026-06-13 20:42:35,336 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:35,340 [INFO]   Recovery: 116 samples, class balance: {1.0: 68, 0.0: 48}
+2026-06-13 20:42:36,611 [INFO]   Recovery: CV accuracy = 0.4036 (�0.1674)
+2026-06-13 20:42:36,649 [INFO]   Top 5 features: {'MACD_histogram': 0.19114080094955468, 'NSEI_returns': 0.11752179041820948, 'yield_spread_zscore': 0.0794558558391665, 'RSI_14': 0.06268285843002451, 'NSEI_ffd': 0.05283872955746877}
+2026-06-13 20:42:36,650 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:36,653 [WARNING]   Bear: only 32 samples � skipping specialist
+2026-06-13 20:42:36,653 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:36,653 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:36,810 [INFO] Signal distribution: {1: 35, -1: 28}
+2026-06-13 20:42:36,811 [INFO] Next-regime routing: {'Recovery': 58, 'Crisis': 5}
+2026-06-13 20:42:36,828 [INFO] 
+--- Window 61: Train [2006-07-11 \u2192 2007-07-13], Test [2007-07-16 \u2192 2007-10-04] ---
+2026-06-13 20:42:36,829 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 20:42:36,829 [WARNING] Missing HMM features (will skip): {'VIX_zscore', 'VIX_term_structure', 'NSEI_LIQUID_ratio', 'mcclellan_osc'}
+2026-06-13 20:42:36,984 [INFO] HMM converged in 42 iterations
+2026-06-13 20:42:36,990 [INFO]   State 2 \u2192 Bull: mean_ret=0.002074, std=0.008163, n=43
+2026-06-13 20:42:36,990 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001608, std=0.010354, n=100
+2026-06-13 20:42:36,990 [INFO]   State 0 \u2192 Bear: mean_ret=0.001108, std=0.017934, n=51
+2026-06-13 20:42:36,990 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000927, std=0.014168, n=58
+2026-06-13 20:42:36,991 [INFO] Regime distribution: {1: 100, 3: 58, 0: 51, 2: 43}
+2026-06-13 20:42:37,013 [INFO] Training regime-specialist Random Forests...
+2026-06-13 20:42:37,015 [INFO] Using 26 features for RF
+2026-06-13 20:42:37,015 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 20:42:37,019 [WARNING]   Crisis: only 58 samples � skipping specialist
+2026-06-13 20:42:37,019 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 20:42:37,021 [INFO]   Recovery: 100 samples, class balance: {1.0: 62, 0.0: 38}
+2026-06-13 20:42:38,476 [INFO]   Recovery: CV accuracy = 0.6200 (�0.1288)
+2026-06-13 20:42:38,511 [INFO]   Top 5 features: {'MACD_histogram': 0.1963550368983721, 'NSEI_returns': 0.10966226599187277, 'return_skew_20d': 0.09784119898168044, 'yield_spread_zscore': 0.07672664788266659, 'NSEI_SMA20_dist': 0.06150631280380625}
+2026-06-13 20:42:38,512 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 20:42:38,515 [WARNING]   Bear: only 51 samples � skipping specialist
+2026-06-13 20:42:38,515 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 20:42:38,518 [WARNING]   Bull: only 43 samples � skipping specialist
+2026-06-13 20:42:38,518 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 20:42:38,518 [INFO] Generating batch signals...
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+D:\Market regime detection\venv\Lib\site-packages\sklearn\utils\validation.py:2691: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
+  warnings.warn(
+2026-06-13 20:42:38,688 [INFO] Signal distribution: {1: 31, -1: 26}
+2026-06-13 20:42:38,689 [INFO] Next-regime routing: {'Recovery': 52, 'Crisis': 5}
+2026-06-13 20:42:38,733 [INFO] Saved WFO weight history: (3837, 1)
+2026-06-13 20:42:38,733 [INFO] 
+Total OOS periods: 61 windows, 3837 days
+2026-06-13 20:42:53,766 [INFO] vectorbt backtest completed successfully
+2026-06-13 20:42:53,814 [INFO] 
+============================================================
+2026-06-13 20:42:53,815 [INFO] BACKTEST RESULTS
+2026-06-13 20:42:53,815 [INFO] ============================================================
+2026-06-13 20:42:53,815 [INFO]   Sharpe Ratio:       0.0
+2026-06-13 20:42:53,815 [INFO]   Market Sharpe:      0.5034
+2026-06-13 20:42:53,815 [INFO]   Max Drawdown:       0.00%
+2026-06-13 20:42:53,815 [INFO]   Market Max DD:      -56.76%
+2026-06-13 20:42:53,815 [INFO]   Annual Return:      0.00%
+2026-06-13 20:42:53,815 [INFO]   Total Return:       0.00%
+2026-06-13 20:42:53,815 [INFO]   Market Return:      353.26%
+2026-06-13 20:42:53,815 [INFO]   Win Rate:           0.00%
+2026-06-13 20:42:53,815 [INFO]   Profit Factor:      inf
+2026-06-13 20:42:53,815 [INFO]   Calmar Ratio:       0.0
+2026-06-13 20:42:53,815 [INFO]   Total Trades:       453
+2026-06-13 20:42:53,816 [INFO]   Period:             15.2 years
+2026-06-13 20:42:53,816 [INFO] ============================================================
+2026-06-13 20:42:53,816 [INFO] ======================================================================
+2026-06-13 20:42:53,816 [INFO] STEP 8: SHAP EXPLAINABILITY
+2026-06-13 20:42:53,816 [INFO] ======================================================================
+2026-06-13 20:42:54,891 [INFO] Loaded 4 specialists from D:\Market regime detection\output\models
+2026-06-13 20:42:55,581 [INFO] Computing SHAP explanations...
+2026-06-13 20:42:55,581 [INFO]   Computing SHAP for regime: Bull
+2026-06-13 20:42:56,435 [INFO]   Bull: SHAP computed for 595 samples
+2026-06-13 20:42:56,435 [INFO]   Computing SHAP for regime: Crisis
+2026-06-13 20:42:56,489 [INFO]   Crisis: SHAP computed for 138 samples
+2026-06-13 20:42:56,489 [INFO]   Computing SHAP for regime: Recovery
+2026-06-13 20:43:00,113 [INFO]   Recovery: SHAP computed for 1000 samples
+2026-06-13 20:43:00,113 [INFO]   Computing SHAP for regime: Bear
+2026-06-13 20:43:05,208 [INFO]   Bear: SHAP computed for 1000 samples
+2026-06-13 20:43:06,102 [INFO]   Saved SHAP plots for Bull
+2026-06-13 20:43:06,909 [INFO]   Saved SHAP plots for Crisis
+2026-06-13 20:43:07,792 [INFO]   Saved SHAP plots for Recovery
+2026-06-13 20:43:08,887 [INFO]   Saved SHAP plots for Bear
+2026-06-13 20:43:09,313 [INFO] Saved combined SHAP importance plot
+2026-06-13 20:43:09,313 [INFO] Generating SHAP audit log \u2192 D:\Market regime detection\output\logs\shap_audit.jsonl
+2026-06-13 20:43:34,027 [INFO] Audit log: 4089 entries written to D:\Market regime detection\output\logs\shap_audit.jsonl
+2026-06-13 20:43:34,027 [INFO] Explainability pipeline complete
+2026-06-13 20:43:34,027 [INFO] 
+======================================================================
+2026-06-13 20:43:34,027 [INFO] PIPELINE COMPLETE
+2026-06-13 20:43:34,027 [INFO] ======================================================================
+2026-06-13 20:43:34,027 [INFO]   Total time:         3.0 minutes
+2026-06-13 20:43:34,027 [INFO]   Data shape:         (8716, 22)
+2026-06-13 20:43:34,027 [INFO]   Features:           37 columns
+2026-06-13 20:43:34,030 [INFO]   Regimes:            4
+2026-06-13 20:43:34,030 [INFO]   Specialists:        4
+2026-06-13 20:43:34,030 [INFO]   OOS days:           3837
+2026-06-13 20:43:34,030 [INFO]   Sharpe Ratio:       0.0
+2026-06-13 20:43:34,030 [INFO]   Max Drawdown:       0.00%
+2026-06-13 20:43:34,030 [INFO]   Annual Return:      0.00%
+2026-06-13 20:43:34,030 [INFO]   Win Rate:           0.00%
+2026-06-13 20:43:34,030 [INFO] ======================================================================

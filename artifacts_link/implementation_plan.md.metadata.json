@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Implementation plan for debugging the market regime detection project, resolving the Streamlit slider crash, caching issues, NaN features blocking specialist training, and PyPortfolioOpt warnings.",
+  "updatedAt": "2026-06-13T09:48:10.518281Z",
+  "requestFeedback": true
+}

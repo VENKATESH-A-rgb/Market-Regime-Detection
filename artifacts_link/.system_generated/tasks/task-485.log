@@ -1,0 +1,80 @@
+2026-06-13 13:55:00,813 [INFO] ======================================================================
+2026-06-13 13:55:00,813 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 13:55:00,813 [INFO] ======================================================================
+2026-06-13 13:55:01,174 [INFO] Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2026-06-13 13:55:01,174 [INFO] NumExpr defaulting to 8 threads.
+2026-06-13 13:55:02,019 [INFO] Downloading OHLCV for ['^NSEI', '^INDIAVIX', 'LIQUIDBEES.NS', 'GOLDBEES.NS', 'NIFTYBEES.NS', 'JUNIORBEES.NS', 'BANKBEES.NS'] from 2009-01-02 to 2026-06-13
+2026-06-13 13:55:02,019 [INFO]   Downloading ^NSEI...
+2026-06-13 13:55:03,574 [INFO]   Downloading ^INDIAVIX...
+2026-06-13 13:55:04,280 [INFO]   Downloading LIQUIDBEES.NS...
+2026-06-13 13:55:04,945 [INFO]   Downloading GOLDBEES.NS...
+2026-06-13 13:55:05,880 [INFO]   Downloading NIFTYBEES.NS...
+2026-06-13 13:55:06,576 [INFO]   Downloading JUNIORBEES.NS...
+2026-06-13 13:55:07,874 [INFO]   Downloading BANKBEES.NS...
+2026-06-13 13:55:10,224 [INFO]   Saved ^NSEI: 4278 rows
+2026-06-13 13:55:10,261 [INFO]   Saved ^INDIAVIX: 4277 rows
+2026-06-13 13:55:10,297 [INFO]   Saved LIQUIDBEES.NS: 4300 rows
+2026-06-13 13:55:10,334 [INFO]   Saved GOLDBEES.NS: 4299 rows
+2026-06-13 13:55:10,368 [INFO]   Saved NIFTYBEES.NS: 4300 rows
+2026-06-13 13:55:10,398 [INFO]   Saved JUNIORBEES.NS: 4300 rows
+2026-06-13 13:55:10,430 [INFO]   Saved BANKBEES.NS: 4300 rows
+2026-06-13 13:55:10,431 [INFO] OHLCV download complete: (4302, 35)
+2026-06-13 13:55:10,431 [WARNING] FRED API key not configured � generating synthetic macro proxies
+2026-06-13 13:55:10,431 [INFO] Generating synthetic macro indicators...
+2026-06-13 13:55:10,580 [INFO] Merging OHLCV and macro datasets...
+2026-06-13 13:55:10,581 [INFO] Detected yfinance MultiIndex format: (Ticker, Price)
+2026-06-13 13:55:10,601 [INFO] Master DataFrame shape: (4302, 22)
+2026-06-13 13:55:10,602 [INFO] Date range: 2009-01-02 00:00:00 to 2026-06-12 00:00:00
+2026-06-13 13:55:10,604 [INFO]   NSEI_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,605 [INFO]   NSEI_Open: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,605 [INFO]   NSEI_High: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,606 [INFO]   NSEI_Low: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,606 [INFO]   INDIAVIX_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,606 [INFO]   LIQUIDBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,606 [INFO]   GOLDBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,607 [INFO]   NIFTYBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,607 [INFO]   JUNIORBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,607 [INFO]   BANKBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,607 [INFO]   NSEI_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,608 [INFO]   INDIAVIX_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,608 [INFO]   LIQUIDBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,609 [INFO]   GOLDBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,609 [INFO]   NIFTYBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,609 [INFO]   JUNIORBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,609 [INFO]   BANKBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,610 [INFO]   DGS10: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,610 [INFO]   DGS2: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,610 [INFO]   FEDFUNDS: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,610 [INFO]   CPIAUCSL: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:10,610 [INFO]   UNRATE: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 13:55:11,149 [INFO] Saved master dataset to D:\Market regime detection\data\cleaned\master.parquet
+2026-06-13 13:55:11,204 [WARNING] Maximum date gap: 6.0 days � check for missing data
+2026-06-13 13:55:11,204 [INFO] Data pipeline complete. Report: (4302, 22), range: ('2009-01-02 00:00:00', '2026-06-12 00:00:00')
+2026-06-13 13:55:11,204 [INFO]   \u2192 Master dataset: (4302, 22)
+2026-06-13 13:55:11,204 [INFO] ======================================================================
+2026-06-13 13:55:11,204 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 13:55:11,204 [INFO] ======================================================================
+2026-06-13 13:55:29,610 [INFO] Engineering features...
+2026-06-13 13:55:30,208 [INFO] Engineered 35 features
+2026-06-13 13:55:30,209 [INFO] Applying Fractional Differentiation (FFD)...
+2026-06-13 13:55:30,258 [INFO]   NSEI_Close: min d=0.20 (ADF p=0.0111)
+2026-06-13 13:55:30,451 [INFO]   LIQUIDBEES.NS_Close: min d=0.40 (ADF p=0.0033)
+2026-06-13 13:55:30,581 [INFO]   GOLDBEES.NS_Close: min d=0.30 (ADF p=0.0000)
+2026-06-13 13:55:30,660 [INFO]   NIFTYBEES.NS_Close: min d=0.20 (ADF p=0.0225)
+2026-06-13 13:55:30,702 [INFO]   JUNIORBEES.NS_Close: min d=0.10 (ADF p=0.0082)
+2026-06-13 13:55:30,745 [INFO]   BANKBEES.NS_Close: min d=0.20 (ADF p=0.0004)
+2026-06-13 13:55:30,757 [INFO] FFD params: {'NSEI_Close': 0.2, 'LIQUIDBEES.NS_Close': 0.4, 'GOLDBEES.NS_Close': 0.30000000000000004, 'NIFTYBEES.NS_Close': 0.2, 'JUNIORBEES.NS_Close': 0.1, 'BANKBEES.NS_Close': 0.2}
+2026-06-13 13:55:30,818 [INFO] Dropped 22 warmup rows, 4280 remaining
+2026-06-13 13:55:30,858 [INFO] Saved features to D:\Market regime detection\data\processed\features.parquet
+2026-06-13 13:55:30,860 [INFO]   \u2192 Features: (4280, 64), FFD params: {'NSEI_Close': 0.2, 'LIQUIDBEES.NS_Close': 0.4, 'GOLDBEES.NS_Close': 0.30000000000000004, 'NIFTYBEES.NS_Close': 0.2, 'JUNIORBEES.NS_Close': 0.1, 'BANKBEES.NS_Close': 0.2}
+2026-06-13 13:55:30,860 [INFO] ======================================================================
+2026-06-13 13:55:30,860 [INFO] STEP 4: REGIME DETECTION (HMM)
+2026-06-13 13:55:30,860 [INFO] ======================================================================
+Traceback (most recent call last):
+  File "D:\Market regime detection\run_pipeline.py", line 91, in <module>
+    main()
+  File "D:\Market regime detection\run_pipeline.py", line 42, in main
+    from src.regime_model import run_regime_detection
+  File "D:\Market regime detection\src\regime_model.py", line 14, in <module>
+    from hmmlearn.hmm import GaussianHMM
+ModuleNotFoundError: No module named 'hmmlearn'

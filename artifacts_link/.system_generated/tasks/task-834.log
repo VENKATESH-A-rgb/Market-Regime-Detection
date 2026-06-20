@@ -1,0 +1,8 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T15:15:26+05:30
+Prompt: Check if the run_pipeline.py task has completed
+
+[2026-06-13T15:14:36+05:30] Still waiting. Remaining time: 50s
+[2026-06-13T15:14:46+05:30] Still waiting. Remaining time: 40s
+[2026-06-13T15:14:56+05:30] Still waiting. Remaining time: 30s
+[2026-06-13T15:15:02+05:30] Timer cancelled: agent received a message during wait.

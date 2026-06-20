@@ -1,0 +1,10 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T14:17:32+05:30
+Prompt: Wait for HMM and Backtesting pipeline
+
+[2026-06-13T14:16:42+05:30] Still waiting. Remaining time: 50s
+[2026-06-13T14:16:52+05:30] Still waiting. Remaining time: 40s
+[2026-06-13T14:17:02+05:30] Still waiting. Remaining time: 30s
+[2026-06-13T14:17:12+05:30] Still waiting. Remaining time: 20s
+[2026-06-13T14:17:22+05:30] Still waiting. Remaining time: 10s
+[2026-06-13T14:17:32+05:30] Timer fired.

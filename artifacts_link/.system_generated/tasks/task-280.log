@@ -1,0 +1,9 @@
+Index(['market_return', 'portfolio_return', 'signal', 'confidence', 'turnover',
+       'tx_cost', 'strategy_return', 'trade', 'cum_market', 'cum_strategy'],
+      dtype='object')
+            market_return  portfolio_return  ...  cum_market  cum_strategy
+Date                                         ...                          
+1994-02-25       0.004685               0.0  ...    1.004685        0.9985
+1994-02-28       0.000000               0.0  ...    1.004685        0.9985
+
+[2 rows x 10 columns]

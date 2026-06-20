@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Task list for debugging the project. Includes tasks for: feature engineering NaN drop, specialist model warnings, portfolio optimizer cleanliness, and Streamlit app fixes.",
+  "updatedAt": "2026-06-13T09:50:45.796403500Z"
+}

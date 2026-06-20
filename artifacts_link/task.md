@@ -1,0 +1,7 @@
+- [x] Drop all-NaN columns in `feature_engineering.py`
+- [x] Fix Sklearn feature name warnings in `specialist_models.py`
+- [x] Make `_get_asset_columns` and `_get_returns` robust in `portfolio_optimizer.py`
+- [x] Fix slider crash and cache reloading in `app.py`
+- [x] Verify execution by running `run_pipeline.py`
+- [x] Verify Streamlit dashboard behavior
+- [x] Change Audit Log filter End Date to today's live date

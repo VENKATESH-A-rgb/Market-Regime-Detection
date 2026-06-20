@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "D:\Market regime detection\venv\Lib\site-packages\nsepython\rahu.py", line 631, in equity_history
+    total = pd.concat([total, equity_history_virgin(symbol, series, start_date, end_date)])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\nsepython\rahu.py", line 580, in equity_history_virgin
+    return pd.DataFrame.from_records(payload["data"])
+                                     ~~~~~~~^^^^^^^^
+KeyError: 'data'

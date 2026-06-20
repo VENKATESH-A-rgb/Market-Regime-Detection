@@ -1,0 +1,2059 @@
+2026-06-13 16:05:57,889 [INFO] ======================================================================
+2026-06-13 16:05:57,889 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 16:05:57,889 [INFO] ======================================================================
+2026-06-13 16:05:58,988 [INFO] Downloading OHLCV for ['^NSEI', '^INDIAVIX', 'LIQUIDBEES.NS', 'GOLDBEES.NS', 'NIFTYBEES.NS', 'JUNIORBEES.NS', 'BANKBEES.NS'] from 2009-01-02 to 2026-06-13
+2026-06-13 16:05:58,988 [INFO]   Downloading ^NSEI...
+2026-06-13 16:06:00,736 [INFO]   Downloading ^INDIAVIX...
+2026-06-13 16:06:01,358 [INFO]   Downloading LIQUIDBEES.NS...
+2026-06-13 16:06:02,092 [INFO]   Downloading GOLDBEES.NS...
+2026-06-13 16:06:03,049 [INFO]   Downloading NIFTYBEES.NS...
+2026-06-13 16:06:03,830 [INFO]   Downloading JUNIORBEES.NS...
+2026-06-13 16:06:04,502 [INFO]   Downloading BANKBEES.NS...
+2026-06-13 16:06:05,305 [INFO]   Saved ^NSEI: 4278 rows
+2026-06-13 16:06:05,339 [INFO]   Saved ^INDIAVIX: 4277 rows
+2026-06-13 16:06:05,373 [INFO]   Saved LIQUIDBEES.NS: 4300 rows
+2026-06-13 16:06:05,411 [INFO]   Saved GOLDBEES.NS: 4299 rows
+2026-06-13 16:06:05,448 [INFO]   Saved NIFTYBEES.NS: 4300 rows
+2026-06-13 16:06:05,483 [INFO]   Saved JUNIORBEES.NS: 4300 rows
+2026-06-13 16:06:05,520 [INFO]   Saved BANKBEES.NS: 4300 rows
+2026-06-13 16:06:05,520 [INFO] OHLCV download complete: (4302, 35)
+2026-06-13 16:06:05,520 [INFO]   Fetching FRED: DGS10 (10Y Treasury Yield)
+2026-06-13 16:06:07,823 [INFO]   Fetching FRED: DGS2 (2Y Treasury Yield)
+2026-06-13 16:06:10,375 [INFO]   Fetching FRED: FEDFUNDS (Fed Funds Rate)
+2026-06-13 16:06:11,256 [INFO]   Fetching FRED: CPIAUCSL (CPI (All Urban Consumers))
+2026-06-13 16:06:12,236 [INFO]   Fetching FRED: UNRATE (Unemployment Rate)
+2026-06-13 16:06:13,378 [INFO] FRED macro download complete: (4611, 5)
+2026-06-13 16:06:13,379 [INFO] Merging OHLCV and macro datasets...
+2026-06-13 16:06:13,379 [INFO] Detected yfinance MultiIndex format: (Ticker, Price)
+2026-06-13 16:06:13,396 [INFO] Master DataFrame shape: (4302, 22)
+2026-06-13 16:06:13,397 [INFO] Date range: 2009-01-02 00:00:00 to 2026-06-12 00:00:00
+2026-06-13 16:06:13,398 [INFO]   NSEI_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,399 [INFO]   NSEI_Open: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,400 [INFO]   NSEI_High: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,401 [INFO]   NSEI_Low: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,401 [INFO]   INDIAVIX_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,402 [INFO]   LIQUIDBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,403 [INFO]   GOLDBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,403 [INFO]   NIFTYBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,403 [INFO]   JUNIORBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,404 [INFO]   BANKBEES.NS_Close: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,404 [INFO]   NSEI_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,404 [INFO]   INDIAVIX_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,404 [INFO]   LIQUIDBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,405 [INFO]   GOLDBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,405 [INFO]   NIFTYBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,405 [INFO]   JUNIORBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,405 [INFO]   BANKBEES.NS_Volume: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,406 [INFO]   DGS10: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,406 [INFO]   DGS2: 0.0% null, starts 2009-01-02 00:00:00
+2026-06-13 16:06:13,406 [INFO]   FEDFUNDS: 1.3% null, starts 2009-04-01 00:00:00
+2026-06-13 16:06:13,406 [INFO]   CPIAUCSL: 1.3% null, starts 2009-04-01 00:00:00
+2026-06-13 16:06:13,407 [INFO]   UNRATE: 1.3% null, starts 2009-04-01 00:00:00
+2026-06-13 16:06:13,573 [INFO] Saved master dataset to D:\Market regime detection\data\cleaned\master.parquet
+2026-06-13 16:06:13,578 [WARNING] Maximum date gap: 6.0 days � check for missing data
+2026-06-13 16:06:13,578 [INFO] Data pipeline complete. Report: (4302, 22), range: ('2009-01-02 00:00:00', '2026-06-12 00:00:00')
+2026-06-13 16:06:13,578 [INFO]   \u2192 Master dataset: (4302, 22)
+2026-06-13 16:06:13,578 [INFO] ======================================================================
+2026-06-13 16:06:13,578 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 16:06:13,578 [INFO] ======================================================================
+2026-06-13 16:06:15,122 [INFO] Engineering features...
+2026-06-13 16:06:15,625 [INFO] Engineered 35 features
+2026-06-13 16:06:15,625 [INFO] Applying Fractional Differentiation (FFD)...
+2026-06-13 16:06:15,666 [INFO]   NSEI_Close: min d=0.20 (ADF p=0.0111)
+2026-06-13 16:06:15,811 [INFO]   LIQUIDBEES.NS_Close: min d=0.40 (ADF p=0.0033)
+2026-06-13 16:06:15,917 [INFO]   GOLDBEES.NS_Close: min d=0.30 (ADF p=0.0000)
+2026-06-13 16:06:15,976 [INFO]   NIFTYBEES.NS_Close: min d=0.20 (ADF p=0.0225)
+2026-06-13 16:06:16,010 [INFO]   JUNIORBEES.NS_Close: min d=0.10 (ADF p=0.0082)
+2026-06-13 16:06:16,061 [INFO]   BANKBEES.NS_Close: min d=0.20 (ADF p=0.0004)
+2026-06-13 16:06:16,073 [INFO] FFD params: {'NSEI_Close': np.float64(0.2), 'LIQUIDBEES.NS_Close': np.float64(0.4), 'GOLDBEES.NS_Close': np.float64(0.30000000000000004), 'NIFTYBEES.NS_Close': np.float64(0.2), 'JUNIORBEES.NS_Close': np.float64(0.1), 'BANKBEES.NS_Close': np.float64(0.2)}
+2026-06-13 16:06:16,084 [INFO] Dropping columns that are entirely NaN: ['BTC_mom_30d']
+2026-06-13 16:06:16,098 [INFO] Dropped 22 warmup rows, 4280 remaining
+2026-06-13 16:06:16,141 [INFO] Saved features to D:\Market regime detection\data\processed\features.parquet
+2026-06-13 16:06:16,144 [INFO]   \u2192 Features: (4280, 63), FFD params: {'NSEI_Close': np.float64(0.2), 'LIQUIDBEES.NS_Close': np.float64(0.4), 'GOLDBEES.NS_Close': np.float64(0.30000000000000004), 'NIFTYBEES.NS_Close': np.float64(0.2), 'JUNIORBEES.NS_Close': np.float64(0.1), 'BANKBEES.NS_Close': np.float64(0.2)}
+2026-06-13 16:06:16,144 [INFO] ======================================================================
+2026-06-13 16:06:16,144 [INFO] STEP 4: REGIME DETECTION (HMM)
+2026-06-13 16:06:16,144 [INFO] ======================================================================
+2026-06-13 16:06:16,522 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:19,255 [INFO] HMM converged in 62 iterations
+2026-06-13 16:06:19,261 [INFO]   State 2 \u2192 Bull: mean_ret=0.001754, std=0.023063, n=340
+2026-06-13 16:06:19,261 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000477, std=0.011026, n=1775
+2026-06-13 16:06:19,261 [INFO]   State 3 \u2192 Bear: mean_ret=0.000460, std=0.006996, n=1171
+2026-06-13 16:06:19,261 [INFO]   State 1 \u2192 Crisis: mean_ret=0.000145, std=0.009115, n=994
+2026-06-13 16:06:19,262 [INFO] Regime distribution: {0: 1775, 3: 1171, 1: 994, 2: 340}
+2026-06-13 16:06:19,352 [INFO] Saved HMM model to D:\Market regime detection\output\models
+2026-06-13 16:06:19,352 [INFO] 
+=== Regime Summary ===
+2026-06-13 16:06:19,353 [INFO]   Bull: 340 days (7.9%)
+2026-06-13 16:06:19,354 [INFO]   Crisis: 994 days (23.2%)
+2026-06-13 16:06:19,354 [INFO]   Recovery: 1775 days (41.5%)
+2026-06-13 16:06:19,354 [INFO]   Bear: 1171 days (27.4%)
+2026-06-13 16:06:19,355 [INFO]   \u2192 Regimes assigned: {'Recovery': 1775, 'Bear': 1171, 'Crisis': 994, 'Bull': 340}
+2026-06-13 16:06:19,355 [INFO] ======================================================================
+2026-06-13 16:06:19,355 [INFO] STEP 5: SPECIALIST RANDOM FORESTS
+2026-06-13 16:06:19,355 [INFO] ======================================================================
+2026-06-13 16:06:19,402 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:19,402 [INFO] Using 40 features for RF
+2026-06-13 16:06:19,404 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:19,408 [INFO]   Bull: 340 samples, class balance: {1.0: 187, 0.0: 153}
+2026-06-13 16:06:24,563 [INFO]   Bull: CV accuracy = 0.5529 (�0.0600)
+2026-06-13 16:06:24,642 [INFO]   Top 5 features: {'NSEI_returns': 0.0783173943139642, 'NSEI_GOLD_ratio': 0.06063362445054379, 'BB_bandwidth': 0.05907642472930443, 'mcclellan_sum': 0.05644816654912272, 'VIX_term_structure': 0.04951452369688777}
+2026-06-13 16:06:24,642 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:24,649 [INFO]   Crisis: 994 samples, class balance: {1.0: 516, 0.0: 478}
+2026-06-13 16:06:30,341 [INFO]   Crisis: CV accuracy = 0.5020 (�0.0133)
+2026-06-13 16:06:30,423 [INFO]   Top 5 features: {'realized_vol_20d': 0.04656892314520797, 'mcclellan_osc': 0.04317078776984675, 'RSI_divergence': 0.04181352348719973, 'MACD_line': 0.03946092518753124, 'mcclellan_sum': 0.03789586543152305}
+2026-06-13 16:06:30,423 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:30,428 [INFO]   Recovery: 1775 samples, class balance: {1.0: 939, 0.0: 836}
+2026-06-13 16:06:36,455 [INFO]   Recovery: CV accuracy = 0.4462 (�0.0480)
+2026-06-13 16:06:36,537 [INFO]   Top 5 features: {'NSEI_returns': 0.05948454866686188, 'corr_NSEI_LIQUID_60d': 0.04231719749311297, 'corr_NSEI_GOLD_60d': 0.036292936182999155, 'NSEI_mom_3m': 0.036146224460303175, 'return_skew_20d': 0.03332740913254798}
+2026-06-13 16:06:36,538 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:36,542 [INFO]   Bear: 1171 samples, class balance: {1.0: 624, 0.0: 547}
+2026-06-13 16:06:42,243 [INFO]   Bear: CV accuracy = 0.4833 (�0.0692)
+2026-06-13 16:06:42,334 [INFO]   Top 5 features: {'NSEI_returns': 0.06039715008911577, 'RSI_divergence': 0.035926935230519465, 'VIX_zscore': 0.03498341507694005, 'BB_pct_b': 0.033297966800714826, 'OBV_slope': 0.03218484215221991}
+2026-06-13 16:06:42,335 [INFO] 
+Trained 4 specialists: ['Bull', 'Crisis', 'Recovery', 'Bear']
+2026-06-13 16:06:42,336 [INFO] Generating batch signals...
+2026-06-13 16:06:43,670 [INFO] Signal distribution: {1: 2217, -1: 2063}
+2026-06-13 16:06:43,671 [INFO] Next-regime routing: {'Recovery': 1775, 'Bear': 1171, 'Crisis': 994, 'Bull': 340}
+2026-06-13 16:06:44,252 [INFO] Saved 4 specialists to D:\Market regime detection\output\models
+2026-06-13 16:06:44,307 [INFO]   \u2192 Signals: {1: 2217, -1: 2063}
+2026-06-13 16:06:44,307 [INFO] ======================================================================
+2026-06-13 16:06:44,307 [INFO] STEP 6+7: BACKTEST (WALK-FORWARD OPTIMIZATION)
+2026-06-13 16:06:44,307 [INFO] ======================================================================
+2026-06-13 16:06:44,324 [INFO] ============================================================
+2026-06-13 16:06:44,324 [INFO] WALK-FORWARD OPTIMIZATION (Multi-Asset)
+2026-06-13 16:06:44,324 [INFO] Train: 252d, Test: 63d, Step: 63d
+2026-06-13 16:06:44,324 [INFO] Fees: 0.1bps, Slippage: 0.1bps
+2026-06-13 16:06:44,324 [INFO] ============================================================
+2026-06-13 16:06:44,326 [INFO] 
+--- Window 1: Train [2009-02-03 \u2192 2010-02-16], Test [2010-02-17 \u2192 2010-05-20] ---
+2026-06-13 16:06:44,326 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:44,384 [WARNING] Model is not converging.  Current: 3153.6450574665373 is not greater than 3179.5865449186017. Delta is -25.941487452064393
+2026-06-13 16:06:44,384 [INFO] HMM converged in 7 iterations
+2026-06-13 16:06:44,389 [INFO]   State 2 \u2192 Bull: mean_ret=0.004181, std=0.020801, n=77
+2026-06-13 16:06:44,389 [INFO]   State 0 \u2192 Recovery: mean_ret=0.003175, std=0.028822, n=61
+2026-06-13 16:06:44,389 [INFO]   State 1 \u2192 Bear: mean_ret=0.001261, std=0.011359, n=95
+2026-06-13 16:06:44,389 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003836, std=0.014496, n=19
+2026-06-13 16:06:44,390 [INFO] Regime distribution: {1: 95, 2: 77, 0: 61, 3: 19}
+2026-06-13 16:06:44,406 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:44,408 [INFO] Using 40 features for RF
+2026-06-13 16:06:44,408 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:44,411 [WARNING]   Bull: only 77 samples � skipping specialist
+2026-06-13 16:06:44,411 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:44,413 [WARNING]   Recovery: only 65 samples � skipping specialist
+2026-06-13 16:06:44,413 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:44,417 [WARNING]   Bear: only 95 samples � skipping specialist
+2026-06-13 16:06:44,417 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:44,420 [WARNING]   Crisis: only 15 samples � skipping specialist
+2026-06-13 16:06:44,420 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:44,420 [INFO] Generating batch signals...
+2026-06-13 16:06:44,427 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:44,428 [INFO] Next-regime routing: {'Crisis': 58, 'Bull': 5}
+2026-06-13 16:06:45,316 [INFO] 
+--- Window 2: Train [2009-05-14 \u2192 2010-05-20], Test [2010-05-21 \u2192 2010-08-17] ---
+2026-06-13 16:06:45,316 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:45,373 [WARNING] Model is not converging.  Current: 2348.876916711478 is not greater than 2665.1257102212758. Delta is -316.2487935097979
+2026-06-13 16:06:45,373 [INFO] HMM converged in 8 iterations
+2026-06-13 16:06:45,378 [INFO]   State 3 \u2192 Bull: mean_ret=0.011090, std=0.040226, n=20
+2026-06-13 16:06:45,379 [INFO]   State 1 \u2192 Recovery: mean_ret=0.003272, std=0.007100, n=29
+2026-06-13 16:06:45,379 [INFO]   State 2 \u2192 Bear: mean_ret=0.000981, std=0.015292, n=149
+2026-06-13 16:06:45,379 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002863, std=0.012281, n=54
+2026-06-13 16:06:45,380 [INFO] Regime distribution: {2: 149, 0: 54, 1: 29, 3: 20}
+2026-06-13 16:06:45,399 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:45,400 [INFO] Using 40 features for RF
+2026-06-13 16:06:45,400 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:45,403 [INFO]   Bear: 152 samples, class balance: {1.0: 84, 0.0: 68}
+2026-06-13 16:06:46,566 [INFO]   Bear: CV accuracy = 0.4794 (�0.0733)
+2026-06-13 16:06:46,597 [INFO]   Top 5 features: {'mcclellan_sum': 0.09102911574386484, 'NSEI_GOLD_ratio': 0.06487635330113593, 'NSEI_LIQUID_ratio': 0.06302814036723975, 'MACD_line': 0.05995626654161465, 'return_kurt_20d': 0.05713605272469066}
+2026-06-13 16:06:46,598 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:46,601 [WARNING]   Bull: only 17 samples � skipping specialist
+2026-06-13 16:06:46,601 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:46,603 [WARNING]   Recovery: only 31 samples � skipping specialist
+2026-06-13 16:06:46,603 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:46,604 [WARNING]   Crisis: only 52 samples � skipping specialist
+2026-06-13 16:06:46,604 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:06:46,604 [INFO] Generating batch signals...
+2026-06-13 16:06:46,762 [INFO] Signal distribution: {-1: 39, 1: 24}
+2026-06-13 16:06:46,763 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 16:06:46,854 [INFO] 
+--- Window 3: Train [2009-08-11 \u2192 2010-08-17], Test [2010-08-18 \u2192 2010-11-16] ---
+2026-06-13 16:06:46,854 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:46,907 [WARNING] Model is not converging.  Current: 1341.8611372619607 is not greater than 1343.7659522122042. Delta is -1.9048149502434626
+2026-06-13 16:06:46,907 [INFO] HMM converged in 9 iterations
+2026-06-13 16:06:46,911 [INFO]   State 3 \u2192 Bull: mean_ret=0.001590, std=0.012562, n=106
+2026-06-13 16:06:46,912 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001191, std=0.007289, n=47
+2026-06-13 16:06:46,912 [INFO]   State 1 \u2192 Bear: mean_ret=0.001051, std=0.008446, n=44
+2026-06-13 16:06:46,912 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.001307, std=0.013960, n=55
+2026-06-13 16:06:46,912 [INFO] Regime distribution: {3: 106, 2: 55, 0: 47, 1: 44}
+2026-06-13 16:06:46,932 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:46,934 [INFO] Using 40 features for RF
+2026-06-13 16:06:46,934 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:46,937 [INFO]   Bull: 106 samples, class balance: {1.0: 59, 0.0: 47}
+2026-06-13 16:06:48,083 [INFO]   Bull: CV accuracy = 0.4996 (�0.0518)
+2026-06-13 16:06:48,114 [INFO]   Top 5 features: {'BB_bandwidth': 0.10933667667391207, 'return_kurt_20d': 0.10140826004421168, 'mcclellan_sum': 0.09284218493361017, 'MACD_line': 0.06529288634295143, 'RSI_divergence': 0.059728826601619295}
+2026-06-13 16:06:48,114 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:48,117 [WARNING]   Bear: only 44 samples � skipping specialist
+2026-06-13 16:06:48,117 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:48,120 [WARNING]   Crisis: only 55 samples � skipping specialist
+2026-06-13 16:06:48,120 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:48,122 [WARNING]   Recovery: only 47 samples � skipping specialist
+2026-06-13 16:06:48,122 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:06:48,122 [INFO] Generating batch signals...
+2026-06-13 16:06:48,383 [INFO] Signal distribution: {-1: 55, 1: 8}
+2026-06-13 16:06:48,383 [INFO] Next-regime routing: {'Crisis': 42, 'Recovery': 11, 'Bull': 5, 'Bear': 5}
+2026-06-13 16:06:48,517 [INFO] 
+--- Window 4: Train [2009-11-13 \u2192 2010-11-16], Test [2010-11-18 \u2192 2011-02-16] ---
+2026-06-13 16:06:48,517 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:48,593 [INFO] HMM converged in 16 iterations
+2026-06-13 16:06:48,599 [INFO]   State 1 \u2192 Bull: mean_ret=0.001443, std=0.010285, n=60
+2026-06-13 16:06:48,599 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001008, std=0.007300, n=50
+2026-06-13 16:06:48,599 [INFO]   State 3 \u2192 Bear: mean_ret=0.000851, std=0.008101, n=50
+2026-06-13 16:06:48,599 [INFO]   State 2 \u2192 Crisis: mean_ret=0.000113, std=0.012657, n=92
+2026-06-13 16:06:48,599 [INFO] Regime distribution: {2: 92, 1: 60, 3: 50, 0: 50}
+2026-06-13 16:06:48,619 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:48,620 [INFO] Using 40 features for RF
+2026-06-13 16:06:48,620 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:48,623 [WARNING]   Bull: only 64 samples � skipping specialist
+2026-06-13 16:06:48,623 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:48,625 [WARNING]   Bear: only 43 samples � skipping specialist
+2026-06-13 16:06:48,625 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:48,627 [WARNING]   Crisis: only 92 samples � skipping specialist
+2026-06-13 16:06:48,627 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:48,631 [WARNING]   Recovery: only 53 samples � skipping specialist
+2026-06-13 16:06:48,631 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:48,631 [INFO] Generating batch signals...
+2026-06-13 16:06:48,639 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:48,639 [INFO] Next-regime routing: {'Crisis': 33, 'Bull': 25, 'Bear': 5}
+2026-06-13 16:06:48,748 [INFO] 
+--- Window 5: Train [2010-02-17 \u2192 2011-02-16], Test [2011-02-17 \u2192 2011-05-20] ---
+2026-06-13 16:06:48,748 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:48,806 [INFO] HMM converged in 12 iterations
+2026-06-13 16:06:48,810 [INFO]   State 0 \u2192 Bull: mean_ret=0.001803, std=0.008930, n=60
+2026-06-13 16:06:48,811 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001194, std=0.010467, n=75
+2026-06-13 16:06:48,811 [INFO]   State 3 \u2192 Bear: mean_ret=0.000165, std=0.016411, n=13
+2026-06-13 16:06:48,811 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000756, std=0.010521, n=104
+2026-06-13 16:06:48,811 [INFO] Regime distribution: {2: 104, 1: 75, 0: 60, 3: 13}
+2026-06-13 16:06:48,829 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:48,831 [INFO] Using 40 features for RF
+2026-06-13 16:06:48,832 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:48,834 [WARNING]   Bear: only 14 samples � skipping specialist
+2026-06-13 16:06:48,834 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:48,836 [INFO]   Crisis: 103 samples, class balance: {1.0: 52, 0.0: 51}
+2026-06-13 16:06:49,984 [INFO]   Crisis: CV accuracy = 0.3714 (�0.1510)
+2026-06-13 16:06:50,017 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.14123100234914385, 'corr_NSEI_LIQUID_60d': 0.09165124391706309, 'VIX_zscore': 0.07870769612537386, 'return_skew_20d': 0.05781537888706383, 'VIX_term_structure': 0.053361586319648664}
+2026-06-13 16:06:50,018 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:50,021 [WARNING]   Bull: only 60 samples � skipping specialist
+2026-06-13 16:06:50,021 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:50,022 [WARNING]   Recovery: only 75 samples � skipping specialist
+2026-06-13 16:06:50,022 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:06:50,022 [INFO] Generating batch signals...
+2026-06-13 16:06:50,157 [INFO] Signal distribution: {1: 52, -1: 11}
+2026-06-13 16:06:50,158 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 16:06:50,252 [INFO] 
+--- Window 6: Train [2010-05-21 \u2192 2011-05-20], Test [2011-05-23 \u2192 2011-08-18] ---
+2026-06-13 16:06:50,252 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:50,318 [INFO] HMM converged in 13 iterations
+2026-06-13 16:06:50,321 [INFO]   State 0 \u2192 Bull: mean_ret=0.002167, std=0.011192, n=82
+2026-06-13 16:06:50,322 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001010, std=0.007200, n=57
+2026-06-13 16:06:50,322 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000397, std=0.011994, n=86
+2026-06-13 16:06:50,322 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003621, std=0.013541, n=27
+2026-06-13 16:06:50,322 [INFO] Regime distribution: {2: 86, 0: 82, 1: 57, 3: 27}
+2026-06-13 16:06:50,342 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:50,344 [INFO] Using 40 features for RF
+2026-06-13 16:06:50,344 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:50,347 [WARNING]   Recovery: only 60 samples � skipping specialist
+2026-06-13 16:06:50,347 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:50,350 [WARNING]   Bull: only 85 samples � skipping specialist
+2026-06-13 16:06:50,350 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:50,352 [WARNING]   Bear: only 82 samples � skipping specialist
+2026-06-13 16:06:50,352 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:50,355 [WARNING]   Crisis: only 25 samples � skipping specialist
+2026-06-13 16:06:50,355 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:50,355 [INFO] Generating batch signals...
+2026-06-13 16:06:50,362 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:50,363 [INFO] Next-regime routing: {'Bull': 33, 'Bear': 25, 'Crisis': 5}
+2026-06-13 16:06:50,489 [INFO] 
+--- Window 7: Train [2010-08-18 \u2192 2011-08-18], Test [2011-08-19 \u2192 2011-11-24] ---
+2026-06-13 16:06:50,489 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:50,539 [INFO] HMM converged in 6 iterations
+2026-06-13 16:06:50,543 [INFO]   State 1 \u2192 Bull: mean_ret=0.001879, std=0.009822, n=61
+2026-06-13 16:06:50,544 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000255, std=0.010017, n=89
+2026-06-13 16:06:50,544 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001867, std=0.012967, n=94
+2026-06-13 16:06:50,544 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.006577, std=0.012613, n=8
+2026-06-13 16:06:50,544 [INFO] Regime distribution: {2: 94, 0: 89, 1: 61, 3: 8}
+2026-06-13 16:06:50,561 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:50,563 [INFO] Using 40 features for RF
+2026-06-13 16:06:50,564 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:50,567 [WARNING]   Bull: only 61 samples � skipping specialist
+2026-06-13 16:06:50,567 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:50,570 [WARNING]   Bear: only 94 samples � skipping specialist
+2026-06-13 16:06:50,570 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:50,572 [WARNING]   Recovery: only 89 samples � skipping specialist
+2026-06-13 16:06:50,572 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:50,573 [WARNING]   Crisis: only 8 samples � skipping specialist
+2026-06-13 16:06:50,573 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:50,574 [INFO] Generating batch signals...
+2026-06-13 16:06:50,580 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:50,581 [INFO] Next-regime routing: {'Recovery': 44, 'Bear': 14, 'Bull': 5}
+2026-06-13 16:06:50,678 [INFO] 
+--- Window 8: Train [2010-11-18 \u2192 2011-11-24], Test [2011-11-25 \u2192 2012-02-24] ---
+2026-06-13 16:06:50,679 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:50,738 [INFO] HMM converged in 11 iterations
+2026-06-13 16:06:50,742 [INFO]   State 1 \u2192 Bull: mean_ret=-0.000177, std=0.010742, n=132
+2026-06-13 16:06:50,742 [INFO]   State 3 \u2192 Recovery: mean_ret=-0.000736, std=0.014014, n=40
+2026-06-13 16:06:50,742 [INFO]   State 0 \u2192 Bear: mean_ret=-0.001555, std=0.015975, n=43
+2026-06-13 16:06:50,742 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.003276, std=0.013896, n=37
+2026-06-13 16:06:50,742 [INFO] Regime distribution: {1: 132, 0: 43, 3: 40, 2: 37}
+2026-06-13 16:06:50,762 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:50,765 [INFO] Using 40 features for RF
+2026-06-13 16:06:50,765 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:50,768 [INFO]   Bull: 132 samples, class balance: {0.0: 76, 1.0: 56}
+2026-06-13 16:06:51,913 [INFO]   Bull: CV accuracy = 0.5613 (�0.0692)
+2026-06-13 16:06:51,947 [INFO]   Top 5 features: {'RSI_divergence': 0.08809621572426708, 'NSEI_SMA100_dist': 0.07969409192631847, 'VIX_zscore': 0.07411962933875181, 'MACD_line': 0.07285897144510364, 'NSEI_mom_1y': 0.07121119437121264}
+2026-06-13 16:06:51,948 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:51,950 [WARNING]   Recovery: only 40 samples � skipping specialist
+2026-06-13 16:06:51,951 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:51,952 [WARNING]   Crisis: only 37 samples � skipping specialist
+2026-06-13 16:06:51,952 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:51,953 [WARNING]   Bear: only 43 samples � skipping specialist
+2026-06-13 16:06:51,953 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:06:51,954 [INFO] Generating batch signals...
+2026-06-13 16:06:52,093 [INFO] Signal distribution: {1: 38, -1: 25}
+2026-06-13 16:06:52,093 [INFO] Next-regime routing: {'Bear': 58, 'Bull': 5}
+2026-06-13 16:06:52,186 [INFO] 
+--- Window 9: Train [2011-02-17 \u2192 2012-02-24], Test [2012-02-27 \u2192 2012-05-29] ---
+2026-06-13 16:06:52,187 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:52,274 [INFO] HMM converged in 22 iterations
+2026-06-13 16:06:52,277 [INFO]   State 0 \u2192 Bull: mean_ret=0.002398, std=0.010819, n=45
+2026-06-13 16:06:52,277 [INFO]   State 3 \u2192 Recovery: mean_ret=0.000846, std=0.011430, n=75
+2026-06-13 16:06:52,277 [INFO]   State 2 \u2192 Bear: mean_ret=-0.001168, std=0.015415, n=61
+2026-06-13 16:06:52,277 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.001546, std=0.013457, n=71
+2026-06-13 16:06:52,278 [INFO] Regime distribution: {3: 75, 1: 71, 2: 61, 0: 45}
+2026-06-13 16:06:52,295 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:52,297 [INFO] Using 40 features for RF
+2026-06-13 16:06:52,297 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:52,299 [WARNING]   Recovery: only 75 samples � skipping specialist
+2026-06-13 16:06:52,299 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:52,302 [WARNING]   Crisis: only 71 samples � skipping specialist
+2026-06-13 16:06:52,302 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:52,304 [WARNING]   Bull: only 45 samples � skipping specialist
+2026-06-13 16:06:52,304 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:52,306 [WARNING]   Bear: only 61 samples � skipping specialist
+2026-06-13 16:06:52,306 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:52,306 [INFO] Generating batch signals...
+2026-06-13 16:06:52,314 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:52,314 [INFO] Next-regime routing: {'Bull': 39, 'Crisis': 19, 'Recovery': 5}
+2026-06-13 16:06:52,406 [INFO] 
+--- Window 10: Train [2011-05-23 \u2192 2012-05-29], Test [2012-05-30 \u2192 2012-08-28] ---
+2026-06-13 16:06:52,406 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:52,456 [WARNING] Model is not converging.  Current: -330.88409419302684 is not greater than -330.8837062382058. Delta is -0.0003879548210647954
+2026-06-13 16:06:52,456 [INFO] HMM converged in 8 iterations
+2026-06-13 16:06:52,461 [INFO]   State 2 \u2192 Bull: mean_ret=0.000677, std=0.014921, n=102
+2026-06-13 16:06:52,461 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000081, std=0.011621, n=65
+2026-06-13 16:06:52,461 [INFO]   State 3 \u2192 Bear: mean_ret=0.000005, std=0.010281, n=49
+2026-06-13 16:06:52,461 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.004705, std=0.011218, n=36
+2026-06-13 16:06:52,462 [INFO] Regime distribution: {2: 102, 1: 65, 3: 49, 0: 36}
+2026-06-13 16:06:52,481 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:52,483 [INFO] Using 40 features for RF
+2026-06-13 16:06:52,483 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:52,486 [WARNING]   Bear: only 49 samples � skipping specialist
+2026-06-13 16:06:52,486 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:52,489 [WARNING]   Crisis: only 36 samples � skipping specialist
+2026-06-13 16:06:52,489 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:52,491 [INFO]   Bull: 102 samples, class balance: {0.0: 54, 1.0: 48}
+2026-06-13 16:06:53,614 [INFO]   Bull: CV accuracy = 0.5000 (�0.0551)
+2026-06-13 16:06:53,647 [INFO]   Top 5 features: {'realized_vol_60d': 0.09113487766510593, 'corr_NSEI_LIQUID_60d': 0.08375503174239776, 'yield_spread': 0.0810113614271638, 'NSEI_SMA20_dist': 0.06959535158789647, 'return_skew_20d': 0.0616885188270124}
+2026-06-13 16:06:53,648 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:53,650 [WARNING]   Recovery: only 65 samples � skipping specialist
+2026-06-13 16:06:53,650 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:06:53,650 [INFO] Generating batch signals...
+2026-06-13 16:06:53,781 [INFO] Signal distribution: {-1: 52, 1: 11}
+2026-06-13 16:06:53,782 [INFO] Next-regime routing: {'Recovery': 36, 'Crisis': 27}
+2026-06-13 16:06:53,878 [INFO] 
+--- Window 11: Train [2011-08-19 \u2192 2012-08-28], Test [2012-08-29 \u2192 2012-12-04] ---
+2026-06-13 16:06:53,878 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:53,969 [INFO] HMM converged in 21 iterations
+2026-06-13 16:06:53,972 [INFO]   State 3 \u2192 Bull: mean_ret=0.005855, std=0.010249, n=16
+2026-06-13 16:06:53,973 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001106, std=0.008999, n=63
+2026-06-13 16:06:53,973 [INFO]   State 2 \u2192 Bear: mean_ret=0.000640, std=0.011901, n=89
+2026-06-13 16:06:53,973 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.001683, std=0.015168, n=84
+2026-06-13 16:06:53,973 [INFO] Regime distribution: {2: 89, 1: 84, 0: 63, 3: 16}
+2026-06-13 16:06:53,990 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:53,991 [INFO] Using 40 features for RF
+2026-06-13 16:06:53,991 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:53,993 [WARNING]   Crisis: only 84 samples � skipping specialist
+2026-06-13 16:06:53,993 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:53,995 [WARNING]   Bull: only 20 samples � skipping specialist
+2026-06-13 16:06:53,995 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:53,998 [WARNING]   Bear: only 88 samples � skipping specialist
+2026-06-13 16:06:53,998 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:54,001 [WARNING]   Recovery: only 60 samples � skipping specialist
+2026-06-13 16:06:54,001 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:54,001 [INFO] Generating batch signals...
+2026-06-13 16:06:54,006 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:54,007 [INFO] Next-regime routing: {'Bear': 57, 'Crisis': 6}
+2026-06-13 16:06:54,098 [INFO] 
+--- Window 12: Train [2011-11-25 \u2192 2012-12-04], Test [2012-12-05 \u2192 2013-03-04] ---
+2026-06-13 16:06:54,098 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:54,148 [INFO] HMM converged in 8 iterations
+2026-06-13 16:06:54,153 [INFO]   State 2 \u2192 Bull: mean_ret=0.003853, std=0.010411, n=76
+2026-06-13 16:06:54,153 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001009, std=0.008174, n=96
+2026-06-13 16:06:54,153 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000769, std=0.012394, n=54
+2026-06-13 16:06:54,153 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.004769, std=0.012416, n=26
+2026-06-13 16:06:54,154 [INFO] Regime distribution: {1: 96, 2: 76, 0: 54, 3: 26}
+2026-06-13 16:06:54,171 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:54,172 [INFO] Using 40 features for RF
+2026-06-13 16:06:54,173 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:54,175 [WARNING]   Bear: only 56 samples � skipping specialist
+2026-06-13 16:06:54,175 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:54,179 [WARNING]   Crisis: only 24 samples � skipping specialist
+2026-06-13 16:06:54,179 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:54,182 [WARNING]   Bull: only 76 samples � skipping specialist
+2026-06-13 16:06:54,182 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:54,184 [WARNING]   Recovery: only 96 samples � skipping specialist
+2026-06-13 16:06:54,184 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:54,184 [INFO] Generating batch signals...
+2026-06-13 16:06:54,190 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:54,190 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 16:06:54,288 [INFO] 
+--- Window 13: Train [2012-02-27 \u2192 2013-03-04], Test [2013-03-05 \u2192 2013-06-06] ---
+2026-06-13 16:06:54,288 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:54,367 [INFO] HMM converged in 19 iterations
+2026-06-13 16:06:54,371 [INFO]   State 3 \u2192 Bull: mean_ret=0.001984, std=0.008257, n=65
+2026-06-13 16:06:54,371 [INFO]   State 0 \u2192 Recovery: mean_ret=-0.000240, std=0.010162, n=57
+2026-06-13 16:06:54,371 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000455, std=0.006712, n=68
+2026-06-13 16:06:54,371 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000580, std=0.010579, n=62
+2026-06-13 16:06:54,371 [INFO] Regime distribution: {1: 68, 3: 65, 2: 62, 0: 57}
+2026-06-13 16:06:54,387 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:54,389 [INFO] Using 40 features for RF
+2026-06-13 16:06:54,389 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:54,391 [WARNING]   Crisis: only 68 samples � skipping specialist
+2026-06-13 16:06:54,391 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:54,393 [WARNING]   Recovery: only 57 samples � skipping specialist
+2026-06-13 16:06:54,393 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:54,394 [WARNING]   Bull: only 61 samples � skipping specialist
+2026-06-13 16:06:54,395 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:54,398 [WARNING]   Bear: only 66 samples � skipping specialist
+2026-06-13 16:06:54,398 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:54,398 [INFO] Generating batch signals...
+2026-06-13 16:06:54,405 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:54,406 [INFO] Next-regime routing: {'Bear': 23, 'Bull': 21, 'Crisis': 19}
+2026-06-13 16:06:54,540 [INFO] 
+--- Window 14: Train [2012-05-30 \u2192 2013-06-06], Test [2013-06-07 \u2192 2013-09-05] ---
+2026-06-13 16:06:54,540 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:54,636 [INFO] HMM converged in 25 iterations
+2026-06-13 16:06:54,640 [INFO]   State 3 \u2192 Bull: mean_ret=0.001756, std=0.010715, n=35
+2026-06-13 16:06:54,641 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001343, std=0.009842, n=50
+2026-06-13 16:06:54,641 [INFO]   State 0 \u2192 Bear: mean_ret=0.001096, std=0.007568, n=85
+2026-06-13 16:06:54,641 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000618, std=0.007459, n=82
+2026-06-13 16:06:54,641 [INFO] Regime distribution: {0: 85, 2: 82, 1: 50, 3: 35}
+2026-06-13 16:06:54,661 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:54,664 [INFO] Using 40 features for RF
+2026-06-13 16:06:54,664 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:54,666 [WARNING]   Recovery: only 50 samples � skipping specialist
+2026-06-13 16:06:54,667 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:54,669 [WARNING]   Bear: only 85 samples � skipping specialist
+2026-06-13 16:06:54,669 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:54,671 [WARNING]   Crisis: only 82 samples � skipping specialist
+2026-06-13 16:06:54,671 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:54,673 [WARNING]   Bull: only 35 samples � skipping specialist
+2026-06-13 16:06:54,673 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:54,673 [INFO] Generating batch signals...
+2026-06-13 16:06:54,679 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:54,680 [INFO] Next-regime routing: {'Recovery': 31, 'Crisis': 22, 'Bull': 5, 'Bear': 5}
+2026-06-13 16:06:54,897 [INFO] 
+--- Window 15: Train [2012-08-29 \u2192 2013-09-05], Test [2013-09-06 \u2192 2013-12-10] ---
+2026-06-13 16:06:54,897 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:54,978 [INFO] HMM converged in 20 iterations
+2026-06-13 16:06:54,984 [INFO]   State 1 \u2192 Bull: mean_ret=0.002406, std=0.008812, n=84
+2026-06-13 16:06:54,984 [INFO]   State 2 \u2192 Recovery: mean_ret=-0.000371, std=0.009619, n=99
+2026-06-13 16:06:54,984 [INFO]   State 3 \u2192 Bear: mean_ret=-0.001619, std=0.007266, n=41
+2026-06-13 16:06:54,984 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001954, std=0.018185, n=28
+2026-06-13 16:06:54,984 [INFO] Regime distribution: {2: 99, 1: 84, 3: 41, 0: 28}
+2026-06-13 16:06:55,002 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:55,003 [INFO] Using 40 features for RF
+2026-06-13 16:06:55,003 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:55,006 [WARNING]   Bear: only 42 samples � skipping specialist
+2026-06-13 16:06:55,006 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:55,007 [WARNING]   Bull: only 83 samples � skipping specialist
+2026-06-13 16:06:55,007 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:55,009 [WARNING]   Recovery: only 99 samples � skipping specialist
+2026-06-13 16:06:55,009 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:55,011 [WARNING]   Crisis: only 28 samples � skipping specialist
+2026-06-13 16:06:55,011 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:55,011 [INFO] Generating batch signals...
+2026-06-13 16:06:55,020 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:55,021 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 16:06:55,120 [INFO] 
+--- Window 16: Train [2012-12-05 \u2192 2013-12-10], Test [2013-12-11 \u2192 2014-03-11] ---
+2026-06-13 16:06:55,120 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:55,167 [INFO] HMM converged in 6 iterations
+2026-06-13 16:06:55,171 [INFO]   State 0 \u2192 Bull: mean_ret=0.003886, std=0.016917, n=27
+2026-06-13 16:06:55,171 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000329, std=0.008038, n=114
+2026-06-13 16:06:55,171 [INFO]   State 2 \u2192 Bear: mean_ret=0.000280, std=0.010852, n=97
+2026-06-13 16:06:55,171 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.006922, std=0.019117, n=14
+2026-06-13 16:06:55,171 [INFO] Regime distribution: {1: 114, 2: 97, 0: 27, 3: 14}
+2026-06-13 16:06:55,190 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:55,191 [INFO] Using 40 features for RF
+2026-06-13 16:06:55,191 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:55,193 [INFO]   Recovery: 114 samples, class balance: {1.0: 58, 0.0: 56}
+2026-06-13 16:06:56,352 [INFO]   Recovery: CV accuracy = 0.4561 (�0.0337)
+2026-06-13 16:06:56,381 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.12384236655135428, 'NSEI_mom_1m': 0.07974212057655584, 'yield_spread': 0.07711020065150653, 'NSEI_mom_6m': 0.0464670420621067, 'yield_spread_zscore': 0.044769127719248514}
+2026-06-13 16:06:56,382 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:56,385 [WARNING]   Bear: only 98 samples � skipping specialist
+2026-06-13 16:06:56,385 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:56,387 [WARNING]   Crisis: only 13 samples � skipping specialist
+2026-06-13 16:06:56,387 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:56,388 [WARNING]   Bull: only 27 samples � skipping specialist
+2026-06-13 16:06:56,388 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:06:56,388 [INFO] Generating batch signals...
+2026-06-13 16:06:56,515 [INFO] Signal distribution: {1: 33, -1: 30}
+2026-06-13 16:06:56,515 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 16:06:56,612 [INFO] 
+--- Window 17: Train [2013-03-05 \u2192 2014-03-11], Test [2014-03-12 \u2192 2014-06-16] ---
+2026-06-13 16:06:56,612 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:56,678 [INFO] HMM converged in 10 iterations
+2026-06-13 16:06:56,686 [INFO]   State 0 \u2192 Bull: mean_ret=0.002602, std=0.012890, n=57
+2026-06-13 16:06:56,686 [INFO]   State 2 \u2192 Recovery: mean_ret=0.000775, std=0.008962, n=104
+2026-06-13 16:06:56,686 [INFO]   State 1 \u2192 Bear: mean_ret=0.000298, std=0.010023, n=72
+2026-06-13 16:06:56,686 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.006157, std=0.020732, n=19
+2026-06-13 16:06:56,686 [INFO] Regime distribution: {2: 104, 1: 72, 0: 57, 3: 19}
+2026-06-13 16:06:56,705 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:56,707 [INFO] Using 40 features for RF
+2026-06-13 16:06:56,707 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:56,710 [WARNING]   Bear: only 72 samples � skipping specialist
+2026-06-13 16:06:56,710 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:56,712 [WARNING]   Crisis: only 23 samples � skipping specialist
+2026-06-13 16:06:56,712 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:56,716 [WARNING]   Bull: only 53 samples � skipping specialist
+2026-06-13 16:06:56,716 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:56,719 [INFO]   Recovery: 104 samples, class balance: {1.0: 52, 0.0: 52}
+2026-06-13 16:06:57,860 [INFO]   Recovery: CV accuracy = 0.3648 (�0.1511)
+2026-06-13 16:06:57,895 [INFO]   Top 5 features: {'mcclellan_sum': 0.11912083703497083, 'MACD_line': 0.06885673046116997, 'NSEI_LIQUID_ratio': 0.057959300794519934, 'volume_zscore': 0.05628234785235297, 'real_rate': 0.047332144750333774}
+2026-06-13 16:06:57,896 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:06:57,896 [INFO] Generating batch signals...
+2026-06-13 16:06:58,092 [INFO] Signal distribution: {-1: 62, 1: 1}
+2026-06-13 16:06:58,092 [INFO] Next-regime routing: {'Bull': 42, 'Recovery': 16, 'Bear': 5}
+2026-06-13 16:06:58,185 [INFO] 
+--- Window 18: Train [2013-06-07 \u2192 2014-06-16], Test [2014-06-17 \u2192 2014-09-16] ---
+2026-06-13 16:06:58,186 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:58,258 [INFO] HMM converged in 17 iterations
+2026-06-13 16:06:58,264 [INFO]   State 3 \u2192 Bull: mean_ret=0.003017, std=0.008448, n=59
+2026-06-13 16:06:58,264 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001555, std=0.014043, n=49
+2026-06-13 16:06:58,264 [INFO]   State 1 \u2192 Bear: mean_ret=0.000187, std=0.008816, n=86
+2026-06-13 16:06:58,264 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000508, std=0.013829, n=58
+2026-06-13 16:06:58,264 [INFO] Regime distribution: {1: 86, 3: 59, 2: 58, 0: 49}
+2026-06-13 16:06:58,281 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:58,283 [INFO] Using 40 features for RF
+2026-06-13 16:06:58,283 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:58,285 [WARNING]   Crisis: only 58 samples � skipping specialist
+2026-06-13 16:06:58,285 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:58,287 [WARNING]   Recovery: only 49 samples � skipping specialist
+2026-06-13 16:06:58,287 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:58,289 [WARNING]   Bear: only 86 samples � skipping specialist
+2026-06-13 16:06:58,289 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:58,291 [WARNING]   Bull: only 59 samples � skipping specialist
+2026-06-13 16:06:58,291 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:58,291 [INFO] Generating batch signals...
+2026-06-13 16:06:58,300 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:58,301 [INFO] Next-regime routing: {'Bull': 58, 'Crisis': 5}
+2026-06-13 16:06:58,397 [INFO] 
+--- Window 19: Train [2013-09-06 \u2192 2014-09-16], Test [2014-09-17 \u2192 2014-12-23] ---
+2026-06-13 16:06:58,397 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:58,448 [INFO] HMM converged in 10 iterations
+2026-06-13 16:06:58,452 [INFO]   State 0 \u2192 Bull: mean_ret=0.002623, std=0.008345, n=45
+2026-06-13 16:06:58,453 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001370, std=0.011783, n=68
+2026-06-13 16:06:58,453 [INFO]   State 1 \u2192 Bear: mean_ret=0.001149, std=0.007909, n=84
+2026-06-13 16:06:58,453 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000760, std=0.007972, n=55
+2026-06-13 16:06:58,453 [INFO] Regime distribution: {1: 84, 2: 68, 3: 55, 0: 45}
+2026-06-13 16:06:58,469 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:58,471 [INFO] Using 40 features for RF
+2026-06-13 16:06:58,471 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:58,473 [WARNING]   Recovery: only 68 samples � skipping specialist
+2026-06-13 16:06:58,473 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:58,476 [WARNING]   Crisis: only 55 samples � skipping specialist
+2026-06-13 16:06:58,476 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:58,478 [WARNING]   Bull: only 45 samples � skipping specialist
+2026-06-13 16:06:58,478 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:58,481 [WARNING]   Bear: only 84 samples � skipping specialist
+2026-06-13 16:06:58,482 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:06:58,482 [INFO] Generating batch signals...
+2026-06-13 16:06:58,489 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:06:58,489 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 16:06:58,584 [INFO] 
+--- Window 20: Train [2013-12-11 \u2192 2014-12-23], Test [2014-12-24 \u2192 2015-03-25] ---
+2026-06-13 16:06:58,584 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:06:58,632 [INFO] HMM converged in 7 iterations
+2026-06-13 16:06:58,637 [INFO]   State 0 \u2192 Bull: mean_ret=0.002857, std=0.008267, n=47
+2026-06-13 16:06:58,637 [INFO]   State 3 \u2192 Recovery: mean_ret=0.002170, std=0.005854, n=31
+2026-06-13 16:06:58,637 [INFO]   State 1 \u2192 Bear: mean_ret=0.001485, std=0.008031, n=73
+2026-06-13 16:06:58,637 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000430, std=0.008358, n=101
+2026-06-13 16:06:58,638 [INFO] Regime distribution: {2: 101, 1: 73, 0: 47, 3: 31}
+2026-06-13 16:06:58,654 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:06:58,655 [INFO] Using 40 features for RF
+2026-06-13 16:06:58,656 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:06:58,658 [INFO]   Crisis: 101 samples, class balance: {0.0: 52, 1.0: 49}
+2026-06-13 16:06:59,781 [INFO]   Crisis: CV accuracy = 0.4762 (�0.0963)
+2026-06-13 16:06:59,814 [INFO]   Top 5 features: {'volume_zscore': 0.09127900166717595, 'NSEI_mom_3m': 0.059703793685750454, 'NSEI_LIQUID_ratio': 0.05887037264198607, 'mcclellan_sum': 0.05511913485372157, 'MACD_line': 0.05245397446137593}
+2026-06-13 16:06:59,815 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:06:59,818 [WARNING]   Bull: only 47 samples � skipping specialist
+2026-06-13 16:06:59,818 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:06:59,820 [WARNING]   Bear: only 73 samples � skipping specialist
+2026-06-13 16:06:59,820 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:06:59,822 [WARNING]   Recovery: only 31 samples � skipping specialist
+2026-06-13 16:06:59,822 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:06:59,822 [INFO] Generating batch signals...
+2026-06-13 16:06:59,891 [INFO] Signal distribution: {-1: 60, 1: 3}
+2026-06-13 16:06:59,891 [INFO] Next-regime routing: {'Crisis': 63}
+2026-06-13 16:06:59,965 [INFO] 
+--- Window 21: Train [2014-03-12 \u2192 2015-03-25], Test [2015-03-26 \u2192 2015-06-26] ---
+2026-06-13 16:06:59,966 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:00,017 [INFO] HMM converged in 8 iterations
+2026-06-13 16:07:00,021 [INFO]   State 2 \u2192 Bull: mean_ret=0.002402, std=0.008170, n=42
+2026-06-13 16:07:00,021 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001036, std=0.008488, n=58
+2026-06-13 16:07:00,021 [INFO]   State 1 \u2192 Bear: mean_ret=0.000759, std=0.008132, n=104
+2026-06-13 16:07:00,021 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000628, std=0.009031, n=48
+2026-06-13 16:07:00,022 [INFO] Regime distribution: {1: 104, 0: 58, 3: 48, 2: 42}
+2026-06-13 16:07:00,043 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:00,045 [INFO] Using 40 features for RF
+2026-06-13 16:07:00,047 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:00,050 [WARNING]   Bull: only 42 samples � skipping specialist
+2026-06-13 16:07:00,050 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:00,052 [WARNING]   Recovery: only 58 samples � skipping specialist
+2026-06-13 16:07:00,052 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:00,056 [INFO]   Bear: 104 samples, class balance: {1.0: 59, 0.0: 45}
+2026-06-13 16:07:01,195 [INFO]   Bear: CV accuracy = 0.4624 (�0.0928)
+2026-06-13 16:07:01,231 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.10747010583094031, 'BB_bandwidth': 0.10682389306399448, 'realized_vol_60d': 0.059503826788832155, 'volume_zscore': 0.04621938316603885, 'corr_NSEI_LIQUID_60d': 0.044392613194784596}
+2026-06-13 16:07:01,231 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:01,234 [WARNING]   Crisis: only 48 samples � skipping specialist
+2026-06-13 16:07:01,234 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:01,234 [INFO] Generating batch signals...
+2026-06-13 16:07:01,428 [INFO] Signal distribution: {1: 63}
+2026-06-13 16:07:01,429 [INFO] Next-regime routing: {'Bear': 41, 'Crisis': 17, 'Bull': 5}
+2026-06-13 16:07:01,556 [INFO] 
+--- Window 22: Train [2014-06-17 \u2192 2015-06-26], Test [2015-06-29 \u2192 2015-09-24] ---
+2026-06-13 16:07:01,556 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:01,613 [INFO] HMM converged in 8 iterations
+2026-06-13 16:07:01,619 [INFO]   State 3 \u2192 Bull: mean_ret=0.002504, std=0.008299, n=42
+2026-06-13 16:07:01,619 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001490, std=0.006869, n=71
+2026-06-13 16:07:01,619 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000126, std=0.010814, n=46
+2026-06-13 16:07:01,619 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.001060, std=0.009743, n=93
+2026-06-13 16:07:01,619 [INFO] Regime distribution: {2: 93, 0: 71, 1: 46, 3: 42}
+2026-06-13 16:07:01,638 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:01,639 [INFO] Using 40 features for RF
+2026-06-13 16:07:01,640 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:01,642 [WARNING]   Crisis: only 93 samples � skipping specialist
+2026-06-13 16:07:01,642 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:01,644 [WARNING]   Recovery: only 71 samples � skipping specialist
+2026-06-13 16:07:01,644 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:01,647 [WARNING]   Bull: only 42 samples � skipping specialist
+2026-06-13 16:07:01,647 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:01,650 [WARNING]   Bear: only 46 samples � skipping specialist
+2026-06-13 16:07:01,650 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:01,650 [INFO] Generating batch signals...
+2026-06-13 16:07:01,655 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:01,655 [INFO] Next-regime routing: {'Crisis': 32, 'Bear': 31}
+2026-06-13 16:07:01,772 [INFO] 
+--- Window 23: Train [2014-09-17 \u2192 2015-09-24], Test [2015-09-28 \u2192 2015-12-31] ---
+2026-06-13 16:07:01,772 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:01,825 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:01,830 [INFO]   State 2 \u2192 Bull: mean_ret=0.000770, std=0.007949, n=71
+2026-06-13 16:07:01,830 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000044, std=0.009706, n=88
+2026-06-13 16:07:01,830 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000369, std=0.010129, n=73
+2026-06-13 16:07:01,830 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001984, std=0.018744, n=20
+2026-06-13 16:07:01,831 [INFO] Regime distribution: {0: 88, 1: 73, 2: 71, 3: 20}
+2026-06-13 16:07:01,847 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:01,849 [INFO] Using 40 features for RF
+2026-06-13 16:07:01,849 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:01,851 [WARNING]   Bull: only 71 samples � skipping specialist
+2026-06-13 16:07:01,851 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:01,853 [WARNING]   Recovery: only 88 samples � skipping specialist
+2026-06-13 16:07:01,853 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:01,855 [WARNING]   Bear: only 73 samples � skipping specialist
+2026-06-13 16:07:01,855 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:01,857 [WARNING]   Crisis: only 20 samples � skipping specialist
+2026-06-13 16:07:01,857 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:01,857 [INFO] Generating batch signals...
+2026-06-13 16:07:01,865 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:01,865 [INFO] Next-regime routing: {'Bear': 35, 'Recovery': 23, 'Bull': 5}
+D:\Market regime detection\venv\Lib\site-packages\pypfopt\base_optimizer.py:307: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  self._opt.solve(
+2026-06-13 16:07:02,070 [INFO] 
+--- Window 24: Train [2014-12-24 \u2192 2015-12-31], Test [2016-01-01 \u2192 2016-04-04] ---
+2026-06-13 16:07:02,070 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:02,120 [INFO] HMM converged in 7 iterations
+2026-06-13 16:07:02,124 [INFO]   State 1 \u2192 Bull: mean_ret=0.000836, std=0.007230, n=35
+2026-06-13 16:07:02,124 [INFO]   State 3 \u2192 Recovery: mean_ret=0.000275, std=0.010029, n=72
+2026-06-13 16:07:02,124 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000496, std=0.016587, n=30
+2026-06-13 16:07:02,124 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000641, std=0.009020, n=115
+2026-06-13 16:07:02,125 [INFO] Regime distribution: {0: 115, 3: 72, 1: 35, 2: 30}
+2026-06-13 16:07:02,146 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:02,148 [INFO] Using 40 features for RF
+2026-06-13 16:07:02,148 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:02,151 [WARNING]   Bull: only 35 samples � skipping specialist
+2026-06-13 16:07:02,151 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:02,153 [WARNING]   Recovery: only 72 samples � skipping specialist
+2026-06-13 16:07:02,153 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:02,156 [INFO]   Crisis: 115 samples, class balance: {0.0: 66, 1.0: 49}
+2026-06-13 16:07:03,315 [INFO]   Crisis: CV accuracy = 0.4696 (�0.1114)
+2026-06-13 16:07:03,346 [INFO]   Top 5 features: {'corr_NSEI_GOLD_60d': 0.0861133772233659, 'NSEI_LIQUID_ratio': 0.07033925118178712, 'NSEI_SMA200_dist': 0.0659298228798975, 'yield_spread': 0.06359997543718307, 'BB_bandwidth': 0.05458844970516177}
+2026-06-13 16:07:03,348 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:03,350 [WARNING]   Bear: only 30 samples � skipping specialist
+2026-06-13 16:07:03,350 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:07:03,350 [INFO] Generating batch signals...
+2026-06-13 16:07:03,481 [INFO] Signal distribution: {1: 51, -1: 12}
+2026-06-13 16:07:03,481 [INFO] Next-regime routing: {'Crisis': 50, 'Bull': 13}
+2026-06-13 16:07:03,577 [INFO] 
+--- Window 25: Train [2015-03-26 \u2192 2016-04-04], Test [2016-04-05 \u2192 2016-07-05] ---
+2026-06-13 16:07:03,577 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:03,640 [INFO] HMM converged in 11 iterations
+2026-06-13 16:07:03,645 [INFO]   State 2 \u2192 Bull: mean_ret=0.000454, std=0.009332, n=101
+2026-06-13 16:07:03,645 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000039, std=0.012356, n=59
+2026-06-13 16:07:03,645 [INFO]   State 0 \u2192 Bear: mean_ret=-0.001032, std=0.008845, n=77
+2026-06-13 16:07:03,645 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.004233, std=0.020967, n=15
+2026-06-13 16:07:03,646 [INFO] Regime distribution: {2: 101, 0: 77, 1: 59, 3: 15}
+2026-06-13 16:07:03,664 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:03,666 [INFO] Using 40 features for RF
+2026-06-13 16:07:03,667 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:03,669 [WARNING]   Bear: only 77 samples � skipping specialist
+2026-06-13 16:07:03,669 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:03,672 [INFO]   Bull: 101 samples, class balance: {0.0: 53, 1.0: 48}
+2026-06-13 16:07:04,832 [INFO]   Bull: CV accuracy = 0.3448 (�0.1050)
+2026-06-13 16:07:04,863 [INFO]   Top 5 features: {'mcclellan_sum': 0.1124770692719461, 'MACD_line': 0.07645144117931241, 'BB_bandwidth': 0.07256814241321324, 'mcclellan_osc': 0.04864002591510412, 'NSEI_mom_1m': 0.04692323595675876}
+2026-06-13 16:07:04,864 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:04,867 [WARNING]   Crisis: only 15 samples � skipping specialist
+2026-06-13 16:07:04,867 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:04,869 [WARNING]   Recovery: only 59 samples � skipping specialist
+2026-06-13 16:07:04,869 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:07:04,869 [INFO] Generating batch signals...
+2026-06-13 16:07:05,078 [INFO] Signal distribution: {-1: 63}
+2026-06-13 16:07:05,079 [INFO] Next-regime routing: {'Bull': 33, 'Recovery': 20, 'Bear': 10}
+2026-06-13 16:07:05,198 [INFO] 
+--- Window 26: Train [2015-06-29 \u2192 2016-07-05], Test [2016-07-07 \u2192 2016-10-06] ---
+2026-06-13 16:07:05,199 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:05,271 [INFO] HMM converged in 16 iterations
+2026-06-13 16:07:05,275 [INFO]   State 1 \u2192 Bull: mean_ret=0.001317, std=0.008295, n=105
+2026-06-13 16:07:05,275 [INFO]   State 2 \u2192 Recovery: mean_ret=0.000397, std=0.014309, n=45
+2026-06-13 16:07:05,275 [INFO]   State 3 \u2192 Bear: mean_ret=-0.001082, std=0.007821, n=61
+2026-06-13 16:07:05,275 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.002330, std=0.013539, n=41
+2026-06-13 16:07:05,276 [INFO] Regime distribution: {1: 105, 3: 61, 2: 45, 0: 41}
+2026-06-13 16:07:05,293 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:05,295 [INFO] Using 40 features for RF
+2026-06-13 16:07:05,296 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:05,298 [WARNING]   Bear: only 61 samples � skipping specialist
+2026-06-13 16:07:05,298 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:05,300 [WARNING]   Recovery: only 45 samples � skipping specialist
+2026-06-13 16:07:05,300 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:05,302 [INFO]   Bull: 105 samples, class balance: {1.0: 59, 0.0: 46}
+2026-06-13 16:07:06,449 [INFO]   Bull: CV accuracy = 0.3429 (�0.0762)
+2026-06-13 16:07:06,481 [INFO]   Top 5 features: {'NSEI_GOLD_ratio': 0.10032299382126625, 'LIQUIDBEES.NS_ffd': 0.07954197076934398, 'real_rate': 0.0698591531639761, 'MACD_histogram': 0.056498514950375334, 'return_kurt_20d': 0.05087614079056114}
+2026-06-13 16:07:06,481 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:06,484 [WARNING]   Crisis: only 41 samples � skipping specialist
+2026-06-13 16:07:06,484 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:07:06,484 [INFO] Generating batch signals...
+2026-06-13 16:07:06,615 [INFO] Signal distribution: {1: 32, -1: 31}
+2026-06-13 16:07:06,616 [INFO] Next-regime routing: {'Bull': 58, 'Bear': 5}
+2026-06-13 16:07:06,726 [INFO] 
+--- Window 27: Train [2015-09-28 \u2192 2016-10-06], Test [2016-10-07 \u2192 2017-01-09] ---
+2026-06-13 16:07:06,726 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:06,786 [INFO] HMM converged in 6 iterations
+2026-06-13 16:07:06,793 [INFO]   State 2 \u2192 Bull: mean_ret=0.002518, std=0.009623, n=69
+2026-06-13 16:07:06,793 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000473, std=0.007384, n=105
+2026-06-13 16:07:06,793 [INFO]   State 3 \u2192 Bear: mean_ret=-0.000439, std=0.007490, n=31
+2026-06-13 16:07:06,793 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002304, std=0.011829, n=47
+2026-06-13 16:07:06,793 [INFO] Regime distribution: {0: 105, 2: 69, 1: 47, 3: 31}
+2026-06-13 16:07:06,822 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:06,824 [INFO] Using 40 features for RF
+2026-06-13 16:07:06,825 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:06,827 [WARNING]   Bear: only 31 samples � skipping specialist
+2026-06-13 16:07:06,827 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:06,833 [WARNING]   Bull: only 69 samples � skipping specialist
+2026-06-13 16:07:06,834 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:06,838 [INFO]   Recovery: 105 samples, class balance: {1.0: 56, 0.0: 49}
+2026-06-13 16:07:08,067 [INFO]   Recovery: CV accuracy = 0.6571 (�0.1182)
+2026-06-13 16:07:08,100 [INFO]   Top 5 features: {'BB_pct_b': 0.12867234987267925, 'mcclellan_osc': 0.08302401437315057, 'NSEI_mom_3m': 0.0814439021360389, 'return_kurt_20d': 0.07757313154049075, 'NSEI_SMA20_dist': 0.06175688506428923}
+2026-06-13 16:07:08,101 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:08,106 [WARNING]   Crisis: only 47 samples � skipping specialist
+2026-06-13 16:07:08,106 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:08,106 [INFO] Generating batch signals...
+2026-06-13 16:07:08,243 [INFO] Signal distribution: {1: 49, -1: 14}
+2026-06-13 16:07:08,244 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:08,385 [INFO] 
+--- Window 28: Train [2016-01-01 \u2192 2017-01-09], Test [2017-01-10 \u2192 2017-04-12] ---
+2026-06-13 16:07:08,385 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:08,451 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:08,456 [INFO]   State 3 \u2192 Bull: mean_ret=0.002003, std=0.009182, n=44
+2026-06-13 16:07:08,456 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000767, std=0.007605, n=115
+2026-06-13 16:07:08,456 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000883, std=0.009309, n=51
+2026-06-13 16:07:08,456 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002275, std=0.013378, n=42
+2026-06-13 16:07:08,456 [INFO] Regime distribution: {0: 115, 2: 51, 3: 44, 1: 42}
+2026-06-13 16:07:08,476 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:08,478 [INFO] Using 40 features for RF
+2026-06-13 16:07:08,478 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:08,482 [WARNING]   Crisis: only 42 samples � skipping specialist
+2026-06-13 16:07:08,482 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:08,484 [WARNING]   Bull: only 44 samples � skipping specialist
+2026-06-13 16:07:08,484 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:08,487 [INFO]   Recovery: 115 samples, class balance: {1.0: 62, 0.0: 53}
+2026-06-13 16:07:09,748 [INFO]   Recovery: CV accuracy = 0.4870 (�0.0507)
+2026-06-13 16:07:09,782 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.11055793644059256, 'MACD_histogram': 0.07609190743420957, 'NSEI_GOLD_ratio': 0.07566076679606218, 'BB_pct_b': 0.07094497033320132, 'NSEI_mom_3m': 0.06917082792414611}
+2026-06-13 16:07:09,783 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:09,787 [WARNING]   Bear: only 51 samples � skipping specialist
+2026-06-13 16:07:09,787 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:09,787 [INFO] Generating batch signals...
+2026-06-13 16:07:10,017 [INFO] Signal distribution: {-1: 57, 1: 6}
+2026-06-13 16:07:10,018 [INFO] Next-regime routing: {'Bear': 42, 'Recovery': 16, 'Crisis': 5}
+2026-06-13 16:07:10,123 [INFO] 
+--- Window 29: Train [2016-04-05 \u2192 2017-04-12], Test [2017-04-13 \u2192 2017-07-13] ---
+2026-06-13 16:07:10,123 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:10,221 [WARNING] Model is not converging.  Current: -17.023120833458588 is not greater than -17.019720551205815. Delta is -0.0034002822527732235
+2026-06-13 16:07:10,221 [INFO] HMM converged in 21 iterations
+2026-06-13 16:07:10,227 [INFO]   State 1 \u2192 Bull: mean_ret=0.001743, std=0.005847, n=53
+2026-06-13 16:07:10,227 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001089, std=0.008683, n=53
+2026-06-13 16:07:10,227 [INFO]   State 2 \u2192 Bear: mean_ret=0.000202, std=0.008093, n=102
+2026-06-13 16:07:10,227 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000001, std=0.008112, n=44
+2026-06-13 16:07:10,227 [INFO] Regime distribution: {2: 102, 0: 53, 1: 53, 3: 44}
+2026-06-13 16:07:10,249 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:10,252 [INFO] Using 40 features for RF
+2026-06-13 16:07:10,252 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:10,255 [WARNING]   Recovery: only 53 samples � skipping specialist
+2026-06-13 16:07:10,255 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:10,260 [INFO]   Bear: 102 samples, class balance: {1.0: 53, 0.0: 49}
+2026-06-13 16:07:11,581 [INFO]   Bear: CV accuracy = 0.4210 (�0.0608)
+2026-06-13 16:07:11,615 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.0761989171988424, 'mcclellan_osc': 0.07363594614393122, 'MACD_histogram': 0.07224372583034247, 'NSEI_GOLD_ratio': 0.06590103904223078, 'NSEI_SMA200_dist': 0.054829071053835096}
+2026-06-13 16:07:11,616 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:11,619 [WARNING]   Crisis: only 44 samples � skipping specialist
+2026-06-13 16:07:11,619 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:11,624 [WARNING]   Bull: only 53 samples � skipping specialist
+2026-06-13 16:07:11,624 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:11,624 [INFO] Generating batch signals...
+2026-06-13 16:07:11,792 [INFO] Signal distribution: {-1: 54, 1: 9}
+2026-06-13 16:07:11,793 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 16:07:11,905 [INFO] 
+--- Window 30: Train [2016-07-07 \u2192 2017-07-13], Test [2017-07-14 \u2192 2017-10-13] ---
+2026-06-13 16:07:11,905 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:11,966 [INFO] HMM converged in 8 iterations
+2026-06-13 16:07:11,972 [INFO]   State 3 \u2192 Bull: mean_ret=0.001970, std=0.006966, n=37
+2026-06-13 16:07:11,972 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001137, std=0.004997, n=106
+2026-06-13 16:07:11,972 [INFO]   State 2 \u2192 Bear: mean_ret=0.000436, std=0.006770, n=75
+2026-06-13 16:07:11,972 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001617, std=0.011043, n=34
+2026-06-13 16:07:11,972 [INFO] Regime distribution: {1: 106, 2: 75, 3: 37, 0: 34}
+2026-06-13 16:07:11,997 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:11,999 [INFO] Using 40 features for RF
+2026-06-13 16:07:12,000 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:12,003 [WARNING]   Bear: only 77 samples � skipping specialist
+2026-06-13 16:07:12,004 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:12,006 [WARNING]   Crisis: only 36 samples � skipping specialist
+2026-06-13 16:07:12,006 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:12,009 [WARNING]   Bull: only 37 samples � skipping specialist
+2026-06-13 16:07:12,009 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:12,014 [INFO]   Recovery: 102 samples, class balance: {1.0: 55, 0.0: 47}
+2026-06-13 16:07:13,215 [INFO]   Recovery: CV accuracy = 0.5095 (�0.0636)
+2026-06-13 16:07:13,248 [INFO]   Top 5 features: {'NSEI_mom_1m': 0.1784538832482237, 'corr_NSEI_LIQUID_60d': 0.06317892790378017, 'MACD_histogram': 0.06173670785899213, 'volume_zscore': 0.0410773320051927, 'LIQUIDBEES.NS_ffd': 0.04082980165812776}
+2026-06-13 16:07:13,249 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:13,250 [INFO] Generating batch signals...
+2026-06-13 16:07:13,393 [INFO] Signal distribution: {1: 41, -1: 22}
+2026-06-13 16:07:13,393 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:13,507 [INFO] 
+--- Window 31: Train [2016-10-07 \u2192 2017-10-13], Test [2017-10-16 \u2192 2018-01-12] ---
+2026-06-13 16:07:13,507 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:13,573 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:13,577 [INFO]   State 3 \u2192 Bull: mean_ret=0.001630, std=0.006876, n=31
+2026-06-13 16:07:13,577 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001364, std=0.005581, n=77
+2026-06-13 16:07:13,578 [INFO]   State 1 \u2192 Bear: mean_ret=0.000528, std=0.005936, n=111
+2026-06-13 16:07:13,578 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001801, std=0.010438, n=33
+2026-06-13 16:07:13,578 [INFO] Regime distribution: {1: 111, 2: 77, 0: 33, 3: 31}
+2026-06-13 16:07:13,600 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:13,602 [INFO] Using 40 features for RF
+2026-06-13 16:07:13,602 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:13,605 [INFO]   Bear: 111 samples, class balance: {1.0: 59, 0.0: 52}
+2026-06-13 16:07:14,779 [INFO]   Bear: CV accuracy = 0.5237 (�0.0939)
+2026-06-13 16:07:14,812 [INFO]   Top 5 features: {'NSEI_mom_1m': 0.09518320994955856, 'MACD_line': 0.08449054422603618, 'NSEI_SMA200_dist': 0.07593708253878459, 'mcclellan_sum': 0.07295914249815627, 'BB_bandwidth': 0.06198801296201899}
+2026-06-13 16:07:14,812 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:14,816 [WARNING]   Crisis: only 33 samples � skipping specialist
+2026-06-13 16:07:14,816 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:14,818 [WARNING]   Bull: only 31 samples � skipping specialist
+2026-06-13 16:07:14,819 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:14,821 [WARNING]   Recovery: only 77 samples � skipping specialist
+2026-06-13 16:07:14,821 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:14,821 [INFO] Generating batch signals...
+2026-06-13 16:07:14,915 [INFO] Signal distribution: {-1: 38, 1: 25}
+2026-06-13 16:07:14,915 [INFO] Next-regime routing: {'Bear': 63}
+2026-06-13 16:07:15,028 [INFO] 
+--- Window 32: Train [2017-01-10 \u2192 2018-01-12], Test [2018-01-15 \u2192 2018-04-18] ---
+2026-06-13 16:07:15,028 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:15,117 [INFO] HMM converged in 11 iterations
+2026-06-13 16:07:15,122 [INFO]   State 1 \u2192 Bull: mean_ret=0.002598, std=0.006038, n=31
+2026-06-13 16:07:15,122 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001949, std=0.004089, n=25
+2026-06-13 16:07:15,123 [INFO]   State 0 \u2192 Bear: mean_ret=0.001065, std=0.005032, n=112
+2026-06-13 16:07:15,123 [INFO]   State 2 \u2192 Crisis: mean_ret=0.000137, std=0.006547, n=84
+2026-06-13 16:07:15,124 [INFO] Regime distribution: {0: 112, 2: 84, 1: 31, 3: 25}
+2026-06-13 16:07:15,159 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:15,161 [INFO] Using 40 features for RF
+2026-06-13 16:07:15,163 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:15,165 [WARNING]   Bull: only 31 samples � skipping specialist
+2026-06-13 16:07:15,166 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:15,168 [INFO]   Bear: 112 samples, class balance: {1.0: 57, 0.0: 55}
+2026-06-13 16:07:16,737 [INFO]   Bear: CV accuracy = 0.6324 (�0.0833)
+2026-06-13 16:07:16,773 [INFO]   Top 5 features: {'NSEI_mom_1m': 0.1909861868050527, 'return_kurt_20d': 0.0663998199997222, 'mcclellan_osc': 0.05430929285555549, 'RSI_divergence': 0.04742921093198978, 'BB_bandwidth': 0.044086772455391915}
+2026-06-13 16:07:16,774 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:16,780 [WARNING]   Crisis: only 84 samples � skipping specialist
+2026-06-13 16:07:16,780 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:16,783 [WARNING]   Recovery: only 25 samples � skipping specialist
+2026-06-13 16:07:16,783 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:16,783 [INFO] Generating batch signals...
+2026-06-13 16:07:16,967 [INFO] Signal distribution: {1: 48, -1: 15}
+2026-06-13 16:07:16,968 [INFO] Next-regime routing: {'Crisis': 58, 'Bull': 5}
+2026-06-13 16:07:17,101 [INFO] 
+--- Window 33: Train [2017-04-13 \u2192 2018-04-18], Test [2018-04-19 \u2192 2018-07-17] ---
+2026-06-13 16:07:17,101 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:17,175 [INFO] HMM converged in 12 iterations
+2026-06-13 16:07:17,181 [INFO]   State 1 \u2192 Bull: mean_ret=0.001064, std=0.005119, n=59
+2026-06-13 16:07:17,181 [INFO]   State 2 \u2192 Recovery: mean_ret=0.000998, std=0.004956, n=81
+2026-06-13 16:07:17,181 [INFO]   State 0 \u2192 Bear: mean_ret=0.000091, std=0.006991, n=77
+2026-06-13 16:07:17,181 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000469, std=0.009240, n=35
+2026-06-13 16:07:17,182 [INFO] Regime distribution: {2: 81, 0: 77, 1: 59, 3: 35}
+2026-06-13 16:07:17,210 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:17,214 [INFO] Using 40 features for RF
+2026-06-13 16:07:17,215 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:17,218 [WARNING]   Recovery: only 81 samples � skipping specialist
+2026-06-13 16:07:17,219 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:17,223 [WARNING]   Bear: only 76 samples � skipping specialist
+2026-06-13 16:07:17,223 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:17,226 [WARNING]   Bull: only 59 samples � skipping specialist
+2026-06-13 16:07:17,226 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:17,231 [WARNING]   Crisis: only 36 samples � skipping specialist
+2026-06-13 16:07:17,231 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:17,231 [INFO] Generating batch signals...
+2026-06-13 16:07:17,239 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:17,239 [INFO] Next-regime routing: {'Bear': 28, 'Bull': 24, 'Crisis': 6, 'Recovery': 5}
+2026-06-13 16:07:17,402 [INFO] 
+--- Window 34: Train [2017-07-14 \u2192 2018-07-17], Test [2018-07-18 \u2192 2018-10-22] ---
+2026-06-13 16:07:17,403 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:17,508 [INFO] HMM converged in 21 iterations
+2026-06-13 16:07:17,515 [INFO]   State 2 \u2192 Bull: mean_ret=0.000710, std=0.006194, n=108
+2026-06-13 16:07:17,515 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000629, std=0.006190, n=71
+2026-06-13 16:07:17,515 [INFO]   State 0 \u2192 Bear: mean_ret=0.000543, std=0.007103, n=51
+2026-06-13 16:07:17,515 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001913, std=0.007714, n=22
+2026-06-13 16:07:17,515 [INFO] Regime distribution: {2: 108, 1: 71, 0: 51, 3: 22}
+2026-06-13 16:07:17,542 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:17,544 [INFO] Using 40 features for RF
+2026-06-13 16:07:17,547 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:17,550 [WARNING]   Recovery: only 71 samples � skipping specialist
+2026-06-13 16:07:17,551 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:17,557 [INFO]   Bull: 108 samples, class balance: {1.0: 59, 0.0: 49}
+2026-06-13 16:07:18,919 [INFO]   Bull: CV accuracy = 0.5091 (�0.0634)
+2026-06-13 16:07:18,952 [INFO]   Top 5 features: {'OBV_slope': 0.10703183858346701, 'NSEI_LIQUID_ratio': 0.07041600641081608, 'BB_bandwidth': 0.06495075980816224, 'corr_NSEI_GOLD_60d': 0.05016933512022182, 'MACD_line': 0.04483016593250694}
+2026-06-13 16:07:18,952 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:18,956 [WARNING]   Crisis: only 22 samples � skipping specialist
+2026-06-13 16:07:18,956 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:18,958 [WARNING]   Bear: only 51 samples � skipping specialist
+2026-06-13 16:07:18,958 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:07:18,958 [INFO] Generating batch signals...
+2026-06-13 16:07:19,110 [INFO] Signal distribution: {-1: 36, 1: 27}
+2026-06-13 16:07:19,112 [INFO] Next-regime routing: {'Bull': 58, 'Recovery': 5}
+2026-06-13 16:07:19,223 [INFO] 
+--- Window 35: Train [2017-10-16 \u2192 2018-10-22], Test [2018-10-23 \u2192 2019-01-22] ---
+2026-06-13 16:07:19,224 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:19,321 [INFO] HMM converged in 17 iterations
+2026-06-13 16:07:19,326 [INFO]   State 3 \u2192 Bull: mean_ret=0.001318, std=0.007262, n=41
+2026-06-13 16:07:19,326 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001106, std=0.005406, n=80
+2026-06-13 16:07:19,326 [INFO]   State 2 \u2192 Bear: mean_ret=0.000853, std=0.005792, n=82
+2026-06-13 16:07:19,326 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.004179, std=0.010775, n=49
+2026-06-13 16:07:19,327 [INFO] Regime distribution: {2: 82, 0: 80, 1: 49, 3: 41}
+2026-06-13 16:07:19,350 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:19,352 [INFO] Using 40 features for RF
+2026-06-13 16:07:19,353 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:19,356 [WARNING]   Recovery: only 81 samples � skipping specialist
+2026-06-13 16:07:19,356 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:19,359 [WARNING]   Crisis: only 49 samples � skipping specialist
+2026-06-13 16:07:19,359 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:19,361 [WARNING]   Bull: only 41 samples � skipping specialist
+2026-06-13 16:07:19,361 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:19,366 [WARNING]   Bear: only 81 samples � skipping specialist
+2026-06-13 16:07:19,366 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:19,366 [INFO] Generating batch signals...
+2026-06-13 16:07:19,374 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:19,374 [INFO] Next-regime routing: {'Recovery': 54, 'Crisis': 9}
+2026-06-13 16:07:19,507 [INFO] 
+--- Window 36: Train [2018-01-15 \u2192 2019-01-22], Test [2019-01-23 \u2192 2019-04-30] ---
+2026-06-13 16:07:19,507 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:19,593 [INFO] HMM converged in 15 iterations
+2026-06-13 16:07:19,598 [INFO]   State 3 \u2192 Bull: mean_ret=0.001639, std=0.005123, n=41
+2026-06-13 16:07:19,599 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001246, std=0.005765, n=91
+2026-06-13 16:07:19,599 [INFO]   State 1 \u2192 Bear: mean_ret=0.001189, std=0.008631, n=46
+2026-06-13 16:07:19,599 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.002877, std=0.010549, n=74
+2026-06-13 16:07:19,599 [INFO] Regime distribution: {0: 91, 2: 74, 1: 46, 3: 41}
+2026-06-13 16:07:19,620 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:19,623 [INFO] Using 40 features for RF
+2026-06-13 16:07:19,623 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:19,625 [WARNING]   Recovery: only 91 samples � skipping specialist
+2026-06-13 16:07:19,625 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:19,628 [WARNING]   Crisis: only 74 samples � skipping specialist
+2026-06-13 16:07:19,628 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:19,632 [WARNING]   Bull: only 41 samples � skipping specialist
+2026-06-13 16:07:19,632 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:19,635 [WARNING]   Bear: only 46 samples � skipping specialist
+2026-06-13 16:07:19,635 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:19,635 [INFO] Generating batch signals...
+2026-06-13 16:07:19,643 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:19,643 [INFO] Next-regime routing: {'Crisis': 47, 'Bull': 11, 'Recovery': 5}
+2026-06-13 16:07:19,778 [INFO] 
+--- Window 37: Train [2018-04-19 \u2192 2019-04-30], Test [2019-05-02 \u2192 2019-07-30] ---
+2026-06-13 16:07:19,778 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:19,832 [INFO] HMM converged in 5 iterations
+2026-06-13 16:07:19,836 [INFO]   State 1 \u2192 Bull: mean_ret=0.001006, std=0.005587, n=95
+2026-06-13 16:07:19,836 [INFO]   State 3 \u2192 Recovery: mean_ret=0.000553, std=0.013903, n=16
+2026-06-13 16:07:19,837 [INFO]   State 0 \u2192 Bear: mean_ret=0.000477, std=0.008166, n=43
+2026-06-13 16:07:19,837 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000155, std=0.008274, n=98
+2026-06-13 16:07:19,837 [INFO] Regime distribution: {2: 98, 1: 95, 0: 43, 3: 16}
+2026-06-13 16:07:19,857 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:19,859 [INFO] Using 40 features for RF
+2026-06-13 16:07:19,859 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:19,861 [WARNING]   Bull: only 95 samples � skipping specialist
+2026-06-13 16:07:19,862 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:19,866 [WARNING]   Crisis: only 98 samples � skipping specialist
+2026-06-13 16:07:19,866 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:19,869 [WARNING]   Recovery: only 16 samples � skipping specialist
+2026-06-13 16:07:19,869 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:19,872 [WARNING]   Bear: only 43 samples � skipping specialist
+2026-06-13 16:07:19,872 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:19,872 [INFO] Generating batch signals...
+2026-06-13 16:07:19,883 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:19,883 [INFO] Next-regime routing: {'Crisis': 58, 'Bull': 5}
+2026-06-13 16:07:20,000 [INFO] 
+--- Window 38: Train [2018-07-18 \u2192 2019-07-30], Test [2019-07-31 \u2192 2019-11-05] ---
+2026-06-13 16:07:20,000 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:20,058 [INFO] HMM converged in 7 iterations
+2026-06-13 16:07:20,065 [INFO]   State 3 \u2192 Bull: mean_ret=0.002571, std=0.005445, n=42
+2026-06-13 16:07:20,065 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001163, std=0.010842, n=63
+2026-06-13 16:07:20,065 [INFO]   State 1 \u2192 Bear: mean_ret=-0.001182, std=0.008163, n=99
+2026-06-13 16:07:20,065 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.001192, std=0.007684, n=48
+2026-06-13 16:07:20,065 [INFO] Regime distribution: {1: 99, 2: 63, 0: 48, 3: 42}
+2026-06-13 16:07:20,089 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:20,090 [INFO] Using 40 features for RF
+2026-06-13 16:07:20,091 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:20,094 [WARNING]   Bull: only 42 samples � skipping specialist
+2026-06-13 16:07:20,094 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:20,098 [WARNING]   Bear: only 99 samples � skipping specialist
+2026-06-13 16:07:20,098 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:20,101 [WARNING]   Recovery: only 65 samples � skipping specialist
+2026-06-13 16:07:20,101 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:20,104 [WARNING]   Crisis: only 46 samples � skipping specialist
+2026-06-13 16:07:20,104 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:20,104 [INFO] Generating batch signals...
+2026-06-13 16:07:20,114 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:20,114 [INFO] Next-regime routing: {'Bear': 39, 'Recovery': 19, 'Crisis': 5}
+2026-06-13 16:07:20,333 [INFO] 
+--- Window 39: Train [2018-10-23 \u2192 2019-11-05], Test [2019-11-06 \u2192 2020-02-04] ---
+2026-06-13 16:07:20,333 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:20,408 [INFO] HMM converged in 11 iterations
+2026-06-13 16:07:20,415 [INFO]   State 2 \u2192 Bull: mean_ret=0.001852, std=0.010708, n=80
+2026-06-13 16:07:20,415 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000959, std=0.007927, n=92
+2026-06-13 16:07:20,415 [INFO]   State 3 \u2192 Bear: mean_ret=-0.000163, std=0.007389, n=40
+2026-06-13 16:07:20,415 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.001968, std=0.009912, n=40
+2026-06-13 16:07:20,416 [INFO] Regime distribution: {0: 92, 2: 80, 3: 40, 1: 40}
+2026-06-13 16:07:20,437 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:20,439 [INFO] Using 40 features for RF
+2026-06-13 16:07:20,439 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:20,441 [WARNING]   Bull: only 80 samples � skipping specialist
+2026-06-13 16:07:20,441 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:20,444 [WARNING]   Recovery: only 92 samples � skipping specialist
+2026-06-13 16:07:20,444 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:20,448 [WARNING]   Bear: only 37 samples � skipping specialist
+2026-06-13 16:07:20,448 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:20,450 [WARNING]   Crisis: only 43 samples � skipping specialist
+2026-06-13 16:07:20,450 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:20,450 [INFO] Generating batch signals...
+2026-06-13 16:07:20,458 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:20,458 [INFO] Next-regime routing: {'Bull': 48, 'Recovery': 15}
+2026-06-13 16:07:20,594 [INFO] 
+--- Window 40: Train [2019-01-23 \u2192 2020-02-04], Test [2020-02-05 \u2192 2020-05-12] ---
+2026-06-13 16:07:20,594 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:20,645 [INFO] HMM converged in 6 iterations
+2026-06-13 16:07:20,650 [INFO]   State 2 \u2192 Bull: mean_ret=0.000568, std=0.010458, n=111
+2026-06-13 16:07:20,650 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000258, std=0.007895, n=90
+2026-06-13 16:07:20,650 [INFO]   State 3 \u2192 Bear: mean_ret=0.000231, std=0.007323, n=42
+2026-06-13 16:07:20,650 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000410, std=0.006152, n=9
+2026-06-13 16:07:20,650 [INFO] Regime distribution: {2: 111, 1: 90, 3: 42, 0: 9}
+2026-06-13 16:07:20,670 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:20,672 [INFO] Using 40 features for RF
+2026-06-13 16:07:20,673 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:20,676 [INFO]   Bull: 111 samples, class balance: {1.0: 60, 0.0: 51}
+2026-06-13 16:07:21,841 [INFO]   Bull: CV accuracy = 0.5040 (�0.0839)
+2026-06-13 16:07:21,873 [INFO]   Top 5 features: {'return_kurt_20d': 0.10292041685497923, 'volume_zscore': 0.08617985793310813, 'MACD_histogram': 0.0858070172370356, 'LIQUIDBEES.NS_ffd': 0.08532571162701337, 'yield_spread_zscore': 0.06600608056882618}
+2026-06-13 16:07:21,874 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:21,877 [WARNING]   Bear: only 45 samples � skipping specialist
+2026-06-13 16:07:21,877 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:21,881 [WARNING]   Recovery: only 90 samples � skipping specialist
+2026-06-13 16:07:21,881 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:21,883 [WARNING]   Crisis: only 6 samples � skipping specialist
+2026-06-13 16:07:21,884 [INFO] 
+Trained 1 specialists: ['Bull']
+2026-06-13 16:07:21,884 [INFO] Generating batch signals...
+2026-06-13 16:07:21,964 [INFO] Signal distribution: {1: 53, -1: 10}
+2026-06-13 16:07:21,964 [INFO] Next-regime routing: {'Bull': 63}
+2026-06-13 16:07:22,050 [INFO] 
+--- Window 41: Train [2019-05-02 \u2192 2020-05-12], Test [2020-05-13 \u2192 2020-08-10] ---
+2026-06-13 16:07:22,050 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:22,092 [INFO] HMM converged in 4 iterations
+2026-06-13 16:07:22,098 [INFO]   State 2 \u2192 Bull: mean_ret=0.004033, std=0.028524, n=26
+2026-06-13 16:07:22,099 [INFO]   State 1 \u2192 Recovery: mean_ret=-0.000291, std=0.009952, n=204
+2026-06-13 16:07:22,099 [INFO]   State 3 \u2192 Bear: mean_ret=-0.001043, std=0.005912, n=7
+2026-06-13 16:07:22,099 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.018864, std=0.058316, n=15
+2026-06-13 16:07:22,099 [INFO] Regime distribution: {1: 204, 2: 26, 0: 15, 3: 7}
+2026-06-13 16:07:22,119 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:22,121 [INFO] Using 40 features for RF
+2026-06-13 16:07:22,121 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:22,124 [INFO]   Recovery: 204 samples, class balance: {0.0: 105, 1.0: 99}
+2026-06-13 16:07:23,331 [INFO]   Recovery: CV accuracy = 0.5051 (�0.0587)
+2026-06-13 16:07:23,365 [INFO]   Top 5 features: {'VIX_zscore': 0.0769954718124197, 'NSEI_mom_6m': 0.06370445812193228, 'return_skew_20d': 0.061521989358569736, 'mcclellan_osc': 0.05886107560655451, 'volume_zscore': 0.05166121034132491}
+2026-06-13 16:07:23,366 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:23,370 [WARNING]   Bear: only 7 samples � skipping specialist
+2026-06-13 16:07:23,370 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:23,373 [WARNING]   Crisis: only 15 samples � skipping specialist
+2026-06-13 16:07:23,373 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:23,375 [WARNING]   Bull: only 26 samples � skipping specialist
+2026-06-13 16:07:23,375 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:23,375 [INFO] Generating batch signals...
+2026-06-13 16:07:23,459 [INFO] Signal distribution: {1: 63}
+2026-06-13 16:07:23,460 [INFO] Next-regime routing: {'Recovery': 63}
+2026-06-13 16:07:23,555 [INFO] 
+--- Window 42: Train [2019-07-31 \u2192 2020-08-10], Test [2020-08-11 \u2192 2020-11-06] ---
+2026-06-13 16:07:23,555 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:23,671 [INFO] HMM converged in 28 iterations
+2026-06-13 16:07:23,676 [INFO]   State 2 \u2192 Bull: mean_ret=0.002349, std=0.016364, n=77
+2026-06-13 16:07:23,676 [INFO]   State 1 \u2192 Recovery: mean_ret=0.002144, std=0.009379, n=62
+2026-06-13 16:07:23,676 [INFO]   State 3 \u2192 Bear: mean_ret=-0.000616, std=0.008148, n=86
+2026-06-13 16:07:23,677 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.009048, std=0.050129, n=27
+2026-06-13 16:07:23,677 [INFO] Regime distribution: {3: 86, 2: 77, 1: 62, 0: 27}
+2026-06-13 16:07:23,696 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:23,698 [INFO] Using 40 features for RF
+2026-06-13 16:07:23,698 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:23,701 [WARNING]   Bear: only 87 samples � skipping specialist
+2026-06-13 16:07:23,701 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:23,703 [WARNING]   Bull: only 77 samples � skipping specialist
+2026-06-13 16:07:23,703 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:23,705 [WARNING]   Recovery: only 62 samples � skipping specialist
+2026-06-13 16:07:23,705 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:23,707 [WARNING]   Crisis: only 26 samples � skipping specialist
+2026-06-13 16:07:23,707 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:23,707 [INFO] Generating batch signals...
+2026-06-13 16:07:23,714 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:23,715 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 16:07:23,854 [INFO] 
+--- Window 43: Train [2019-11-06 \u2192 2020-11-06], Test [2020-11-09 \u2192 2021-02-08] ---
+2026-06-13 16:07:23,854 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:23,935 [WARNING] Model is not converging.  Current: 679.5347204932098 is not greater than 679.5453350094482. Delta is -0.01061451623843368
+2026-06-13 16:07:23,935 [INFO] HMM converged in 8 iterations
+2026-06-13 16:07:23,941 [INFO]   State 3 \u2192 Bull: mean_ret=0.003015, std=0.018874, n=39
+2026-06-13 16:07:23,941 [INFO]   State 1 \u2192 Recovery: mean_ret=0.002000, std=0.010139, n=104
+2026-06-13 16:07:23,941 [INFO]   State 2 \u2192 Bear: mean_ret=-0.000831, std=0.009060, n=86
+2026-06-13 16:07:23,941 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.009805, std=0.053844, n=23
+2026-06-13 16:07:23,942 [INFO] Regime distribution: {1: 104, 2: 86, 3: 39, 0: 23}
+2026-06-13 16:07:23,973 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:23,974 [INFO] Using 40 features for RF
+2026-06-13 16:07:23,976 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:23,979 [WARNING]   Bear: only 84 samples � skipping specialist
+2026-06-13 16:07:23,979 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:23,984 [INFO]   Recovery: 106 samples, class balance: {1.0: 66, 0.0: 40}
+2026-06-13 16:07:25,181 [INFO]   Recovery: CV accuracy = 0.5649 (�0.1653)
+2026-06-13 16:07:25,215 [INFO]   Top 5 features: {'realized_vol_20d': 0.17972721232157748, 'RSI_divergence': 0.061800088722733036, 'LIQUIDBEES.NS_ffd': 0.05937138384731774, 'corr_NSEI_GOLD_60d': 0.058438719134885575, 'OBV_slope': 0.05607445037520639}
+2026-06-13 16:07:25,216 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:25,219 [WARNING]   Crisis: only 23 samples � skipping specialist
+2026-06-13 16:07:25,219 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:25,221 [WARNING]   Bull: only 39 samples � skipping specialist
+2026-06-13 16:07:25,221 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:25,221 [INFO] Generating batch signals...
+2026-06-13 16:07:25,366 [INFO] Signal distribution: {-1: 51, 1: 12}
+2026-06-13 16:07:25,367 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:25,477 [INFO] 
+--- Window 44: Train [2020-02-05 \u2192 2021-02-08], Test [2021-02-09 \u2192 2021-05-14] ---
+2026-06-13 16:07:25,477 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:25,530 [INFO] HMM converged in 6 iterations
+2026-06-13 16:07:25,535 [INFO]   State 2 \u2192 Bull: mean_ret=0.004060, std=0.022575, n=54
+2026-06-13 16:07:25,535 [INFO]   State 0 \u2192 Recovery: mean_ret=0.002376, std=0.010555, n=161
+2026-06-13 16:07:25,535 [INFO]   State 3 \u2192 Bear: mean_ret=-0.002912, std=0.011334, n=21
+2026-06-13 16:07:25,535 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.019255, std=0.056360, n=16
+2026-06-13 16:07:25,536 [INFO] Regime distribution: {0: 161, 2: 54, 3: 21, 1: 16}
+2026-06-13 16:07:25,556 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:25,558 [INFO] Using 40 features for RF
+2026-06-13 16:07:25,558 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:25,560 [WARNING]   Bear: only 21 samples � skipping specialist
+2026-06-13 16:07:25,560 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:25,563 [WARNING]   Crisis: only 16 samples � skipping specialist
+2026-06-13 16:07:25,563 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:25,566 [WARNING]   Bull: only 54 samples � skipping specialist
+2026-06-13 16:07:25,566 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:25,568 [INFO]   Recovery: 161 samples, class balance: {1.0: 105, 0.0: 56}
+2026-06-13 16:07:26,769 [INFO]   Recovery: CV accuracy = 0.5098 (�0.1077)
+2026-06-13 16:07:26,802 [INFO]   Top 5 features: {'LIQUIDBEES.NS_ffd': 0.10250063987261715, 'realized_vol_20d': 0.08303310219937701, 'NSEI_mom_6m': 0.060192456213179396, 'NSEI_mom_1m': 0.05647649680997238, 'RSI_divergence': 0.05159291002718987}
+2026-06-13 16:07:26,803 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:26,803 [INFO] Generating batch signals...
+2026-06-13 16:07:26,942 [INFO] Signal distribution: {1: 62, -1: 1}
+2026-06-13 16:07:26,943 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:27,053 [INFO] 
+--- Window 45: Train [2020-05-13 \u2192 2021-05-14], Test [2021-05-17 \u2192 2021-08-12] ---
+2026-06-13 16:07:27,054 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:27,144 [WARNING] Model is not converging.  Current: 165.23948666391576 is not greater than 165.24434386572835. Delta is -0.004857201812598078
+2026-06-13 16:07:27,144 [INFO] HMM converged in 17 iterations
+2026-06-13 16:07:27,149 [INFO]   State 1 \u2192 Bull: mean_ret=0.004086, std=0.015716, n=28
+2026-06-13 16:07:27,149 [INFO]   State 0 \u2192 Recovery: mean_ret=0.003136, std=0.010837, n=77
+2026-06-13 16:07:27,149 [INFO]   State 2 \u2192 Bear: mean_ret=0.001679, std=0.010305, n=84
+2026-06-13 16:07:27,149 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.000467, std=0.012293, n=63
+2026-06-13 16:07:27,150 [INFO] Regime distribution: {2: 84, 0: 77, 3: 63, 1: 28}
+2026-06-13 16:07:27,168 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:27,170 [INFO] Using 40 features for RF
+2026-06-13 16:07:27,170 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:27,173 [WARNING]   Bull: only 28 samples � skipping specialist
+2026-06-13 16:07:27,173 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:27,174 [WARNING]   Bear: only 84 samples � skipping specialist
+2026-06-13 16:07:27,174 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:27,176 [WARNING]   Recovery: only 77 samples � skipping specialist
+2026-06-13 16:07:27,176 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:27,179 [WARNING]   Crisis: only 63 samples � skipping specialist
+2026-06-13 16:07:27,179 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:27,179 [INFO] Generating batch signals...
+2026-06-13 16:07:27,187 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:27,187 [INFO] Next-regime routing: {'Crisis': 58, 'Bull': 5}
+2026-06-13 16:07:27,299 [INFO] 
+--- Window 46: Train [2020-08-11 \u2192 2021-08-12], Test [2021-08-13 \u2192 2021-11-15] ---
+2026-06-13 16:07:27,299 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:27,352 [WARNING] Model is not converging.  Current: 7.222803921369756 is not greater than 7.223103156153453. Delta is -0.00029923478369653367
+2026-06-13 16:07:27,352 [INFO] HMM converged in 6 iterations
+2026-06-13 16:07:27,357 [INFO]   State 0 \u2192 Bull: mean_ret=0.001999, std=0.012703, n=65
+2026-06-13 16:07:27,357 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001889, std=0.009963, n=81
+2026-06-13 16:07:27,358 [INFO]   State 3 \u2192 Bear: mean_ret=0.000987, std=0.005352, n=50
+2026-06-13 16:07:27,358 [INFO]   State 1 \u2192 Crisis: mean_ret=0.000725, std=0.011072, n=56
+2026-06-13 16:07:27,358 [INFO] Regime distribution: {2: 81, 0: 65, 1: 56, 3: 50}
+2026-06-13 16:07:27,383 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:27,385 [INFO] Using 40 features for RF
+2026-06-13 16:07:27,385 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:27,389 [WARNING]   Recovery: only 81 samples � skipping specialist
+2026-06-13 16:07:27,389 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:27,391 [WARNING]   Bull: only 65 samples � skipping specialist
+2026-06-13 16:07:27,391 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:27,394 [WARNING]   Crisis: only 56 samples � skipping specialist
+2026-06-13 16:07:27,394 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:27,397 [WARNING]   Bear: only 50 samples � skipping specialist
+2026-06-13 16:07:27,397 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:27,397 [INFO] Generating batch signals...
+2026-06-13 16:07:27,406 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:27,406 [INFO] Next-regime routing: {'Bear': 43, 'Crisis': 15, 'Bull': 5}
+2026-06-13 16:07:27,539 [INFO] 
+--- Window 47: Train [2020-11-09 \u2192 2021-11-15], Test [2021-11-16 \u2192 2022-02-14] ---
+2026-06-13 16:07:27,540 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:27,631 [INFO] HMM converged in 15 iterations
+2026-06-13 16:07:27,636 [INFO]   State 2 \u2192 Bull: mean_ret=0.003267, std=0.010832, n=68
+2026-06-13 16:07:27,636 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001846, std=0.006858, n=71
+2026-06-13 16:07:27,636 [INFO]   State 3 \u2192 Bear: mean_ret=0.000907, std=0.005143, n=48
+2026-06-13 16:07:27,636 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000107, std=0.012568, n=65
+2026-06-13 16:07:27,637 [INFO] Regime distribution: {1: 71, 2: 68, 0: 65, 3: 48}
+2026-06-13 16:07:27,656 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:27,657 [INFO] Using 40 features for RF
+2026-06-13 16:07:27,658 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:27,661 [WARNING]   Bull: only 68 samples � skipping specialist
+2026-06-13 16:07:27,661 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:27,665 [WARNING]   Crisis: only 65 samples � skipping specialist
+2026-06-13 16:07:27,665 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:27,667 [WARNING]   Bear: only 48 samples � skipping specialist
+2026-06-13 16:07:27,668 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:27,671 [WARNING]   Recovery: only 71 samples � skipping specialist
+2026-06-13 16:07:27,671 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:27,671 [INFO] Generating batch signals...
+2026-06-13 16:07:27,680 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:27,681 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 16:07:27,815 [INFO] 
+--- Window 48: Train [2021-02-09 \u2192 2022-02-14], Test [2022-02-15 \u2192 2022-05-19] ---
+2026-06-13 16:07:27,815 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:27,873 [WARNING] Model is not converging.  Current: 146.9859537563213 is not greater than 146.98889941632953. Delta is -0.0029456600082369278
+2026-06-13 16:07:27,873 [INFO] HMM converged in 7 iterations
+2026-06-13 16:07:27,878 [INFO]   State 1 \u2192 Bull: mean_ret=0.000677, std=0.008214, n=73
+2026-06-13 16:07:27,878 [INFO]   State 2 \u2192 Recovery: mean_ret=0.000676, std=0.005834, n=61
+2026-06-13 16:07:27,879 [INFO]   State 0 \u2192 Bear: mean_ret=0.000203, std=0.012026, n=72
+2026-06-13 16:07:27,879 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000064, std=0.011676, n=46
+2026-06-13 16:07:27,879 [INFO] Regime distribution: {1: 73, 0: 72, 2: 61, 3: 46}
+2026-06-13 16:07:27,899 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:27,902 [INFO] Using 40 features for RF
+2026-06-13 16:07:27,902 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:27,905 [WARNING]   Bear: only 72 samples � skipping specialist
+2026-06-13 16:07:27,905 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:27,907 [WARNING]   Recovery: only 61 samples � skipping specialist
+2026-06-13 16:07:27,907 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:27,909 [WARNING]   Bull: only 73 samples � skipping specialist
+2026-06-13 16:07:27,909 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:27,912 [WARNING]   Crisis: only 46 samples � skipping specialist
+2026-06-13 16:07:27,912 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:27,912 [INFO] Generating batch signals...
+2026-06-13 16:07:27,920 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:27,921 [INFO] Next-regime routing: {'Crisis': 31, 'Bear': 21, 'Recovery': 11}
+2026-06-13 16:07:28,076 [INFO] 
+--- Window 49: Train [2021-05-17 \u2192 2022-05-19], Test [2022-05-20 \u2192 2022-08-18] ---
+2026-06-13 16:07:28,076 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:28,138 [INFO] HMM converged in 10 iterations
+2026-06-13 16:07:28,142 [INFO]   State 2 \u2192 Bull: mean_ret=0.001766, std=0.007446, n=69
+2026-06-13 16:07:28,142 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000378, std=0.008184, n=69
+2026-06-13 16:07:28,142 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000208, std=0.011579, n=89
+2026-06-13 16:07:28,142 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.002209, std=0.015994, n=25
+2026-06-13 16:07:28,143 [INFO] Regime distribution: {0: 89, 2: 69, 1: 69, 3: 25}
+2026-06-13 16:07:28,163 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:28,165 [INFO] Using 40 features for RF
+2026-06-13 16:07:28,165 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:28,168 [WARNING]   Bull: only 69 samples � skipping specialist
+2026-06-13 16:07:28,168 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:28,171 [WARNING]   Recovery: only 69 samples � skipping specialist
+2026-06-13 16:07:28,171 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:28,173 [WARNING]   Crisis: only 27 samples � skipping specialist
+2026-06-13 16:07:28,174 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:28,176 [WARNING]   Bear: only 87 samples � skipping specialist
+2026-06-13 16:07:28,176 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:28,176 [INFO] Generating batch signals...
+2026-06-13 16:07:28,184 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:28,185 [INFO] Next-regime routing: {'Bear': 48, 'Crisis': 9, 'Bull': 6}
+2026-06-13 16:07:28,302 [INFO] 
+--- Window 50: Train [2021-08-13 \u2192 2022-08-18], Test [2022-08-19 \u2192 2022-11-21] ---
+2026-06-13 16:07:28,302 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:28,364 [INFO] HMM converged in 10 iterations
+2026-06-13 16:07:28,369 [INFO]   State 3 \u2192 Bull: mean_ret=0.003402, std=0.009811, n=28
+2026-06-13 16:07:28,369 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001694, std=0.008978, n=66
+2026-06-13 16:07:28,369 [INFO]   State 2 \u2192 Bear: mean_ret=0.000458, std=0.008503, n=104
+2026-06-13 16:07:28,369 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002998, std=0.016070, n=54
+2026-06-13 16:07:28,370 [INFO] Regime distribution: {2: 104, 0: 66, 1: 54, 3: 28}
+2026-06-13 16:07:28,389 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:28,390 [INFO] Using 40 features for RF
+2026-06-13 16:07:28,391 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:28,393 [INFO]   Bear: 102 samples, class balance: {1.0: 53, 0.0: 49}
+2026-06-13 16:07:29,625 [INFO]   Bear: CV accuracy = 0.4695 (�0.0479)
+2026-06-13 16:07:29,663 [INFO]   Top 5 features: {'GOLDBEES.NS_ffd': 0.0949743375672073, 'NSEI_LIQUID_ratio': 0.08546924539540544, 'realized_vol_20d': 0.0632488411917321, 'VIX_term_structure': 0.05471744003933552, 'corr_NSEI_LIQUID_60d': 0.04834422695064283}
+2026-06-13 16:07:29,664 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:29,669 [WARNING]   Recovery: only 66 samples � skipping specialist
+2026-06-13 16:07:29,669 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:29,672 [WARNING]   Crisis: only 54 samples � skipping specialist
+2026-06-13 16:07:29,672 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:29,674 [WARNING]   Bull: only 30 samples � skipping specialist
+2026-06-13 16:07:29,675 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:29,675 [INFO] Generating batch signals...
+2026-06-13 16:07:29,824 [INFO] Signal distribution: {1: 45, -1: 18}
+2026-06-13 16:07:29,826 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:29,926 [INFO] 
+--- Window 51: Train [2021-11-16 \u2192 2022-11-21], Test [2022-11-22 \u2192 2023-02-17] ---
+2026-06-13 16:07:29,926 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:29,989 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:29,994 [INFO]   State 2 \u2192 Bull: mean_ret=0.001272, std=0.008886, n=83
+2026-06-13 16:07:29,994 [INFO]   State 3 \u2192 Recovery: mean_ret=0.000248, std=0.009466, n=37
+2026-06-13 16:07:29,994 [INFO]   State 0 \u2192 Bear: mean_ret=-0.000703, std=0.011798, n=67
+2026-06-13 16:07:29,994 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.000998, std=0.014308, n=65
+2026-06-13 16:07:29,996 [INFO] Regime distribution: {2: 83, 0: 67, 1: 65, 3: 37}
+2026-06-13 16:07:30,015 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:30,017 [INFO] Using 40 features for RF
+2026-06-13 16:07:30,017 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:30,019 [WARNING]   Bear: only 67 samples � skipping specialist
+2026-06-13 16:07:30,019 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:30,022 [WARNING]   Crisis: only 65 samples � skipping specialist
+2026-06-13 16:07:30,022 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:30,024 [WARNING]   Recovery: only 37 samples � skipping specialist
+2026-06-13 16:07:30,024 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:30,025 [WARNING]   Bull: only 83 samples � skipping specialist
+2026-06-13 16:07:30,025 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:30,025 [INFO] Generating batch signals...
+2026-06-13 16:07:30,034 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:30,034 [INFO] Next-regime routing: {'Bull': 58, 'Bear': 5}
+2026-06-13 16:07:30,151 [INFO] 
+--- Window 52: Train [2022-02-15 \u2192 2023-02-17], Test [2023-02-20 \u2192 2023-05-25] ---
+2026-06-13 16:07:30,151 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:30,245 [INFO] HMM converged in 16 iterations
+2026-06-13 16:07:30,251 [INFO]   State 2 \u2192 Bull: mean_ret=0.001402, std=0.007485, n=92
+2026-06-13 16:07:30,251 [INFO]   State 1 \u2192 Recovery: mean_ret=0.001078, std=0.010335, n=69
+2026-06-13 16:07:30,251 [INFO]   State 0 \u2192 Bear: mean_ret=-0.001128, std=0.009161, n=57
+2026-06-13 16:07:30,251 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.002228, std=0.016780, n=34
+2026-06-13 16:07:30,251 [INFO] Regime distribution: {2: 92, 1: 69, 0: 57, 3: 34}
+2026-06-13 16:07:30,272 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:30,273 [INFO] Using 40 features for RF
+2026-06-13 16:07:30,274 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:30,276 [WARNING]   Crisis: only 34 samples � skipping specialist
+2026-06-13 16:07:30,276 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:30,279 [WARNING]   Recovery: only 69 samples � skipping specialist
+2026-06-13 16:07:30,279 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:30,282 [WARNING]   Bull: only 92 samples � skipping specialist
+2026-06-13 16:07:30,282 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:30,285 [WARNING]   Bear: only 57 samples � skipping specialist
+2026-06-13 16:07:30,285 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:30,285 [INFO] Generating batch signals...
+2026-06-13 16:07:30,291 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:30,291 [INFO] Next-regime routing: {'Bull': 53, 'Crisis': 5, 'Bear': 5}
+2026-06-13 16:07:30,414 [INFO] 
+--- Window 53: Train [2022-05-20 \u2192 2023-05-25], Test [2023-05-26 \u2192 2023-08-24] ---
+2026-06-13 16:07:30,414 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:30,479 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:30,485 [INFO]   State 3 \u2192 Bull: mean_ret=0.001855, std=0.012041, n=26
+2026-06-13 16:07:30,485 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001337, std=0.007523, n=90
+2026-06-13 16:07:30,485 [INFO]   State 1 \u2192 Bear: mean_ret=0.000354, std=0.006354, n=73
+2026-06-13 16:07:30,485 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000745, std=0.008998, n=63
+2026-06-13 16:07:30,487 [INFO] Regime distribution: {2: 90, 1: 73, 0: 63, 3: 26}
+2026-06-13 16:07:30,507 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:30,508 [INFO] Using 40 features for RF
+2026-06-13 16:07:30,508 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:30,511 [WARNING]   Bull: only 26 samples � skipping specialist
+2026-06-13 16:07:30,511 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:30,514 [WARNING]   Recovery: only 90 samples � skipping specialist
+2026-06-13 16:07:30,515 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:30,516 [WARNING]   Crisis: only 63 samples � skipping specialist
+2026-06-13 16:07:30,516 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:30,518 [WARNING]   Bear: only 73 samples � skipping specialist
+2026-06-13 16:07:30,519 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:30,519 [INFO] Generating batch signals...
+2026-06-13 16:07:30,526 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:30,527 [INFO] Next-regime routing: {'Recovery': 47, 'Crisis': 10, 'Bear': 6}
+2026-06-13 16:07:30,683 [INFO] 
+--- Window 54: Train [2022-08-19 \u2192 2023-08-24], Test [2023-08-25 \u2192 2023-11-28] ---
+2026-06-13 16:07:30,683 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:30,739 [INFO] HMM converged in 7 iterations
+2026-06-13 16:07:30,743 [INFO]   State 0 \u2192 Bull: mean_ret=0.001340, std=0.006115, n=80
+2026-06-13 16:07:30,743 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000680, std=0.005076, n=61
+2026-06-13 16:07:30,743 [INFO]   State 2 \u2192 Bear: mean_ret=0.000137, std=0.009913, n=51
+2026-06-13 16:07:30,744 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.001318, std=0.007177, n=60
+2026-06-13 16:07:30,744 [INFO] Regime distribution: {0: 80, 1: 61, 3: 60, 2: 51}
+2026-06-13 16:07:30,765 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:30,766 [INFO] Using 40 features for RF
+2026-06-13 16:07:30,767 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:30,770 [WARNING]   Bear: only 51 samples � skipping specialist
+2026-06-13 16:07:30,770 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:30,772 [WARNING]   Bull: only 80 samples � skipping specialist
+2026-06-13 16:07:30,772 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:30,775 [WARNING]   Crisis: only 60 samples � skipping specialist
+2026-06-13 16:07:30,775 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:30,777 [WARNING]   Recovery: only 61 samples � skipping specialist
+2026-06-13 16:07:30,777 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:30,777 [INFO] Generating batch signals...
+2026-06-13 16:07:30,787 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:30,788 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:30,891 [INFO] 
+--- Window 55: Train [2022-11-22 \u2192 2023-11-28], Test [2023-11-29 \u2192 2024-02-28] ---
+2026-06-13 16:07:30,891 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:30,956 [WARNING] Model is not converging.  Current: -547.4536276654189 is not greater than -547.4536169378948. Delta is -1.0727524113463005e-05
+2026-06-13 16:07:30,956 [INFO] HMM converged in 10 iterations
+2026-06-13 16:07:30,961 [INFO]   State 0 \u2192 Bull: mean_ret=0.001623, std=0.005964, n=66
+2026-06-13 16:07:30,961 [INFO]   State 1 \u2192 Recovery: mean_ret=0.000694, std=0.005145, n=81
+2026-06-13 16:07:30,961 [INFO]   State 3 \u2192 Bear: mean_ret=0.000158, std=0.006119, n=41
+2026-06-13 16:07:30,961 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.001232, std=0.007097, n=64
+2026-06-13 16:07:30,961 [INFO] Regime distribution: {1: 81, 0: 66, 2: 64, 3: 41}
+2026-06-13 16:07:30,981 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:30,983 [INFO] Using 40 features for RF
+2026-06-13 16:07:30,983 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:30,986 [WARNING]   Bull: only 66 samples � skipping specialist
+2026-06-13 16:07:30,986 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:30,989 [WARNING]   Crisis: only 64 samples � skipping specialist
+2026-06-13 16:07:30,989 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:30,992 [WARNING]   Recovery: only 81 samples � skipping specialist
+2026-06-13 16:07:30,992 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:30,994 [WARNING]   Bear: only 41 samples � skipping specialist
+2026-06-13 16:07:30,994 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:30,994 [INFO] Generating batch signals...
+2026-06-13 16:07:31,003 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:31,003 [INFO] Next-regime routing: {'Bull': 50, 'Bear': 13}
+2026-06-13 16:07:31,159 [INFO] 
+--- Window 56: Train [2023-02-20 \u2192 2024-02-28], Test [2024-02-29 \u2192 2024-06-05] ---
+2026-06-13 16:07:31,160 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:31,219 [WARNING] Model is not converging.  Current: -196.90159604688563 is not greater than -196.8831553030799. Delta is -0.018440743805740567
+2026-06-13 16:07:31,219 [INFO] HMM converged in 9 iterations
+2026-06-13 16:07:31,225 [INFO]   State 3 \u2192 Bull: mean_ret=0.001528, std=0.008398, n=29
+2026-06-13 16:07:31,225 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001005, std=0.007590, n=59
+2026-06-13 16:07:31,225 [INFO]   State 2 \u2192 Bear: mean_ret=0.000687, std=0.005258, n=116
+2026-06-13 16:07:31,225 [INFO]   State 1 \u2192 Crisis: mean_ret=0.000380, std=0.006095, n=48
+2026-06-13 16:07:31,225 [INFO] Regime distribution: {2: 116, 0: 59, 1: 48, 3: 29}
+2026-06-13 16:07:31,247 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:31,248 [INFO] Using 40 features for RF
+2026-06-13 16:07:31,249 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:31,252 [INFO]   Bear: 116 samples, class balance: {1.0: 70, 0.0: 46}
+2026-06-13 16:07:32,447 [INFO]   Bear: CV accuracy = 0.5116 (�0.1839)
+2026-06-13 16:07:32,481 [INFO]   Top 5 features: {'return_kurt_20d': 0.14033495289204015, 'corr_NSEI_LIQUID_60d': 0.09749815685072605, 'return_skew_20d': 0.0735126810569858, 'realized_vol_20d': 0.06653797872903011, 'LIQUIDBEES.NS_ffd': 0.0507898801655441}
+2026-06-13 16:07:32,482 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:32,485 [WARNING]   Bull: only 33 samples � skipping specialist
+2026-06-13 16:07:32,486 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:32,488 [WARNING]   Crisis: only 48 samples � skipping specialist
+2026-06-13 16:07:32,488 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:32,491 [WARNING]   Recovery: only 55 samples � skipping specialist
+2026-06-13 16:07:32,491 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:32,491 [INFO] Generating batch signals...
+2026-06-13 16:07:32,693 [INFO] Signal distribution: {-1: 51, 1: 12}
+2026-06-13 16:07:32,694 [INFO] Next-regime routing: {'Recovery': 43, 'Bear': 15, 'Crisis': 5}
+2026-06-13 16:07:32,838 [INFO] 
+--- Window 57: Train [2023-05-26 \u2192 2024-06-05], Test [2024-06-06 \u2192 2024-09-06] ---
+2026-06-13 16:07:32,838 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:32,910 [INFO] HMM converged in 13 iterations
+2026-06-13 16:07:32,916 [INFO]   State 0 \u2192 Bull: mean_ret=0.001245, std=0.006582, n=59
+2026-06-13 16:07:32,916 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001021, std=0.005146, n=81
+2026-06-13 16:07:32,916 [INFO]   State 1 \u2192 Bear: mean_ret=0.000561, std=0.010734, n=93
+2026-06-13 16:07:32,916 [INFO]   State 3 \u2192 Crisis: mean_ret=0.000128, std=0.006960, n=19
+2026-06-13 16:07:32,916 [INFO] Regime distribution: {1: 93, 2: 81, 0: 59, 3: 19}
+2026-06-13 16:07:32,935 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:32,936 [INFO] Using 40 features for RF
+2026-06-13 16:07:32,937 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:32,938 [WARNING]   Recovery: only 81 samples � skipping specialist
+2026-06-13 16:07:32,938 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:32,939 [WARNING]   Bull: only 59 samples � skipping specialist
+2026-06-13 16:07:32,940 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:32,941 [WARNING]   Bear: only 93 samples � skipping specialist
+2026-06-13 16:07:32,941 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:32,943 [WARNING]   Crisis: only 19 samples � skipping specialist
+2026-06-13 16:07:32,943 [INFO] 
+Trained 0 specialists: []
+2026-06-13 16:07:32,943 [INFO] Generating batch signals...
+2026-06-13 16:07:32,952 [INFO] Signal distribution: {0: 63}
+2026-06-13 16:07:32,952 [INFO] Next-regime routing: {'Bear': 58, 'Recovery': 5}
+2026-06-13 16:07:33,053 [INFO] 
+--- Window 58: Train [2023-08-25 \u2192 2024-09-06], Test [2024-09-09 \u2192 2024-12-09] ---
+2026-06-13 16:07:33,054 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:33,133 [INFO] HMM converged in 15 iterations
+2026-06-13 16:07:33,138 [INFO]   State 3 \u2192 Bull: mean_ret=0.002580, std=0.007366, n=33
+2026-06-13 16:07:33,138 [INFO]   State 0 \u2192 Recovery: mean_ret=0.001815, std=0.017015, n=20
+2026-06-13 16:07:33,138 [INFO]   State 1 \u2192 Bear: mean_ret=0.001709, std=0.007157, n=80
+2026-06-13 16:07:33,138 [INFO]   State 2 \u2192 Crisis: mean_ret=-0.000083, std=0.007156, n=119
+2026-06-13 16:07:33,139 [INFO] Regime distribution: {2: 119, 1: 80, 3: 33, 0: 20}
+2026-06-13 16:07:33,157 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:33,158 [INFO] Using 40 features for RF
+2026-06-13 16:07:33,159 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:33,161 [WARNING]   Bull: only 37 samples � skipping specialist
+2026-06-13 16:07:33,161 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:33,164 [INFO]   Crisis: 119 samples, class balance: {1.0: 67, 0.0: 52}
+2026-06-13 16:07:34,372 [INFO]   Crisis: CV accuracy = 0.3717 (�0.1336)
+2026-06-13 16:07:34,409 [INFO]   Top 5 features: {'realized_vol_20d': 0.15341458074632452, 'MACD_histogram': 0.0835058172697741, 'return_kurt_20d': 0.05871237788095326, 'VIX_zscore': 0.05584915057606097, 'NSEI_LIQUID_ratio': 0.04037650790373758}
+2026-06-13 16:07:34,410 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:34,414 [WARNING]   Bear: only 80 samples � skipping specialist
+2026-06-13 16:07:34,414 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:34,418 [WARNING]   Recovery: only 16 samples � skipping specialist
+2026-06-13 16:07:34,418 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:07:34,418 [INFO] Generating batch signals...
+2026-06-13 16:07:34,500 [INFO] Signal distribution: {1: 60, -1: 3}
+2026-06-13 16:07:34,501 [INFO] Next-regime routing: {'Crisis': 63}
+2026-06-13 16:07:34,575 [INFO] 
+--- Window 59: Train [2023-11-29 \u2192 2024-12-09], Test [2024-12-10 \u2192 2025-03-07] ---
+2026-06-13 16:07:34,575 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:34,627 [WARNING] Model is not converging.  Current: -464.24771415886 is not greater than -464.24015472007784. Delta is -0.007559438782152483
+2026-06-13 16:07:34,627 [INFO] HMM converged in 5 iterations
+2026-06-13 16:07:34,633 [INFO]   State 3 \u2192 Bull: mean_ret=0.005454, std=0.008726, n=18
+2026-06-13 16:07:34,633 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001081, std=0.007419, n=62
+2026-06-13 16:07:34,633 [INFO]   State 0 \u2192 Bear: mean_ret=0.000753, std=0.009527, n=126
+2026-06-13 16:07:34,633 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.001016, std=0.008611, n=46
+2026-06-13 16:07:34,633 [INFO] Regime distribution: {0: 126, 2: 62, 1: 46, 3: 18}
+2026-06-13 16:07:34,653 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:34,655 [INFO] Using 40 features for RF
+2026-06-13 16:07:34,655 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:34,657 [INFO]   Bear: 130 samples, class balance: {1.0: 79, 0.0: 51}
+2026-06-13 16:07:35,854 [INFO]   Bear: CV accuracy = 0.6231 (�0.0565)
+2026-06-13 16:07:35,887 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.13339577008815487, 'NSEI_ffd': 0.11734097085651352, 'NIFTYBEES.NS_ffd': 0.10942134115310255, 'NSEI_mom_6m': 0.09080490683617226, 'mcclellan_sum': 0.08647725197639647}
+2026-06-13 16:07:35,887 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:35,890 [WARNING]   Bull: only 18 samples � skipping specialist
+2026-06-13 16:07:35,890 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:35,892 [WARNING]   Recovery: only 58 samples � skipping specialist
+2026-06-13 16:07:35,892 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:35,895 [WARNING]   Crisis: only 46 samples � skipping specialist
+2026-06-13 16:07:35,895 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:35,895 [INFO] Generating batch signals...
+2026-06-13 16:07:36,033 [INFO] Signal distribution: {1: 60, -1: 3}
+2026-06-13 16:07:36,034 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 16:07:36,127 [INFO] 
+--- Window 60: Train [2024-02-29 \u2192 2025-03-07], Test [2025-03-10 \u2192 2025-06-12] ---
+2026-06-13 16:07:36,127 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:36,183 [INFO] HMM converged in 7 iterations
+2026-06-13 16:07:36,187 [INFO]   State 2 \u2192 Bull: mean_ret=0.001815, std=0.017015, n=20
+2026-06-13 16:07:36,187 [INFO]   State 3 \u2192 Recovery: mean_ret=0.001362, std=0.007270, n=60
+2026-06-13 16:07:36,187 [INFO]   State 0 \u2192 Bear: mean_ret=0.000952, std=0.007799, n=61
+2026-06-13 16:07:36,187 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.001343, std=0.008066, n=111
+2026-06-13 16:07:36,188 [INFO] Regime distribution: {1: 111, 0: 61, 3: 60, 2: 20}
+2026-06-13 16:07:36,206 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:36,208 [INFO] Using 40 features for RF
+2026-06-13 16:07:36,208 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:36,210 [WARNING]   Bear: only 61 samples � skipping specialist
+2026-06-13 16:07:36,210 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:36,214 [WARNING]   Bull: only 20 samples � skipping specialist
+2026-06-13 16:07:36,214 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:36,217 [WARNING]   Recovery: only 60 samples � skipping specialist
+2026-06-13 16:07:36,217 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:36,220 [INFO]   Crisis: 111 samples, class balance: {0.0: 70, 1.0: 41}
+2026-06-13 16:07:37,414 [INFO]   Crisis: CV accuracy = 0.5036 (�0.0902)
+2026-06-13 16:07:37,446 [INFO]   Top 5 features: {'NSEI_SMA50_dist': 0.07461221950369035, 'BB_pct_b': 0.07412183778209958, 'VIX_zscore': 0.0688346181830662, 'NSEI_mom_3m': 0.06648599025561804, 'VIX_term_structure': 0.06295329798788571}
+2026-06-13 16:07:37,447 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:07:37,447 [INFO] Generating batch signals...
+2026-06-13 16:07:37,580 [INFO] Signal distribution: {-1: 60, 1: 3}
+2026-06-13 16:07:37,581 [INFO] Next-regime routing: {'Crisis': 58, 'Bear': 5}
+2026-06-13 16:07:37,688 [INFO] 
+--- Window 61: Train [2024-06-06 \u2192 2025-06-12], Test [2025-06-13 \u2192 2025-09-11] ---
+2026-06-13 16:07:37,688 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:37,749 [INFO] HMM converged in 8 iterations
+2026-06-13 16:07:37,753 [INFO]   State 3 \u2192 Bull: mean_ret=0.003829, std=0.005516, n=17
+2026-06-13 16:07:37,753 [INFO]   State 2 \u2192 Recovery: mean_ret=0.001789, std=0.011177, n=46
+2026-06-13 16:07:37,753 [INFO]   State 1 \u2192 Bear: mean_ret=0.000548, std=0.007953, n=66
+2026-06-13 16:07:37,753 [INFO]   State 0 \u2192 Crisis: mean_ret=-0.000716, std=0.007915, n=123
+2026-06-13 16:07:37,754 [INFO] Regime distribution: {0: 123, 1: 66, 2: 46, 3: 17}
+2026-06-13 16:07:37,771 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:37,772 [INFO] Using 40 features for RF
+2026-06-13 16:07:37,773 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:37,774 [WARNING]   Bull: only 17 samples � skipping specialist
+2026-06-13 16:07:37,774 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:37,776 [WARNING]   Recovery: only 50 samples � skipping specialist
+2026-06-13 16:07:37,776 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:37,778 [WARNING]   Bear: only 62 samples � skipping specialist
+2026-06-13 16:07:37,778 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:37,782 [INFO]   Crisis: 123 samples, class balance: {0.0: 73, 1.0: 50}
+2026-06-13 16:07:38,949 [INFO]   Crisis: CV accuracy = 0.4457 (�0.0923)
+2026-06-13 16:07:38,982 [INFO]   Top 5 features: {'return_skew_20d': 0.05479225705408758, 'VIX_zscore': 0.05419545765735712, 'VIX_term_structure': 0.05105861800352346, 'NSEI_mom_3m': 0.042603905716864926, 'yield_spread': 0.04012105444055899}
+2026-06-13 16:07:38,983 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:07:38,983 [INFO] Generating batch signals...
+2026-06-13 16:07:39,114 [INFO] Signal distribution: {-1: 63}
+2026-06-13 16:07:39,114 [INFO] Next-regime routing: {'Recovery': 58, 'Bull': 5}
+2026-06-13 16:07:39,224 [INFO] 
+--- Window 62: Train [2024-09-09 \u2192 2025-09-11], Test [2025-09-12 \u2192 2025-12-12] ---
+2026-06-13 16:07:39,224 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:39,273 [INFO] HMM converged in 5 iterations
+2026-06-13 16:07:39,279 [INFO]   State 2 \u2192 Bull: mean_ret=0.002138, std=0.011684, n=41
+2026-06-13 16:07:39,279 [INFO]   State 3 \u2192 Recovery: mean_ret=0.000188, std=0.008439, n=24
+2026-06-13 16:07:39,279 [INFO]   State 0 \u2192 Bear: mean_ret=0.000001, std=0.005593, n=67
+2026-06-13 16:07:39,279 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.000718, std=0.008012, n=120
+2026-06-13 16:07:39,280 [INFO] Regime distribution: {1: 120, 0: 67, 2: 41, 3: 24}
+2026-06-13 16:07:39,332 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:39,334 [INFO] Using 40 features for RF
+2026-06-13 16:07:39,334 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:39,337 [WARNING]   Recovery: only 24 samples � skipping specialist
+2026-06-13 16:07:39,337 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:39,339 [INFO]   Crisis: 120 samples, class balance: {0.0: 72, 1.0: 48}
+2026-06-13 16:07:40,515 [INFO]   Crisis: CV accuracy = 0.4583 (�0.1118)
+2026-06-13 16:07:40,549 [INFO]   Top 5 features: {'NSEI_mom_3m': 0.08540342294345957, 'NSEI_SMA50_dist': 0.07184526187703934, 'VIX_term_structure': 0.06994795917285435, 'VIX_zscore': 0.06461248489277582, 'corr_NSEI_LIQUID_60d': 0.05069044158286223}
+2026-06-13 16:07:40,549 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:40,553 [WARNING]   Bull: only 41 samples � skipping specialist
+2026-06-13 16:07:40,553 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:40,555 [WARNING]   Bear: only 67 samples � skipping specialist
+2026-06-13 16:07:40,555 [INFO] 
+Trained 1 specialists: ['Crisis']
+2026-06-13 16:07:40,555 [INFO] Generating batch signals...
+2026-06-13 16:07:40,694 [INFO] Signal distribution: {-1: 63}
+2026-06-13 16:07:40,695 [INFO] Next-regime routing: {'Bear': 58, 'Crisis': 5}
+2026-06-13 16:07:40,797 [INFO] 
+--- Window 63: Train [2024-12-10 \u2192 2025-12-12], Test [2025-12-15 \u2192 2026-03-16] ---
+2026-06-13 16:07:40,797 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:40,868 [INFO] HMM converged in 12 iterations
+2026-06-13 16:07:40,872 [INFO]   State 2 \u2192 Bull: mean_ret=0.002458, std=0.009584, n=53
+2026-06-13 16:07:40,872 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000267, std=0.005139, n=117
+2026-06-13 16:07:40,872 [INFO]   State 1 \u2192 Bear: mean_ret=-0.000493, std=0.007622, n=57
+2026-06-13 16:07:40,872 [INFO]   State 3 \u2192 Crisis: mean_ret=-0.003082, std=0.010416, n=25
+2026-06-13 16:07:40,873 [INFO] Regime distribution: {0: 117, 1: 57, 2: 53, 3: 25}
+2026-06-13 16:07:40,893 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:40,896 [INFO] Using 40 features for RF
+2026-06-13 16:07:40,897 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:40,899 [WARNING]   Bear: only 57 samples � skipping specialist
+2026-06-13 16:07:40,900 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:40,901 [WARNING]   Crisis: only 29 samples � skipping specialist
+2026-06-13 16:07:40,902 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:40,903 [WARNING]   Bull: only 49 samples � skipping specialist
+2026-06-13 16:07:40,903 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:40,906 [INFO]   Recovery: 117 samples, class balance: {1.0: 62, 0.0: 55}
+2026-06-13 16:07:42,074 [INFO]   Recovery: CV accuracy = 0.5293 (�0.0505)
+2026-06-13 16:07:42,108 [INFO]   Top 5 features: {'RSI_14': 0.10710830159609597, 'OBV_slope': 0.10326519443201405, 'MACD_line': 0.060183013777918966, 'LIQUIDBEES.NS_ffd': 0.05505218424056924, 'NSEI_mom_3m': 0.04989652714878955}
+2026-06-13 16:07:42,108 [INFO] 
+Trained 1 specialists: ['Recovery']
+2026-06-13 16:07:42,109 [INFO] Generating batch signals...
+2026-06-13 16:07:42,246 [INFO] Signal distribution: {1: 41, -1: 22}
+2026-06-13 16:07:42,247 [INFO] Next-regime routing: {'Recovery': 58, 'Bear': 5}
+2026-06-13 16:07:42,362 [INFO] 
+--- Window 64: Train [2025-03-10 \u2192 2026-03-16], Test [2026-03-17 \u2192 2026-06-11] ---
+2026-06-13 16:07:42,363 [INFO] Fitting HMM with 4 regimes...
+2026-06-13 16:07:42,448 [INFO] HMM converged in 17 iterations
+2026-06-13 16:07:42,454 [INFO]   State 3 \u2192 Bull: mean_ret=0.000871, std=0.005281, n=38
+2026-06-13 16:07:42,454 [INFO]   State 0 \u2192 Recovery: mean_ret=0.000518, std=0.006934, n=40
+2026-06-13 16:07:42,454 [INFO]   State 2 \u2192 Bear: mean_ret=0.000459, std=0.006960, n=138
+2026-06-13 16:07:42,454 [INFO]   State 1 \u2192 Crisis: mean_ret=-0.002220, std=0.012286, n=36
+2026-06-13 16:07:42,454 [INFO] Regime distribution: {2: 138, 0: 40, 3: 38, 1: 36}
+2026-06-13 16:07:42,474 [INFO] Training regime-specialist Random Forests...
+2026-06-13 16:07:42,475 [INFO] Using 40 features for RF
+2026-06-13 16:07:42,476 [INFO] 
+--- Training specialist: Recovery ---
+2026-06-13 16:07:42,478 [WARNING]   Recovery: only 40 samples � skipping specialist
+2026-06-13 16:07:42,478 [INFO] 
+--- Training specialist: Crisis ---
+2026-06-13 16:07:42,481 [WARNING]   Crisis: only 37 samples � skipping specialist
+2026-06-13 16:07:42,481 [INFO] 
+--- Training specialist: Bear ---
+2026-06-13 16:07:42,484 [INFO]   Bear: 136 samples, class balance: {0.0: 70, 1.0: 66}
+2026-06-13 16:07:43,742 [INFO]   Bear: CV accuracy = 0.4407 (�0.0624)
+2026-06-13 16:07:43,775 [INFO]   Top 5 features: {'NSEI_LIQUID_ratio': 0.09683151845388666, 'RSI_divergence': 0.08990942418284714, 'NSEI_SMA200_dist': 0.07824126621837202, 'RSI_14': 0.051478180256857596, 'OBV_slope': 0.045955727190755}
+2026-06-13 16:07:43,776 [INFO] 
+--- Training specialist: Bull ---
+2026-06-13 16:07:43,780 [WARNING]   Bull: only 39 samples � skipping specialist
+2026-06-13 16:07:43,780 [INFO] 
+Trained 1 specialists: ['Bear']
+2026-06-13 16:07:43,781 [INFO] Generating batch signals...
+2026-06-13 16:07:43,977 [INFO] Signal distribution: {1: 59}
+2026-06-13 16:07:43,978 [INFO] Next-regime routing: {'Bear': 35, 'Crisis': 19, 'Recovery': 5}
+2026-06-13 16:07:44,125 [INFO] Saved WFO weight history: (4028, 6)
+2026-06-13 16:07:44,127 [INFO] 
+Total OOS periods: 64 windows, 4028 days
+D:\Market regime detection\src\backtest.py:335: RuntimeWarning: invalid value encountered in scalar power
+  annual_return = (cum.iloc[-1]) ** (1 / max(n_years, 0.1)) - 1
+2026-06-13 16:07:58,737 [INFO] vectorbt backtest completed successfully
+2026-06-13 16:07:58,814 [INFO] 
+============================================================
+2026-06-13 16:07:58,814 [INFO] BACKTEST RESULTS
+2026-06-13 16:07:58,814 [INFO] ============================================================
+2026-06-13 16:07:58,815 [INFO]   Sharpe Ratio:       0.1434
+2026-06-13 16:07:58,815 [INFO]   Market Sharpe:      0.5918
+2026-06-13 16:07:58,815 [INFO]   Max Drawdown:       -798.37%
+2026-06-13 16:07:58,815 [INFO]   Market Max DD:      -40.04%
+2026-06-13 16:07:58,815 [INFO]   Annual Return:      nan%
+2026-06-13 16:07:58,815 [INFO]   Total Return:       -1056.28%
+2026-06-13 16:07:58,815 [INFO]   Market Return:      282.93%
+2026-06-13 16:07:58,815 [INFO]   Win Rate:           54.89%
+2026-06-13 16:07:58,815 [INFO]   Profit Factor:      1.2084
+2026-06-13 16:07:58,815 [INFO]   Calmar Ratio:       nan
+2026-06-13 16:07:58,815 [INFO]   Total Trades:       213
+2026-06-13 16:07:58,815 [INFO]   Period:             16.0 years
+2026-06-13 16:07:58,815 [INFO] ============================================================
+2026-06-13 16:07:58,816 [INFO] ======================================================================
+2026-06-13 16:07:58,816 [INFO] STEP 8: SHAP EXPLAINABILITY
+2026-06-13 16:07:58,816 [INFO] ======================================================================
+2026-06-13 16:07:59,375 [INFO] Loaded 4 specialists from D:\Market regime detection\output\models
+2026-06-13 16:08:00,046 [INFO] Computing SHAP explanations...
+2026-06-13 16:08:00,046 [INFO]   Computing SHAP for regime: Bull
+2026-06-13 16:08:00,399 [INFO]   Bull: SHAP computed for 340 samples
+2026-06-13 16:08:00,399 [INFO]   Computing SHAP for regime: Crisis
+2026-06-13 16:08:02,935 [INFO]   Crisis: SHAP computed for 994 samples
+2026-06-13 16:08:02,935 [INFO]   Computing SHAP for regime: Recovery
+2026-06-13 16:08:07,261 [INFO]   Recovery: SHAP computed for 1000 samples
+2026-06-13 16:08:07,261 [INFO]   Computing SHAP for regime: Bear
+2026-06-13 16:08:10,339 [INFO]   Bear: SHAP computed for 1000 samples
+2026-06-13 16:08:11,374 [INFO]   Saved SHAP plots for Bull
+2026-06-13 16:08:12,620 [INFO]   Saved SHAP plots for Crisis
+2026-06-13 16:08:13,536 [INFO]   Saved SHAP plots for Recovery
+2026-06-13 16:08:14,453 [INFO]   Saved SHAP plots for Bear
+2026-06-13 16:08:14,935 [INFO] Saved combined SHAP importance plot
+2026-06-13 16:08:14,936 [INFO] Generating SHAP audit log \u2192 D:\Market regime detection\output\logs\shap_audit.jsonl
+2026-06-13 16:08:34,982 [INFO] Audit log: 4280 entries written to D:\Market regime detection\output\logs\shap_audit.jsonl
+2026-06-13 16:08:34,982 [INFO] Explainability pipeline complete
+2026-06-13 16:08:34,982 [INFO] 
+======================================================================
+2026-06-13 16:08:34,983 [INFO] PIPELINE COMPLETE
+2026-06-13 16:08:34,983 [INFO] ======================================================================
+2026-06-13 16:08:34,983 [INFO]   Total time:         2.6 minutes
+2026-06-13 16:08:34,983 [INFO]   Data shape:         (4302, 22)
+2026-06-13 16:08:34,983 [INFO]   Features:           63 columns
+2026-06-13 16:08:34,983 [INFO]   Regimes:            4
+2026-06-13 16:08:34,983 [INFO]   Specialists:        4
+2026-06-13 16:08:34,983 [INFO]   OOS days:           4028
+2026-06-13 16:08:34,983 [INFO]   Sharpe Ratio:       0.1434
+2026-06-13 16:08:34,983 [INFO]   Max Drawdown:       -798.37%
+2026-06-13 16:08:34,983 [INFO]   Annual Return:      nan%
+2026-06-13 16:08:34,983 [INFO]   Win Rate:           54.89%
+2026-06-13 16:08:34,983 [INFO] ======================================================================

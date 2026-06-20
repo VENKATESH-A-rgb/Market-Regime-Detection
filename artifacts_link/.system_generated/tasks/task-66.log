@@ -1,0 +1,7 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T10:27:45+05:30
+Prompt: Check pipeline status - it should be done or close to done by now
+
+[2026-06-13T10:18:45+05:30] Still waiting. Remaining time: 9m0s
+[2026-06-13T10:19:45+05:30] Still waiting. Remaining time: 8m0s
+[2026-06-13T10:20:31+05:30] Timer cancelled: agent received a message during wait.

@@ -1,0 +1,89 @@
+2026-06-13 21:03:10,887 [INFO] ======================================================================
+2026-06-13 21:03:10,888 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 21:03:10,888 [INFO] ======================================================================
+2026-06-13 21:03:12,158 [INFO] Downloading OHLCV for ['SPY', '^VIX', 'TLT', 'BTC-USD', 'GLD', 'QQQ', 'DIA'] from 1993-01-01 to 2026-06-13
+2026-06-13 21:03:12,158 [INFO]   Downloading SPY...
+2026-06-13 21:03:14,341 [INFO]   Downloading ^VIX...
+2026-06-13 21:03:15,234 [INFO]   Downloading TLT...
+2026-06-13 21:03:16,327 [INFO]   Downloading BTC-USD...
+2026-06-13 21:03:18,175 [INFO]   Downloading GLD...
+2026-06-13 21:03:19,828 [INFO]   Downloading QQQ...
+2026-06-13 21:03:20,793 [INFO]   Downloading DIA...
+2026-06-13 21:03:21,938 [INFO]   Saved SPY: 8400 rows
+2026-06-13 21:03:22,000 [INFO]   Saved ^VIX: 8420 rows
+2026-06-13 21:03:22,050 [INFO]   Saved TLT: 6007 rows
+2026-06-13 21:03:22,089 [INFO]   Saved BTC-USD: 4287 rows
+2026-06-13 21:03:22,130 [INFO]   Saved GLD: 5425 rows
+2026-06-13 21:03:22,182 [INFO]   Saved QQQ: 6858 rows
+2026-06-13 21:03:22,242 [INFO]   Saved DIA: 7144 rows
+2026-06-13 21:03:22,242 [INFO] OHLCV download complete: (9754, 35)
+2026-06-13 21:03:22,243 [INFO]   Fetching FRED: DGS10 (10Y Treasury Yield)
+2026-06-13 21:03:24,567 [INFO]   Fetching FRED: DGS2 (2Y Treasury Yield)
+2026-06-13 21:03:26,968 [INFO]   Fetching FRED: FEDFUNDS (Fed Funds Rate)
+2026-06-13 21:03:27,862 [INFO]   Fetching FRED: CPIAUCSL (CPI (All Urban Consumers))
+2026-06-13 21:03:28,651 [INFO]   Fetching FRED: UNRATE (Unemployment Rate)
+2026-06-13 21:03:30,182 [INFO] FRED macro download complete: (8839, 5)
+2026-06-13 21:03:30,183 [INFO] Merging OHLCV and macro datasets...
+2026-06-13 21:03:30,183 [INFO] Detected yfinance MultiIndex format: (Ticker, Price)
+2026-06-13 21:03:30,212 [INFO] Master DataFrame shape: (9754, 22)
+2026-06-13 21:03:30,213 [INFO] Date range: 1993-01-04 00:00:00 to 2026-06-12 00:00:00
+2026-06-13 21:03:30,213 [INFO]   SPY_Close: 0.2% null, starts 1993-01-29 00:00:00
+2026-06-13 21:03:30,214 [INFO]   SPY_Open: 0.2% null, starts 1993-01-29 00:00:00
+2026-06-13 21:03:30,214 [INFO]   SPY_High: 0.2% null, starts 1993-01-29 00:00:00
+2026-06-13 21:03:30,214 [INFO]   SPY_Low: 0.2% null, starts 1993-01-29 00:00:00
+2026-06-13 21:03:30,215 [INFO]   VIX_Close: 0.0% null, starts 1993-01-04 00:00:00
+2026-06-13 21:03:30,215 [INFO]   TLT_Close: 24.7% null, starts 2002-07-30 00:00:00
+2026-06-13 21:03:30,215 [INFO]   BTC_USD_Close: 56.0% null, starts 2014-09-17 00:00:00
+2026-06-13 21:03:30,216 [INFO]   GLD_Close: 30.7% null, starts 2004-11-18 00:00:00
+2026-06-13 21:03:30,216 [INFO]   QQQ_Close: 16.0% null, starts 1999-03-10 00:00:00
+2026-06-13 21:03:30,216 [INFO]   DIA_Close: 13.1% null, starts 1998-01-20 00:00:00
+2026-06-13 21:03:30,217 [INFO]   SPY_Volume: 0.2% null, starts 1993-01-29 00:00:00
+2026-06-13 21:03:30,218 [INFO]   VIX_Volume: 0.0% null, starts 1993-01-04 00:00:00
+2026-06-13 21:03:30,218 [INFO]   TLT_Volume: 24.7% null, starts 2002-07-30 00:00:00
+2026-06-13 21:03:30,219 [INFO]   BTC_USD_Volume: 56.0% null, starts 2014-09-17 00:00:00
+2026-06-13 21:03:30,219 [INFO]   GLD_Volume: 30.7% null, starts 2004-11-18 00:00:00
+2026-06-13 21:03:30,219 [INFO]   QQQ_Volume: 16.0% null, starts 1999-03-10 00:00:00
+2026-06-13 21:03:30,220 [INFO]   DIA_Volume: 13.1% null, starts 1998-01-20 00:00:00
+2026-06-13 21:03:30,220 [INFO]   DGS10: 0.0% null, starts 1993-01-04 00:00:00
+2026-06-13 21:03:30,221 [INFO]   DGS2: 0.0% null, starts 1993-01-04 00:00:00
+2026-06-13 21:03:30,222 [INFO]   FEDFUNDS: 0.2% null, starts 1993-02-01 00:00:00
+2026-06-13 21:03:30,222 [INFO]   CPIAUCSL: 0.2% null, starts 1993-02-01 00:00:00
+2026-06-13 21:03:30,223 [INFO]   UNRATE: 0.2% null, starts 1993-02-01 00:00:00
+2026-06-13 21:03:30,494 [INFO] Saved master dataset to D:\Market regime detection\data\cleaned\master.parquet
+2026-06-13 21:03:30,498 [WARNING] Maximum date gap: 7.0 days � check for missing data
+2026-06-13 21:03:30,498 [INFO] Data pipeline complete. Report: (9754, 22), range: ('1993-01-04 00:00:00', '2026-06-12 00:00:00')
+2026-06-13 21:03:30,498 [INFO]   \u2192 Master dataset: (9754, 22)
+2026-06-13 21:03:30,498 [INFO] ======================================================================
+2026-06-13 21:03:30,498 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 21:03:30,498 [INFO] ======================================================================
+2026-06-13 21:03:31,913 [INFO] Engineering features...
+Traceback (most recent call last):
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'NSEI_Close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Market regime detection\run_pipeline.py", line 91, in <module>
+    main()
+  File "D:\Market regime detection\run_pipeline.py", line 35, in main
+    features_df, ffd_params = run_feature_pipeline(master)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 358, in run_feature_pipeline
+    df = engineer_features(master)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 146, in engineer_features
+    nsei_close = df["NSEI_Close"]
+                 ~~^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'NSEI_Close'

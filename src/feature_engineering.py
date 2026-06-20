@@ -143,25 +143,50 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
     """
     logger.info("Engineering features...")
     df = master.copy()
-    spy_close = df["SPY_Close"]
+    nsei_close = df["NSEI_Close"]
 
     # ── 1. Moving Average Distances ──────────────────────────
     for window in [20, 50, 100, 200]:
-        sma = spy_close.rolling(window).mean()
-        df[f"SPY_SMA{window}_dist"] = (spy_close - sma) / sma * 100
+        sma = nsei_close.rolling(window).mean()
+        df[f"NSEI_SMA{window}_dist"] = (nsei_close - sma) / sma * 100
 
     # ── 2. Momentum (log returns) ────────────────────────────
     for period, label in [(21, "1m"), (63, "3m"), (126, "6m"), (252, "1y")]:
-        df[f"SPY_mom_{label}"] = np.log(spy_close / spy_close.shift(period))
+        df[f"NSEI_mom_{label}"] = np.log(nsei_close / nsei_close.shift(period))
 
     # ── 3. Volatility ────────────────────────────────────────
-    spy_returns = np.log(spy_close / spy_close.shift(1))
-    df["SPY_returns"] = spy_returns
-    df["realized_vol_20d"] = spy_returns.rolling(20).std() * np.sqrt(252)
-    df["realized_vol_60d"] = spy_returns.rolling(60).std() * np.sqrt(252)
+    nsei_returns = np.log(nsei_close / nsei_close.shift(1))
+    df["NSEI_returns"] = nsei_returns
+    df["realized_vol_20d"] = nsei_returns.rolling(20).std() * np.sqrt(252)
+    df["realized_vol_60d"] = nsei_returns.rolling(60).std() * np.sqrt(252)
+    
+    # Advanced Volatility Features (OHL)
+    if all(col in df.columns for col in ["NSEI_Open", "NSEI_High", "NSEI_Low"]):
+        high = df["NSEI_High"]
+        low = df["NSEI_Low"]
+        open_ = df["NSEI_Open"]
+        close = df["NSEI_Close"]
+        
+        # True Range
+        tr1 = high - low
+        tr2 = (high - close.shift(1)).abs()
+        tr3 = (low - close.shift(1)).abs()
+        true_range = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+        df["NSEI_ATR_14d"] = true_range.rolling(14).mean()
+        
+        # Parkinson Volatility
+        df["NSEI_parkinson_vol_20d"] = np.sqrt(
+            (1 / (4 * 20 * np.log(2))) * (np.log(high / low) ** 2).rolling(20).sum()
+        ) * np.sqrt(252)
+        
+        # Garman-Klass Volatility
+        log_hl = np.log(high / low) ** 2
+        log_co = np.log(close / open_) ** 2
+        rs = 0.5 * log_hl - (2 * np.log(2) - 1) * log_co
+        df["NSEI_garman_klass_vol_20d"] = np.sqrt(rs.clip(lower=0).rolling(20).mean()) * np.sqrt(252)
 
     # ── 4. VIX Regime ────────────────────────────────────────
-    vix = df.get("VIX_Close", pd.Series(dtype=float))
+    vix = df.get("INDIAVIX_Close", pd.Series(dtype=float))
     if not vix.empty and vix.notna().sum() > 252:
         df["VIX_zscore"] = (vix - vix.rolling(252).mean()) / vix.rolling(252).std()
         df["VIX_term_structure"] = vix / vix.rolling(20).mean()
@@ -202,14 +227,14 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
 
     # ── 8. McClellan Oscillator (Market Breadth Proxy) ───────
     # Proxy: use relative performance of SPY vs QQQ and DIA
-    if "QQQ_Close" in df.columns and "DIA_Close" in df.columns:
+    if "JUNIORBEES.NS_Close" in df.columns and "BANKBEES.NS_Close" in df.columns:
         # Breadth proxy: normalized advancing ratio
-        spy_ret = spy_close.pct_change()
-        qqq_ret = df["QQQ_Close"].pct_change()
-        dia_ret = df["DIA_Close"].pct_change()
+        nsei_ret = nsei_close.pct_change()
+        junior_ret = df["JUNIORBEES.NS_Close"].pct_change()
+        bank_ret = df["BANKBEES.NS_Close"].pct_change()
 
         # "Advancing" = assets outperforming their 20-day mean
-        breadth = (spy_ret + qqq_ret + dia_ret) / 3
+        breadth = (nsei_ret + junior_ret + bank_ret) / 3
         ema_19 = breadth.ewm(span=19).mean()
         ema_39 = breadth.ewm(span=39).mean()
         df["mcclellan_osc"] = ema_19 - ema_39
@@ -219,7 +244,7 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
         df["mcclellan_sum"] = 0.0
 
     # ── 9. RSI ───────────────────────────────────────────────
-    delta = spy_close.diff()
+    delta = nsei_close.diff()
     gain = delta.where(delta > 0, 0.0)
     loss = -delta.where(delta < 0, 0.0)
     avg_gain = gain.rolling(14).mean()
@@ -227,28 +252,28 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
     rs = avg_gain / avg_loss.replace(0, np.nan)
     df["RSI_14"] = 100 - (100 / (1 + rs))
     # RSI divergence: price momentum vs RSI momentum
-    df["RSI_divergence"] = df["SPY_mom_1m"].rank(pct=True) - df["RSI_14"].rank(pct=True)
+    df["RSI_divergence"] = df["NSEI_mom_1m"].rank(pct=True) - df["RSI_14"].rank(pct=True)
 
     # ── 10. MACD ─────────────────────────────────────────────
-    ema12 = spy_close.ewm(span=12).mean()
-    ema26 = spy_close.ewm(span=26).mean()
+    ema12 = nsei_close.ewm(span=12).mean()
+    ema26 = nsei_close.ewm(span=26).mean()
     df["MACD_line"] = ema12 - ema26
     df["MACD_histogram"] = df["MACD_line"] - df["MACD_line"].ewm(span=9).mean()
 
     # ── 11. Bollinger Bands ──────────────────────────────────
-    sma20 = spy_close.rolling(20).mean()
-    std20 = spy_close.rolling(20).std()
+    sma20 = nsei_close.rolling(20).mean()
+    std20 = nsei_close.rolling(20).std()
     upper = sma20 + 2 * std20
     lower = sma20 - 2 * std20
-    df["BB_pct_b"] = (spy_close - lower) / (upper - lower)
+    df["BB_pct_b"] = (nsei_close - lower) / (upper - lower)
     df["BB_bandwidth"] = (upper - lower) / sma20
 
     # ── 12. Volume ───────────────────────────────────────────
-    spy_vol = df.get("SPY_Volume", pd.Series(dtype=float))
-    if not spy_vol.empty and spy_vol.notna().sum() > 20:
-        df["volume_zscore"] = (spy_vol - spy_vol.rolling(20).mean()) / spy_vol.rolling(20).std()
+    nsei_vol = df.get("NSEI_Volume", pd.Series(dtype=float))
+    if not nsei_vol.empty and nsei_vol.notna().sum() > 20:
+        df["volume_zscore"] = (nsei_vol - nsei_vol.rolling(20).mean()) / nsei_vol.rolling(20).std()
         # On-Balance Volume slope
-        obv = (np.sign(spy_returns) * spy_vol).cumsum()
+        obv = (np.sign(nsei_returns) * nsei_vol).cumsum()
         df["OBV_slope"] = obv.rolling(20).apply(
             lambda x: np.polyfit(range(len(x)), x, 1)[0] if len(x) == 20 else np.nan,
             raw=False,
@@ -258,15 +283,15 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
         df["OBV_slope"] = 0.0
 
     # ── 13. Cross-Asset ──────────────────────────────────────
-    if "TLT_Close" in df.columns:
-        df["SPY_TLT_ratio"] = spy_close / df["TLT_Close"]
+    if "LIQUIDBEES.NS_Close" in df.columns:
+        df["NSEI_LIQUID_ratio"] = nsei_close / df["LIQUIDBEES.NS_Close"]
     else:
-        df["SPY_TLT_ratio"] = 1.0
+        df["NSEI_LIQUID_ratio"] = 1.0
 
-    if "GLD_Close" in df.columns:
-        df["SPY_GLD_ratio"] = spy_close / df["GLD_Close"]
+    if "GOLDBEES.NS_Close" in df.columns:
+        df["NSEI_GOLD_ratio"] = nsei_close / df["GOLDBEES.NS_Close"]
     else:
-        df["SPY_GLD_ratio"] = 1.0
+        df["NSEI_GOLD_ratio"] = 1.0
 
     # ── 14. Crypto Signal ────────────────────────────────────
     if "BTC_USD_Close" in df.columns:
@@ -276,21 +301,21 @@ def engineer_features(master: pd.DataFrame) -> pd.DataFrame:
         df["BTC_mom_30d"] = np.nan
 
     # ── 15. Rolling Correlations ─────────────────────────────
-    if "TLT_Close" in df.columns:
-        tlt_ret = np.log(df["TLT_Close"] / df["TLT_Close"].shift(1))
-        df["corr_SPY_TLT_60d"] = spy_returns.rolling(60).corr(tlt_ret)
+    if "LIQUIDBEES.NS_Close" in df.columns:
+        liquid_ret = np.log(df["LIQUIDBEES.NS_Close"] / df["LIQUIDBEES.NS_Close"].shift(1))
+        df["corr_NSEI_LIQUID_60d"] = nsei_returns.rolling(60).corr(liquid_ret)
     else:
-        df["corr_SPY_TLT_60d"] = 0.0
+        df["corr_NSEI_LIQUID_60d"] = 0.0
 
-    if "GLD_Close" in df.columns:
-        gld_ret = np.log(df["GLD_Close"] / df["GLD_Close"].shift(1))
-        df["corr_SPY_GLD_60d"] = spy_returns.rolling(60).corr(gld_ret)
+    if "GOLDBEES.NS_Close" in df.columns:
+        gold_ret = np.log(df["GOLDBEES.NS_Close"] / df["GOLDBEES.NS_Close"].shift(1))
+        df["corr_NSEI_GOLD_60d"] = nsei_returns.rolling(60).corr(gold_ret)
     else:
-        df["corr_SPY_GLD_60d"] = 0.0
+        df["corr_NSEI_GOLD_60d"] = 0.0
 
     # ── 16. Distribution ─────────────────────────────────────
-    df["return_skew_20d"] = spy_returns.rolling(20).skew()
-    df["return_kurt_20d"] = spy_returns.rolling(20).kurt()
+    df["return_skew_20d"] = nsei_returns.rolling(20).skew()
+    df["return_kurt_20d"] = nsei_returns.rolling(20).kurt()
 
     logger.info(f"Engineered {len([c for c in df.columns if c not in master.columns])} features")
     return df
@@ -361,13 +386,19 @@ def run_feature_pipeline(master: pd.DataFrame = None) -> tuple[pd.DataFrame, dic
     df, ffd_params = apply_ffd_to_prices(df)
 
     # Create target variable: next-day SPY return direction
-    df["target_next_day"] = np.sign(df["SPY_returns"].shift(-1))
+    df["target_next_day"] = np.sign(df["NSEI_returns"].shift(-1))
     df["target_next_day"] = df["target_next_day"].map({1.0: 1, -1.0: 0, 0.0: 0})
 
     # Drop rows with insufficient data (warmup period)
     initial_rows = len(df)
     df = df.dropna(subset=["realized_vol_20d", "RSI_14", "MACD_line"])
     
+    # Drop columns that are entirely NaN (e.g. BTC_mom_30d if BTC data was not loaded)
+    all_nan_cols = [c for c in df.columns if df[c].isna().all()]
+    if all_nan_cols:
+        logger.info(f"Dropping columns that are entirely NaN: {all_nan_cols}")
+        df = df.drop(columns=all_nan_cols)
+
     # Impute any remaining NaNs in features (e.g. BTC, TLT, GLD before their start dates)
     exclude_pats = [
         "_Close", "_Open", "_High", "_Low", "_Volume",

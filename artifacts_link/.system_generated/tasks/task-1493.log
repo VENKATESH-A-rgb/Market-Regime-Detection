@@ -1,0 +1,5 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T20:45:17+05:30
+Prompt: Check if the pipeline has finished grabbing the NSEPython data
+
+[2026-06-13T20:43:35+05:30] Timer cancelled: agent received a message during wait.

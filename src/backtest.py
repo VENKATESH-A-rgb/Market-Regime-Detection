@@ -79,7 +79,7 @@ class WalkForwardBacktester:
         window_count = 0
 
         start = 0
-        while start + self.train_days + self.test_days <= n:
+        while start + self.train_days < n:
             train_end = start + self.train_days
             test_end = min(train_end + self.test_days, n)
 
@@ -228,14 +228,14 @@ class WalkForwardBacktester:
         Returns include:
         - portfolio_return: weighted sum of asset returns
         - strategy_return: signal-adjusted portfolio return minus costs
-        - market_return: SPY benchmark
+        - market_return: NIFTY benchmark
         """
         weights_df = pd.DataFrame(weight_records).set_index("Date")
         result = pd.DataFrame(index=test_data.index)
 
-        # Market return (SPY benchmark)
-        spy_ret = test_data.get("SPY_returns", pd.Series(0, index=test_data.index))
-        result["market_return"] = spy_ret
+        # Market return (NIFTY benchmark)
+        nsei_ret = test_data.get("NSEI_returns", pd.Series(0, index=test_data.index))
+        result["market_return"] = nsei_ret
 
         # Compute per-asset returns
         asset_returns = pd.DataFrame(index=test_data.index)
@@ -243,7 +243,8 @@ class WalkForwardBacktester:
             col = f"{asset.replace('-', '_')}_Close"
             if col in test_data.columns:
                 prices = test_data[col]
-                asset_returns[asset] = np.log(prices / prices.shift(1))
+                # Clip returns to +/- 15% to protect against Yahoo Finance data glitches (e.g. 10x false splits)
+                asset_returns[asset] = np.log(prices / prices.shift(1)).clip(-0.15, 0.15)
             else:
                 asset_returns[asset] = 0.0
 
@@ -385,14 +386,14 @@ def run_vectorbt_backtest(oos_df: pd.DataFrame, features_df: pd.DataFrame) -> di
     try:
         import vectorbt as vbt
 
-        spy_close = features_df.loc[oos_df.index, "SPY_Close"].dropna()
-        signals = oos_df.loc[spy_close.index, "signal"]
+        nsei_close = features_df.loc[oos_df.index, "NSEI_Close"].dropna()
+        signals = oos_df.loc[nsei_close.index, "signal"]
 
         entries = (signals == 1) & (signals.shift(1) != 1)
         exits = (signals == -1) & (signals.shift(1) != -1)
 
         pf = vbt.Portfolio.from_signals(
-            close=spy_close,
+            close=nsei_close,
             entries=entries,
             exits=exits,
             fees=0.001,

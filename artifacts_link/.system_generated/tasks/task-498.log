@@ -1,0 +1,7 @@
+At line:1 char:54
++ "d:\Market regime detection\venv\Scripts\python.exe" run_pipeline.py
++                                                      ~~~~~~~~~~~~~~~
+Unexpected token 'run_pipeline.py' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+ 

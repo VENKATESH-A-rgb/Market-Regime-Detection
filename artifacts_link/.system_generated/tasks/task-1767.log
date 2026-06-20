@@ -1,0 +1,90 @@
+2026-06-13 22:14:13,509 [INFO] ======================================================================
+2026-06-13 22:14:13,509 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 22:14:13,509 [INFO] ======================================================================
+2026-06-13 22:14:15,761 [INFO] Downloading OHLCV for ['^NSEI', '^INDIAVIX', 'LIQUIDBEES.NS', 'GOLDBEES.NS', 'NIFTYBEES.NS', 'JUNIORBEES.NS', 'BANKBEES.NS'] from 1990-01-01 to 2026-06-13
+2026-06-13 22:14:15,761 [INFO]   Downloading ^NSEI...
+2026-06-13 22:14:27,308 [ERROR] $^NSEI: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:14:27,315 [ERROR] 
+1 Failed download:
+2026-06-13 22:14:27,315 [ERROR] ['^NSEI']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:14:27,325 [WARNING]   Ticker ^NSEI returned empty DataFrame
+2026-06-13 22:14:27,326 [INFO]   Downloading ^INDIAVIX...
+2026-06-13 22:14:28,963 [INFO]   Downloading LIQUIDBEES.NS...
+2026-06-13 22:14:30,387 [INFO]   Downloading GOLDBEES.NS...
+2026-06-13 22:14:32,252 [INFO]   Downloading NIFTYBEES.NS...
+2026-06-13 22:14:34,103 [INFO]   Downloading JUNIORBEES.NS...
+2026-06-13 22:14:35,906 [INFO]   Downloading BANKBEES.NS...
+2026-06-13 22:14:37,798 [WARNING]   Ticker ^NSEI not found in downloaded data
+2026-06-13 22:14:37,848 [INFO]   Saved ^INDIAVIX: 4476 rows
+2026-06-13 22:14:37,887 [INFO]   Saved LIQUIDBEES.NS: 4300 rows
+2026-06-13 22:14:37,932 [INFO]   Saved GOLDBEES.NS: 4299 rows
+2026-06-13 22:14:37,968 [INFO]   Saved NIFTYBEES.NS: 4300 rows
+2026-06-13 22:14:38,006 [INFO]   Saved JUNIORBEES.NS: 4300 rows
+2026-06-13 22:14:38,047 [INFO]   Saved BANKBEES.NS: 4300 rows
+2026-06-13 22:14:38,047 [INFO] OHLCV download complete: (4501, 30)
+2026-06-13 22:14:38,048 [INFO]   Fetching FRED: DGS10 (10Y Treasury Yield)
+2026-06-13 22:15:13,586 [INFO]   Fetching FRED: DGS2 (2Y Treasury Yield)
+2026-06-13 22:15:43,860 [INFO]   Fetching FRED: FEDFUNDS (Fed Funds Rate)
+2026-06-13 22:15:46,587 [INFO]   Fetching FRED: CPIAUCSL (CPI (All Urban Consumers))
+2026-06-13 22:15:49,865 [INFO]   Fetching FRED: UNRATE (Unemployment Rate)
+2026-06-13 22:15:51,139 [INFO] FRED macro download complete: (9634, 5)
+2026-06-13 22:15:51,140 [INFO] Merging OHLCV and macro datasets...
+2026-06-13 22:15:51,141 [INFO] Detected yfinance MultiIndex format: (Ticker, Price)
+2026-06-13 22:15:51,143 [WARNING]   ^NSEI not found in OHLCV data � skipping
+2026-06-13 22:15:51,168 [INFO] Master DataFrame shape: (4501, 17)
+2026-06-13 22:15:51,169 [INFO] Date range: 2008-03-03 00:00:00 to 2026-06-12 00:00:00
+2026-06-13 22:15:51,169 [INFO]   INDIAVIX_Close: 0.0% null, starts 2008-03-03 00:00:00
+2026-06-13 22:15:51,170 [INFO]   LIQUIDBEES.NS_Close: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,171 [INFO]   GOLDBEES.NS_Close: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,171 [INFO]   NIFTYBEES.NS_Close: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,172 [INFO]   JUNIORBEES.NS_Close: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,173 [INFO]   BANKBEES.NS_Close: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,174 [INFO]   INDIAVIX_Volume: 0.0% null, starts 2008-03-03 00:00:00
+2026-06-13 22:15:51,176 [INFO]   LIQUIDBEES.NS_Volume: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,176 [INFO]   GOLDBEES.NS_Volume: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,177 [INFO]   NIFTYBEES.NS_Volume: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,177 [INFO]   JUNIORBEES.NS_Volume: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,177 [INFO]   BANKBEES.NS_Volume: 4.4% null, starts 2009-01-02 00:00:00
+2026-06-13 22:15:51,178 [INFO]   DGS10: 0.0% null, starts 2008-03-03 00:00:00
+2026-06-13 22:15:51,179 [INFO]   DGS2: 0.0% null, starts 2008-03-03 00:00:00
+2026-06-13 22:15:51,180 [INFO]   FEDFUNDS: 0.4% null, starts 2008-04-01 00:00:00
+2026-06-13 22:15:51,181 [INFO]   CPIAUCSL: 0.4% null, starts 2008-04-01 00:00:00
+2026-06-13 22:15:51,181 [INFO]   UNRATE: 0.4% null, starts 2008-04-01 00:00:00
+2026-06-13 22:15:51,342 [INFO] Saved master dataset to D:\Market regime detection\data\cleaned\master.parquet
+2026-06-13 22:15:51,388 [WARNING] Maximum date gap: 6.0 days � check for missing data
+2026-06-13 22:15:51,388 [INFO] Data pipeline complete. Report: (4501, 17), range: ('2008-03-03 00:00:00', '2026-06-12 00:00:00')
+2026-06-13 22:15:51,389 [INFO]   \u2192 Master dataset: (4501, 17)
+2026-06-13 22:15:51,389 [INFO] ======================================================================
+2026-06-13 22:15:51,389 [INFO] STEP 3: FEATURE ENGINEERING & FFD
+2026-06-13 22:15:51,389 [INFO] ======================================================================
+2026-06-13 22:15:53,545 [INFO] Engineering features...
+Traceback (most recent call last):
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'NSEI_Close'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Market regime detection\run_pipeline.py", line 91, in <module>
+    main()
+  File "D:\Market regime detection\run_pipeline.py", line 35, in main
+    features_df, ffd_params = run_feature_pipeline(master)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 383, in run_feature_pipeline
+    df = engineer_features(master)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\feature_engineering.py", line 146, in engineer_features
+    nsei_close = df["NSEI_Close"]
+                 ~~^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\venv\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'NSEI_Close'

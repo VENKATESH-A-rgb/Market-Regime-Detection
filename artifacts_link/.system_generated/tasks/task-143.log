@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T10:23:07+05:30
+Prompt: Check Streamlit startup logs to confirm success
+
+[2026-06-13T10:23:02+05:30] Still waiting. Remaining time: 5s
+[2026-06-13T10:23:07+05:30] Timer fired.

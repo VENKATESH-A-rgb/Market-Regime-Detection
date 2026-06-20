@@ -1,0 +1,60 @@
+2026-06-13 22:16:31,716 [INFO] ======================================================================
+2026-06-13 22:16:31,716 [INFO] STEP 2: DATA ACQUISITION
+2026-06-13 22:16:31,717 [INFO] ======================================================================
+2026-06-13 22:16:33,071 [INFO] Downloading OHLCV for ['^NSEI', '^INDIAVIX', 'LIQUIDBEES.NS', 'GOLDBEES.NS', 'NIFTYBEES.NS', 'JUNIORBEES.NS', 'BANKBEES.NS'] from 1990-01-01 to 2026-06-13
+2026-06-13 22:16:33,071 [INFO]   Downloading ^NSEI...
+2026-06-13 22:16:41,056 [ERROR] $^NSEI: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:41,064 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:41,064 [ERROR] ['^NSEI']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,152 [INFO]   Fetching deep historical inception data via nsepython...
+2026-06-13 22:16:42,164 [WARNING]   Failed to fetch early NIFTY data via nsepython: HTTPSConnectionPool(host='niftyindices.com', port=443): Max retries exceeded with url: /Backpage.aspx/getHistoricaldatatabletoString (Caused by NameResolutionError("HTTPSConnection(host='niftyindices.com', port=443): Failed to resolve 'niftyindices.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-13 22:16:42,164 [WARNING]   Ticker ^NSEI returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,164 [INFO]   Downloading ^INDIAVIX...
+2026-06-13 22:16:42,173 [ERROR] $^INDIAVIX: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,177 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,177 [ERROR] ['^INDIAVIX']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,180 [WARNING]   Ticker ^INDIAVIX returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,182 [INFO]   Downloading LIQUIDBEES.NS...
+2026-06-13 22:16:42,190 [ERROR] $LIQUIDBEES.NS: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,193 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,193 [ERROR] ['LIQUIDBEES.NS']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,195 [WARNING]   Ticker LIQUIDBEES.NS returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,195 [INFO]   Downloading GOLDBEES.NS...
+2026-06-13 22:16:42,202 [ERROR] $GOLDBEES.NS: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,208 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,208 [ERROR] ['GOLDBEES.NS']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,210 [WARNING]   Ticker GOLDBEES.NS returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,210 [INFO]   Downloading NIFTYBEES.NS...
+2026-06-13 22:16:42,217 [ERROR] $NIFTYBEES.NS: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,223 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,223 [ERROR] ['NIFTYBEES.NS']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,230 [WARNING]   Ticker NIFTYBEES.NS returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,230 [INFO]   Downloading JUNIORBEES.NS...
+2026-06-13 22:16:42,239 [ERROR] $JUNIORBEES.NS: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,242 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,242 [ERROR] ['JUNIORBEES.NS']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,245 [WARNING]   Ticker JUNIORBEES.NS returned empty DataFrame and no deep history found
+2026-06-13 22:16:42,245 [INFO]   Downloading BANKBEES.NS...
+2026-06-13 22:16:42,254 [ERROR] $BANKBEES.NS: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,259 [ERROR] 
+1 Failed download:
+2026-06-13 22:16:42,259 [ERROR] ['BANKBEES.NS']: possibly delisted; no price data found  (1d 1990-01-01 -> 2026-06-13)
+2026-06-13 22:16:42,262 [WARNING]   Ticker BANKBEES.NS returned empty DataFrame and no deep history found
+Traceback (most recent call last):
+  File "D:\Market regime detection\run_pipeline.py", line 91, in <module>
+    main()
+  File "D:\Market regime detection\run_pipeline.py", line 27, in main
+    master = run_data_pipeline()
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\data_loader.py", line 378, in run_data_pipeline
+    ohlcv = download_ohlcv()
+            ^^^^^^^^^^^^^^^^
+  File "D:\Market regime detection\src\data_loader.py", line 124, in download_ohlcv
+    raise RuntimeError("yfinance returned empty DataFrame for all tickers")
+RuntimeError: yfinance returned empty DataFrame for all tickers

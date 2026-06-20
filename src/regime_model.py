@@ -32,9 +32,9 @@ HMM_FEATURES = [
     "VIX_term_structure",
     "yield_spread",
     "yield_spread_zscore",
-    "SPY_mom_1m",
-    "SPY_mom_3m",
-    "SPY_TLT_ratio",
+    "NSEI_mom_1m",
+    "NSEI_mom_3m",
+    "NSEI_LIQUID_ratio",
     "mcclellan_osc",
 ]
 
@@ -72,7 +72,7 @@ class RegimeDetector:
         self.feature_names = available
         return df[available]
 
-    def fit(self, df: pd.DataFrame, returns_col: str = "SPY_returns") -> "RegimeDetector":
+    def fit(self, df: pd.DataFrame, returns_col: str = "NSEI_returns") -> "RegimeDetector":
         """
         Fit the HMM on historical feature data.
 

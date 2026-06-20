@@ -1,0 +1,19 @@
+At line:28 char:31
++     'st.markdown(f\"\"\"\n    <div class=\"hero-header\"',
++                               ~
+The '<' operator is reserved for future use.
+At line:34 char:34
++     'return f\"\"\"\n            <div class=\"metric-card-secondary',
++                                  ~
+The '<' operator is reserved for future use.
+At line:35 char:50
++     'return textwrap.dedent(f\"\"\"\n            <div class=\"metric- ...
++                                                  ~
+The '<' operator is reserved for future use.
+At line:42 char:2
++ "
++  ~
+Missing closing ')' in expression.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : RedirectionNotSupported
+ 

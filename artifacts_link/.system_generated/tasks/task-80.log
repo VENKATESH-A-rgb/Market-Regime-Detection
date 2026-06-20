@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T10:20:31+05:30
+Prompt: Check if Streamlit has started and is serving on port 8501
+
+[2026-06-13T10:20:26+05:30] Still waiting. Remaining time: 5s
+[2026-06-13T10:20:31+05:30] Timer fired.

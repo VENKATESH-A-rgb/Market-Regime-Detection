@@ -1,0 +1,185 @@
+2026-06-13 15:26:55.564 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://10.109.25.234:8501
+  External URL: http://157.50.153.42:8501
+
++------------------------- Traceback (most recent call last) --------------------------+
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py:129 in  |
+| exec_func_with_error_handling                                                        |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py:789 |
+| in code_to_exec                                                                      |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:2446 in <module>                               |
+|                                                                                      |
+|   2443                                                                               |
+|   2444                                                                               |
+|   2445 if __name__ == "__main__":                                                    |
+| > 2446     main()                                                                    |
+|   2447                                                                               |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:1434 in main                                   |
+|                                                                                      |
+|   1431                     st.markdown('<div class="chart-subtitle">Percentage distr |
+|   1432                     regime_counts = features["regime_label_stable"].value_cou |
+|   1433                     total = len(features)                                     |
+| > 1434                     cols = st.columns(len(regime_counts))                     |
+|   1435                     for i, (regime, count) in enumerate(regime_counts.items() |
+|   1436                         with cols[i]:                                         |
+|   1437                             pct = count / total * 100                         |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\metrics_util.py:698 in            |
+| wrapped_func                                                                         |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\streamlit\elements\layouts.py:582  |
+| in columns                                                                           |
++--------------------------------------------------------------------------------------+
+StreamlitInvalidColumnSpecError: The `spec` argument to `st.columns` must be either a 
+positive integer (number of columns) or a list of positive numbers (width ratios of the 
+columns). See 
+[documentation](https://docs.streamlit.io/develop/api-reference/layout/st.columns) for 
+more information.
++------------------------- Traceback (most recent call last) --------------------------+
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py:129 in  |
+| exec_func_with_error_handling                                                        |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py:789 |
+| in code_to_exec                                                                      |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:2446 in <module>                               |
+|                                                                                      |
+|   2443                                                                               |
+|   2444                                                                               |
+|   2445 if __name__ == "__main__":                                                    |
+| > 2446     main()                                                                    |
+|   2447                                                                               |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:1434 in main                                   |
+|                                                                                      |
+|   1431                     st.markdown('<div class="chart-subtitle">Percentage distr |
+|   1432                     regime_counts = features["regime_label_stable"].value_cou |
+|   1433                     total = len(features)                                     |
+| > 1434                     cols = st.columns(len(regime_counts))                     |
+|   1435                     for i, (regime, count) in enumerate(regime_counts.items() |
+|   1436                         with cols[i]:                                         |
+|   1437                             pct = count / total * 100                         |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\metrics_util.py:698 in            |
+| wrapped_func                                                                         |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\streamlit\elements\layouts.py:582  |
+| in columns                                                                           |
++--------------------------------------------------------------------------------------+
+StreamlitInvalidColumnSpecError: The `spec` argument to `st.columns` must be either a 
+positive integer (number of columns) or a list of positive numbers (width ratios of the 
+columns). See 
+[documentation](https://docs.streamlit.io/develop/api-reference/layout/st.columns) for 
+more information.
++------------------------- Traceback (most recent call last) --------------------------+
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py:129 in  |
+| exec_func_with_error_handling                                                        |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py:789 |
+| in code_to_exec                                                                      |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:2446 in <module>                               |
+|                                                                                      |
+|   2443                                                                               |
+|   2444                                                                               |
+|   2445 if __name__ == "__main__":                                                    |
+| > 2446     main()                                                                    |
+|   2447                                                                               |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:1434 in main                                   |
+|                                                                                      |
+|   1431                     st.markdown('<div class="chart-subtitle">Percentage distr |
+|   1432                     regime_counts = features["regime_label_stable"].value_cou |
+|   1433                     total = len(features)                                     |
+| > 1434                     cols = st.columns(len(regime_counts))                     |
+|   1435                     for i, (regime, count) in enumerate(regime_counts.items() |
+|   1436                         with cols[i]:                                         |
+|   1437                             pct = count / total * 100                         |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\metrics_util.py:698 in            |
+| wrapped_func                                                                         |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\streamlit\elements\layouts.py:582  |
+| in columns                                                                           |
++--------------------------------------------------------------------------------------+
+StreamlitInvalidColumnSpecError: The `spec` argument to `st.columns` must be either a 
+positive integer (number of columns) or a list of positive numbers (width ratios of the 
+columns). See 
+[documentation](https://docs.streamlit.io/develop/api-reference/layout/st.columns) for 
+more information.
++------------------------- Traceback (most recent call last) --------------------------+
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py:129 in  |
+| exec_func_with_error_handling                                                        |
+|                                                                                      |
+| D:\Market regime                                                                     |
+| detection\venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py:789 |
+| in code_to_exec                                                                      |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:2449 in <module>                               |
+|                                                                                      |
+|   2446                                                                               |
+|   2447                                                                               |
+|   2448 if __name__ == "__main__":                                                    |
+| > 2449     main()                                                                    |
+|   2450                                                                               |
+|                                                                                      |
+| D:\Market regime detection\src\app.py:1906 in main                                   |
+|                                                                                      |
+|   1903                     hovertemplate="Date: %{x}<br>Drawdown: %{y:.2%}<extra></e |
+|   1904                 ))                                                            |
+|   1905                 # Highlight deepest drawdown point                            |
+| > 1906                 worst_idx = dd_uw.idxmin()                                    |
+|   1907                 worst_val = dd_uw.min()                                       |
+|   1908                 fig_uw.add_annotation(                                        |
+|   1909                     x=worst_idx, y=worst_val,                                 |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\pandas\core\series.py:2689 in      |
+| idxmin                                                                               |
+|                                                                                      |
+|   2686             # ignore warning produced by argmin since we will issue a differe |
+|   2687             #  warning for idxmin                                             |
+|   2688             warnings.simplefilter("ignore")                                   |
+| > 2689             i = self.argmin(axis, skipna, *args, **kwargs)                    |
+|   2690                                                                               |
+|   2691         if i == -1:                                                           |
+|   2692             # GH#43587 give correct NA value for Index.                       |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\pandas\core\base.py:789 in argmin  |
+|                                                                                      |
+|    786             else:                                                             |
+|    787                 return delegate.argmin()                                      |
+|    788         else:                                                                 |
+| >  789             result = nanops.nanargmin(delegate, skipna=skipna)                |
+|    790             if result == -1:                                                  |
+|    791                 warnings.warn(                                                |
+|    792                     f"The behavior of {type(self).__name__}.argmax/argmin "   |
+|                                                                                      |
+| D:\Market regime detection\venv\Lib\site-packages\pandas\core\nanops.py:1194 in      |
+| nanargmin                                                                            |
+|                                                                                      |
+|   1191     array([0, 0, 1, 1])                                                       |
+|   1192     """                                                                       |
+|   1193     values, mask = _get_values(values, True, fill_value_typ="+inf", mask=mask |
+| > 1194     result = values.argmin(axis)                                              |
+|   1195     # error: Argument 1 to "_maybe_arg_null_out" has incompatible type "Any | |
+|   1196     # signedinteger[Any]"; expected "ndarray[Any, Any]"                       |
+|   1197     result = _maybe_arg_null_out(result, axis, mask, skipna)  # type: ignore[ |
++--------------------------------------------------------------------------------------+
+ValueError: attempt to get argmin of an empty sequence

@@ -37,10 +37,10 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_RAW = PROJECT_ROOT / "data" / "raw"
 DATA_CLEANED = PROJECT_ROOT / "data" / "cleaned"
 
-TICKERS = ["SPY", "^VIX", "TLT", "BTC-USD", "GLD", "QQQ", "DIA"]
-TRADEABLE_ASSETS = ["SPY", "TLT", "GLD", "QQQ", "DIA"]  # ^VIX and BTC-USD are feature-only
+TICKERS = ["^NSEI", "^INDIAVIX", "LIQUIDBEES.NS", "GOLDBEES.NS", "NIFTYBEES.NS", "JUNIORBEES.NS", "BANKBEES.NS"]
+TRADEABLE_ASSETS = ["LIQUIDBEES.NS", "GOLDBEES.NS", "NIFTYBEES.NS", "JUNIORBEES.NS", "BANKBEES.NS"]  # ^NSEI and ^INDIAVIX are feature-only
 
-START_DATE = "1993-01-01"
+START_DATE = "1990-01-01"
 END_DATE = datetime.today().strftime("%Y-%m-%d")
 
 FRED_SERIES = {
@@ -79,13 +79,42 @@ def download_ohlcv(
                 auto_adjust=True,
                 progress=False,
             )
-            if df.empty:
-                logger.warning(f"  Ticker {ticker} returned empty DataFrame")
-                continue
             if isinstance(df.columns, pd.MultiIndex):
-                cols = df.columns.get_level_values(0).tolist()
-            else:
-                cols = df.columns.tolist()
+                df.columns = df.columns.get_level_values(0)
+            if getattr(df.index, "tz", None) is not None:
+                df.index = df.index.tz_convert(None)
+
+            if ticker == "^NSEI":
+                try:
+                    from nsepython import index_history
+                    logger.info("  Fetching deep historical inception data via nsepython...")
+                    nse_df = index_history("NIFTY 50", "01-Jan-1990", "31-Dec-2007")
+                    if nse_df is not None and not nse_df.empty:
+                        nse_df["Date"] = pd.to_datetime(nse_df["HistoricalDate"])
+                        nse_df = nse_df.set_index("Date")
+                        for col in ["OPEN", "HIGH", "LOW", "CLOSE"]:
+                            nse_df[col] = pd.to_numeric(nse_df[col], errors="coerce")
+                        nse_mapped = pd.DataFrame({
+                            "Open": nse_df["OPEN"],
+                            "High": nse_df["HIGH"],
+                            "Low": nse_df["LOW"],
+                            "Close": nse_df["CLOSE"],
+                            "Volume": 0
+                        })
+                        if df.empty:
+                            df = nse_mapped
+                        else:
+                            df = pd.concat([nse_mapped, df])
+                            df = df[~df.index.duplicated(keep="last")]
+                        df.sort_index(inplace=True)
+                except Exception as e:
+                    logger.warning(f"  Failed to fetch early NIFTY data via nsepython: {e}")
+
+            if df.empty:
+                logger.warning(f"  Ticker {ticker} returned empty DataFrame and no deep history found")
+                continue
+
+            cols = df.columns.tolist()
             df.columns = pd.MultiIndex.from_tuples([(ticker, col) for col in cols], names=["Ticker", "Price"])
             ticker_dfs.append(df)
         except Exception as e:
@@ -255,20 +284,24 @@ def merge_datasets(ohlcv_df: pd.DataFrame, macro_df: pd.DataFrame) -> pd.DataFra
                 close_dict[f"{ticker_clean}_Close"] = ohlcv_df[("Close", ticker)]
                 if ("Volume", ticker) in ohlcv_df.columns:
                     volume_dict[f"{ticker_clean}_Volume"] = ohlcv_df[("Volume", ticker)]
-                if ticker == "SPY":
+                if ticker == "^NSEI":
                     for col in ["Open", "High", "Low"]:
                         if (col, ticker) in ohlcv_df.columns:
-                            close_dict[f"SPY_{col}"] = ohlcv_df[(col, ticker)]
+                            close_dict[f"{ticker_clean}_{col}"] = ohlcv_df[(col, ticker)]
             elif col_format == "ticker_first":
                 close_dict[f"{ticker_clean}_Close"] = ohlcv_df[(ticker, "Close")]
                 if (ticker, "Volume") in ohlcv_df.columns:
                     volume_dict[f"{ticker_clean}_Volume"] = ohlcv_df[(ticker, "Volume")]
-                if ticker == "SPY":
+                if ticker == "^NSEI":
                     for col in ["Open", "High", "Low"]:
                         if (ticker, col) in ohlcv_df.columns:
-                            close_dict[f"SPY_{col}"] = ohlcv_df[(ticker, col)]
+                            close_dict[f"{ticker_clean}_{col}"] = ohlcv_df[(ticker, col)]
             else:
                 close_dict[f"{ticker_clean}_Close"] = ohlcv_df["Close"]
+                if ticker == "^NSEI":
+                    for col in ["Open", "High", "Low"]:
+                        if col in ohlcv_df.columns:
+                            close_dict[f"{ticker_clean}_{col}"] = ohlcv_df[col]
         except KeyError:
             logger.warning(f"  {ticker} not found in OHLCV data — skipping")
 

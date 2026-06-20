@@ -1,0 +1,7 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-06-13T21:08:10+05:30
+Prompt: Check if the pipeline has finished reproducing the results with the correct Indian tickers and 1990 start date
+
+[2026-06-13T21:06:40+05:30] Still waiting. Remaining time: 1m30s
+[2026-06-13T21:07:10+05:30] Still waiting. Remaining time: 1m0s
+[2026-06-13T21:07:38+05:30] Timer cancelled: agent received a message during wait.
